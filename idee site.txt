@@ -1,0 +1,2 @@
+Créer une boucle pour saisir plusieurs frais de suite.
+faire une checkbox pour supprimer plusieurs frais d'un coup.
