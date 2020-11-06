@@ -23,6 +23,9 @@ $leProfil=$pdo->getInformationsConnexion($login,$mdp);
 $_SESSION['login']=$leProfil['login'];
 $_SESSION['nom']=$leProfil['nom'];
 $_SESSION['prenom']=$leProfil['prenom'];
+
+
+header('Location: index.php?uc=accueil');	
 /*
 if($leClient['ADMIN'] == 'O')
 {
@@ -31,6 +34,6 @@ if($leClient['ADMIN'] == 'O')
 	$_SESSION['prenomClient']="Administrateur";
 }
 */
-header('Location: index.php?uc=accueil');	
+
 
 ?>
