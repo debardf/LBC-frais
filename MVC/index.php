@@ -2,8 +2,8 @@
 session_start();
 require_once("util/fonctions.inc.php");
 require_once("util/class.pdoLBC.inc.php");
-include("vues/v_entete.php") ;
-include("vues/v_bandeau.php") ;
+include("vues/v_entete.php");
+include("vues/v_bandeau.php");
 
 if(!isset($_REQUEST['uc']))
      $uc = 'accueil';
