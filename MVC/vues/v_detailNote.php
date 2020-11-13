@@ -14,9 +14,6 @@
 
 
 
-<?php echo "Visiteur        " $matricule
-?>
-
 </br>
 
         <table border=3 cellspacing=1 >
@@ -27,20 +24,24 @@
 
 
         <?php
-		foreach( $lesForfaits as $leForfait)
+		foreach($lesForfaits as $leForfait)
         {
        
-        $Forfait = $leForfait['libelleforfait'];
+        $id = $leForfait['idforfait'];
+        $libelle = $leForfait['libelleforfait'];
+        $montant = $leForfait['montant'];
             
             
         ?>
             <tr>
-                <td width=150><?php echo $Forfait ?></a></td>
-                <td></td>
+                <td width=150><?php echo $libelle ?></a></td>
+                <td width=150><?php echo $montant ?></td>
                 <td></td>
                 <td></td>
 
                 
+                <td width=30><a href=c_frais.php?uc=modifierForfait&action=modificationForfait&num=<?php echo $id ?>><img src="images/modifier.gif" title="Modif"></a></td>
+                <td width=30><a href=c_frais.php?uc=supprimerForfait&action=suppressionForfait&num=<?php echo $id ?>><img src="images/supp.png" title="Suppr"></a></td>
             </tr>
             <?php 
         }
