@@ -5,25 +5,17 @@ include("vues/v_entete.php");
 include("vues/v_bandeau.php");
 
 if(!isset($_REQUEST['ucf']))
-     $ucf = 'frais';
+     $ucf = 'afficherNote';
 else
 	$ucf = $_REQUEST['ucf'];
 
-if(!isset($_SESSION['login']))
-{
-	include("vues/v_champConnexion.php");
-}
-else
-{
-	include("vues/v_informationsConnexion.php");
-}
 
 $pdo = PdoLBC::getPdoLBC();
 
 switch($ucf)
 {
-	case 'frais':
-		{include("vues/v_frais.php");break;}
+	case 'afficherNote' :
+		{ include("controleurs/c_afficherNote.php");break;}
 	case 'connexion' :
 		{ include("controleurs/c_connexion.php");break; }
 	case 'deconnexion' :
@@ -34,8 +26,6 @@ switch($ucf)
 		{ include("controleurs/c_validerFrais.php");break;}
 	case 'realiserFrais' :
 		{ include("controleurs/c_realiserFrais.php");break;}
-	case 'afficherNote' :
-		{ include("controleurs/c_afficherNote.php");break;}
 	case 'forfait' :
 		{ include("controleurs/c_forfait.php");break;}
 	case 'autreForfait' :

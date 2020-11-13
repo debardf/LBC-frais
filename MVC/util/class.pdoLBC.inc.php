@@ -4,8 +4,8 @@ class PdoLBC
 {   		
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=lbc';   		
-      	private static $user='root';    		
-      	private static $mdp='';
+      	private static $user='root';
+		  private static $mdp='';
 		private static $monPdo;
 		private static $monPdoLBC = null;
 			
@@ -35,5 +35,15 @@ class PdoLBC
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
+	}
+
+
+	public function getLesNotes($matricule)
+	{
+		$req = "SELECT * FROM fiche WHERE matricule ='$matricule' ";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
+
 	}
 }
