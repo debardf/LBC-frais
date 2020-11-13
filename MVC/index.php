@@ -3,7 +3,7 @@ session_start();
 require_once("util/fonctions.inc.php");
 require_once("util/class.pdoLBC.inc.php");
 include("vues/v_entete.php") ;
-include("vues/v_bandeau.php") ;
+include("vues/v_bandeau.php") ; 
 
 if(!isset($_REQUEST['uc']))
      $uc = 'accueil';
@@ -27,16 +27,16 @@ switch($uc)
 	case 'echantillons' :
 		{include("controleurs/c_echantillons.php");break;}
 	case 'praticiens' :
-		{ include("controleurs/c_praticiens.php");break; }
+		{ include("controleurs/c_praticiens.php");break;}
 	case 'carrières' :
-		{ include("controleurs/c_carrières.php");break; }
+		{ include("controleurs/c_carrières.php");break;}
 	case 'visites' :
-		{ include("controleurs/c_visites.php");break; }
+		{ include("controleurs/c_visites.php");break;}
 	case 'frais' :
-		{ include("controleurs/c_frais.php");break; }
+		{ include("controleurs/c_frais.php");break;}
 	case 'administration' :
-		{ include("controleurs/c_administration.php");break; }
+		{ include("controleurs/c_administration.php");break;}
 }
-include("vues/v_pied.php") ;
+include("vues/v_pied.php");
 ?>
 
