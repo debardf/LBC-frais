@@ -38,6 +38,7 @@ class PdoLBC
 	}
 
 
+
 	public function getLesNotes($matricule)
 	{
 		$req = "SELECT * FROM fiche WHERE matricule ='$matricule' ";

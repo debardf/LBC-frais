@@ -1,4 +1,5 @@
 <?php
+
 $action = $_REQUEST['action'];
 switch($action)
 {
@@ -34,5 +35,8 @@ switch($action)
 	}
 
 }
+
+	$lesNotes = $pdo->getLesNotes();
+	include("vues/v_detailNote.php");	
 ?>
 
