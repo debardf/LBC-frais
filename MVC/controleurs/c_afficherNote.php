@@ -2,18 +2,11 @@
 $action = $_REQUEST['action'];
 switch($action)
 {
-	case 'voirRecherches':
-	{
-		include("vues/v_recherches.php");
-  		break;
-	}
 	case 'voirNote' :
 	{
-        include("vues/v_afficherNote.php");
-        
-		{
+        $lesNotes = getlesNotes($matricule);
 
-		}
+        include("vues/v_afficherNote.php");
   		
 		break;
     }
