@@ -1,18 +1,26 @@
 <?php
 
-$action = $_REQUEST['action'];
+$action = ['affichernote'];
 switch($action)
 {
-	case 'voirNote' :
+	case 'voirNotes' :
 	{
-        $lesNotes = getlesNotes($matricule);
+        if($_SESSION['idClient'] == "Visiteur")
+        {
+	        $matricule = getmatricule($login);
+            $lesNotes = getlesNotes($matricule);
+        }
+        if($_SESSION['idClient'] == 'Comptable')
+        {
+	        $lesNotes = getTouteslesNotes($matricule);
+        }
 
         include("vues/v_afficherNote.php");
   		
 		break;
     }
     
-    case 'modifierNote' :
+    case 'detailNotes' :
         {
             include("vues/v_afficherNote.php");
             
@@ -28,15 +36,9 @@ switch($action)
 
 	}
 
-	case 'supprimerNote' :
-	{
-		include("vues/v_salles.php");
-		break;
-	}
 
 }
 
-	$lesNotes = $pdo->getLesNotes();
 	include("vues/v_detailNote.php");	
 ?>
 

@@ -48,6 +48,16 @@ class PdoLBC
 
 	}
 
+	
+	public function getToutesLesNotes($matricule)
+	{
+		$req = "SELECT * FROM fiche ";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
+
+	}
+
 	public function getLaNote($matricule, $mois, $annee)
 	{
 		$req = "SELECT * FROM fiche WHERE matricule ='$matricule', annee = '$anne', mois = '$mois' ";
@@ -63,6 +73,14 @@ class PdoLBC
 		$res->bindValue('libelle', $libelleforfait, PDO::PARAM_STR);   
 		$res->bindValue('montant', $montant, PDO::PARAM_STR);
 		$res->execute();
+	}
+
+	public function getMatricule($login)
+	{
+		$req = "SELECT valeur FROM profil WHERE login = $login";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
 	}
 
 }
