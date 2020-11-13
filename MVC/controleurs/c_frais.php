@@ -10,7 +10,7 @@ else
 	$ucf = $_REQUEST['ucf'];
 
 $pdo = PdoLBC::getPdoLBC();
-switch($uc)
+switch($ucf)
 {
 	case 'frais':
 		{include("vues/v_frais.php");break;}
