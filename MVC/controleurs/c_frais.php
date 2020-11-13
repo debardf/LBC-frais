@@ -1,13 +1,9 @@
 <?php
-require_once("util/fonctions.inc.php");
-require_once("util/class.pdoLBC.inc.php");
-include("vues/v_entete.php");
-include("vues/v_bandeau.php");
-
 if(!isset($_REQUEST['ucf']))
      $ucf = 'afficherNote';
 else
 	$ucf = $_REQUEST['ucf'];
+
 
 $pdo = PdoLBC::getPdoLBC();
 switch($ucf)
