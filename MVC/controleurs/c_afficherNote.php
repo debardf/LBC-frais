@@ -39,6 +39,5 @@ switch($action)
 
 }
 
-	include("vues/v_detailNote.php");	
-?>
+
 
