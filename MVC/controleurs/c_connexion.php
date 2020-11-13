@@ -20,7 +20,7 @@ else
 
 $leProfil=$pdo->getInformationsConnexion($login,$mdp);
 
-$_SESSION['login']=$leProfil['login'];
+$_SESSION['idClient']=$leProfil['login'];
 $_SESSION['nom']=$leProfil['nom'];
 $_SESSION['prenom']=$leProfil['prenom'];
 
