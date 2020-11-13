@@ -13,6 +13,7 @@ else
 if(!isset($_SESSION['idClient']))
 {
 	include("vues/v_champConnexion.php");
+	
 }
 else
 {
