@@ -25,7 +25,7 @@ $_SESSION['nom']=$leProfil['nom'];
 $_SESSION['prenom']=$leProfil['prenom'];
 
 
-header('Location: index.php?uc=accueil');	
+header('Location: c_frais.php?uc=accueil');	
 /*
 if($leClient['ADMIN'] == 'O')
 {
