@@ -6,6 +6,7 @@ else
 
 
 $pdo = PdoLBC::getPdoLBC();
+
 switch($ucf)
 {
 	case 'afficherNote' :
