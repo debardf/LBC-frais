@@ -36,4 +36,12 @@ class PdoLBC
 		$lesLignes = $res->fetch();
 		return $lesLignes;
 	}
+
+	public function getLesNotes()
+	{
+		$req = "select * from forfait";
+		$res = Pdolbc::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+	}
 }
