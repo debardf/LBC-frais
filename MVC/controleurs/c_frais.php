@@ -14,6 +14,10 @@ switch($ucf)
 {
 	case 'afficherNote' :
 		{ include("controleurs/c_afficherNote.php");break;}
+	case 'connexion' :
+		{ include("controleurs/c_connexion.php");break; }
+	case 'deconnexion' :
+		{ include("controleurs/c_deconnexion.php");break; }
 	case 'creerFrais' :
 		{include("controleurs/c_noteFrais.php");break;}
 	case 'validerFrais' :
