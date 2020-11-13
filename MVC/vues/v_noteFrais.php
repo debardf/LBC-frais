@@ -9,15 +9,18 @@
 	
    <body>
    <p><h1>Nouvelle note :</h1></p><BR/>
-	<form action="index.php?uc=frais&ucf=creerFrais&action=confirmCreaNote" method="post">
+	<form action="index.php?uc=frais&ucf=creerFrais&action=creationNote&confirmCreaNote" method="post">
    
 		<table>
 		<tbody>
 			<tr><td>Année</td><td><input name="Fannee" size=20></td></tr>
             <tr><td>Mois</td><td><input name="Fmois" size=20></td></tr>
-            <input type="hidden" name="Fstatut" value="<?php echo $statut ;?>"/>
-            <input type="hidden" name="Fdatefiche" value="<?php echo $datefiche ;?>"/>
-            <input type="hidden" name="Flien" value="<?php echo $lienpdf ;?>"/>
+            <input type="hidden" name="Fmatricule" value="<?php // echo $matricule ;?>"/>
+            <!--
+            <input type="hidden" name="Fstatut" value="<?php // echo $statut ;?>"/>
+            <input type="hidden" name="Fdatefiche" value="<?php // echo $datefiche ;?>"/>
+            <input type="hidden" name="Flien" value="<?php // echo $lienpdf ;?>"/>
+            -->
 		</tbody>
 		</table>
 		

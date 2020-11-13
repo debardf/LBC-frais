@@ -4,6 +4,7 @@
 	{
 		case 'creationNote':
 		{
+            $matricule = $_REQUEST['matricule'];
 			include("vues/v_noteFrais.php");
 			break;
 		}
