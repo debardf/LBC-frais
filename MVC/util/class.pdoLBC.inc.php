@@ -57,8 +57,8 @@ class PdoLBC
 
 	public function creerForfait($idforfait,$libelleforfait,$montant)
 	{
-		$res = PdoTransNat::$monPdo->prepare('INSERT INTO forfait (idF, 
-			libelleF, montantF) VALUES( :id, 
+		$res = PdoTransNat::$monPdo->prepare('INSERT INTO forfait (idforfait, 
+			libelleforafait, montant) VALUES( :id, 
 			:libelle, :montant)');
 		$res->bindValue('id',$idforfait, PDO::PARAM_STR);
 		$res->bindValue('libelle', $libelleforfait, PDO::PARAM_STR);   
