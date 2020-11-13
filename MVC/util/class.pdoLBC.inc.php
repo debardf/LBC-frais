@@ -47,10 +47,7 @@ class PdoLBC
 		return $lesLignes;
 
 	}
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
+
 	
 	public function getToutesLesNotes($matricule)
 	{
@@ -60,7 +57,6 @@ class PdoLBC
 		return $lesLignes;
 
 	}
->>>>>>> Stashed changes
 
 	public function getLaNote($matricule, $mois, $annee)
 	{
@@ -69,8 +65,12 @@ class PdoLBC
 		$lesLignes = $res->fetch();
 		return $lesLignes;
 	}
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
+	public function getMatricule($login)
+	{
+		$req = "SELECT valeur FROM profil WHERE login = $login";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
+	}
 }

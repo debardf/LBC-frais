@@ -1,11 +1,19 @@
 <?php
 
-$action = $_REQUEST['action'];
+$action = ['affichernote'];
 switch($action)
 {
 	case 'voirNotes' :
 	{
-        $lesNotes = getlesNotes($matricule);
+        if($_SESSION['idClient'] == "Visiteur")
+        {
+	        $matricule = getmatricule($login);
+            $lesNotes = getlesNotes($matricule);
+        }
+        if($_SESSION['idClient'] == 'Comptable')
+        {
+	        $lesNotes = getTouteslesNotes($matricule);
+        }
 
         include("vues/v_afficherNote.php");
   		
@@ -31,7 +39,6 @@ switch($action)
 
 }
 
-	$lesNotes = $pdo->getLesNotes();
 	include("vues/v_detailNote.php");	
 ?>
 
