@@ -9,12 +9,25 @@ if(!isset($_REQUEST['ucf']))
 else
 	$ucf = $_REQUEST['ucf'];
 
+if(!isset($_SESSION['login']))
+{
+	include("vues/v_champConnexion.php");
+}
+else
+{
+	include("vues/v_informationsConnexion.php");
+}
+
 $pdo = PdoLBC::getPdoLBC();
 
 switch($ucf)
 {
 	case 'frais':
 		{include("vues/v_frais.php");break;}
+	case 'connexion' :
+		{ include("controleurs/c_connexion.php");break; }
+	case 'deconnexion' :
+		{ include("controleurs/c_deconnexion.php");break; }
 	case 'creerFrais' :
 		{include("controleurs/c_noteFrais.php");break;}
 	case 'validerFrais' :
