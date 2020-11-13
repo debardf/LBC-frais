@@ -14,6 +14,10 @@ switch($uc)
 {
 	case 'frais':
 		{include("vues/v_frais.php");break;}
+	case 'connexion' :
+		{ include("controleurs/c_connexion.php");break; }
+	case 'deconnexion' :
+		{ include("controleurs/c_deconnexion.php");break; }
 	case 'creerFrais' :
 		{include("controleurs/c_noteFrais.php");break;}
 	case 'validerFrais' :
