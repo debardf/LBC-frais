@@ -1,10 +1,11 @@
 <?php
 
-$action = ['affichernote'];
+$action = $_REQUEST['ucf'];
 switch($action)
 {
-	case 'voirNotes' :
+	case 'afficherNotes' :
 	{
+        /*
         if($_SESSION['idClient'] == "Visiteur")
         {
 	        $matricule = getmatricule($login);
@@ -14,7 +15,9 @@ switch($action)
         {
 	        $lesNotes = getTouteslesNotes($matricule);
         }
-
+*/
+            $matricule = getmatricule($login);
+            $lesNotes = getlesNotes($matricule);
         include("vues/v_afficherNote.php");
   		
 		break;
@@ -38,7 +41,5 @@ switch($action)
 
 
 }
-
-	include("vues/v_detailNote.php");	
 ?>
 
