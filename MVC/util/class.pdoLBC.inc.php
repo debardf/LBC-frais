@@ -46,4 +46,12 @@ class PdoLBC
 		return $lesLignes;
 
 	}
+
+	public function getLaNote($matricule, $mois, $annee)
+	{
+		$req = "SELECT * FROM fiche WHERE matricule ='$matricule', annee = '$anne', mois = '$mois' ";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
+	}
 }
