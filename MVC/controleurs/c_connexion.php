@@ -23,17 +23,21 @@ $leProfil=$pdo->getInformationsConnexion($login,$mdp);
 $_SESSION['idClient']=$leProfil['login'];
 $_SESSION['nom']=$leProfil['nom'];
 $_SESSION['prenom']=$leProfil['prenom'];
+$_SESSION['typeprofil']=$leProfil['typeprofil'];
 
 
 header('Location: index.php?uc=frais');	
-/*
-if($leClient['ADMIN'] == 'O')
+
+if($leClient['typeprofil'] == 'C')
 {
-	$_SESSION['idClient']="Administrateur";
-	$_SESSION['nomClient']=NULL;
-	$_SESSION['prenomClient']="Administrateur";
+	$_SESSION['idClient']="Comptable";
+	$_SESSION['typeprofil']="typeprofil";
 }
-*/
+if($leClient['typeprofil'] == 'V')
+{
+	$_SESSION['idClient']="Visiteur";
+	$_SESSION['typeprofil']="typeprofil";
+}
 
 
 ?>
