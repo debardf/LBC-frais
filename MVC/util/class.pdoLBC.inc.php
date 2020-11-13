@@ -3,7 +3,7 @@
 class PdoLBC
 {   		
       	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=lbc';   		
+      	private static $bdd='dbname=lbc';  		
       	private static $user='root';
 		  private static $mdp='';
 		private static $monPdo;
@@ -54,16 +54,15 @@ class PdoLBC
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
-
+}
 	public function creerForfait($idforfait,$libelleforfait,$montant)
 	{
 		$res = PdoTransNat::$monPdo->prepare('INSERT INTO forfait (idF, 
-			libelleF, montantF) VALUES( :id, 
-			:libelle, :montant)');
+			libelleF, montantF) VALUES( :id,:libelle, :montant)');
 		$res->bindValue('id',$idforfait, PDO::PARAM_STR);
 		$res->bindValue('libelle', $libelleforfait, PDO::PARAM_STR);   
 		$res->bindValue('montant', $montant, PDO::PARAM_STR);
 		$res->execute();
-
 	}
+
 }
