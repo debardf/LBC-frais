@@ -10,7 +10,7 @@ if(!isset($_REQUEST['uc']))
 else
 	$uc = $_REQUEST['uc'];
 
-if(!isset($_SESSION['idClient']))
+if(!isset($_SESSION['login']))
 {
 	include("vues/v_champConnexion.php");
 }
