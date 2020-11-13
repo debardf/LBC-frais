@@ -10,7 +10,7 @@ if(!isset($_REQUEST['uc']))
 else
 	$uc = $_REQUEST['uc'];
 
-if(!isset($_SESSION['login']))
+if(!isset($_SESSION['idClient']))
 {
 	include("vues/v_champConnexion.php");
 }
@@ -18,7 +18,6 @@ else
 {
 	include("vues/v_informationsConnexion.php");
 }
-
 $pdo = PdoLBC::getPdoLBC();
 switch($uc)
 {
