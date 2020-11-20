@@ -1,12 +1,5 @@
 <?php
 
-$lesNotes = $pdo->getLaNote($matricule, $mois, $annee);
-	include("vues/v_detailNote.php");	
-
-
-$lesForfaits = $pdo->getlesForfaits();
-	
+$lesNotes = $pdo->getLaNoteByID($idValeur);
 	include("vues/v_detailNote.php");
-
-
 ?>
