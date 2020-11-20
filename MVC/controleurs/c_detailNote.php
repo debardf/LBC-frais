@@ -5,6 +5,7 @@ $lesNotes = $pdo->getLaNote($matricule, $mois, $annee);
 
 
 $lesForfaits = $pdo->getlesForfaits();
+	
 	include("vues/v_detailNote.php");
 
 

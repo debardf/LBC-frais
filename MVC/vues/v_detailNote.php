@@ -26,11 +26,10 @@
         <?php
 		foreach($lesForfaits as $leForfait)
         {
-       
         $id = $leForfait['idforfait'];
         $libelle = $leForfait['libelleforfait'];
         $montant = $leForfait['montant'];
-            
+           
             
         ?>
             <tr>
