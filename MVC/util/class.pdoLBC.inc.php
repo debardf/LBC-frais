@@ -92,7 +92,7 @@ class PdoLBC
 	}
 	public function getLaNoteByID($idValeur)
 	{
-		$req = "SELECT * FROM fiche WHERE matricule ='$idValeur'";
+		$req = "SELECT * FROM fiche WHERE matricule ='$valeur', mois=' $mois'";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
@@ -120,4 +120,5 @@ class PdoLBC
 		$res->bindValue('lienpdf', $lienpdf, PDO::PARAM_STR);
 		$res->execute();
 	}
+
 }
