@@ -16,8 +16,7 @@ foreach($lesNotes as $uneNote)
 			<li>statut<?php echo $statut ?></li>
 			<li>datefiche : <?php echo $datefiche ?></li>
 			<li>lienpdf : <?php echo $lienpdf ?></li>
-			<li><a href=index.php?ucf=detailNote=<?php echo $matricule, $annee, $mois ?>> 
-			<img TITLE="MODIFIER" </li></a>
+			<li><a href=index.php?uc=frais&ucf=detailNote=<?php echo $matricule, $annee, $mois ?>> 
 			
 	</ul>
 			

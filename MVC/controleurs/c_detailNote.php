@@ -1,12 +1,6 @@
 <?php
+$valeur = $_SESSION['valeur'];
 
-$lesNotes = $pdo->getLaNote($matricule, $mois, $annee);
-	include("vues/v_detailNote.php");	
-
-
-$lesForfaits = $pdo->getlesForfaits();
-	
+$lesNotes = $pdo->getLesNotes($valeur);
 	include("vues/v_detailNote.php");
-
-
 ?>

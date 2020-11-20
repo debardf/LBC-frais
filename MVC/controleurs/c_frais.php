@@ -1,4 +1,4 @@
-<?php
+ <?php
 if(!isset($_REQUEST['ucf']))
      $ucf = 'afficherNote';
 else
@@ -29,6 +29,8 @@ switch($ucf)
         { include("controleurs/c_modificationFrais.php");break;}
     case 'supprimerFrais' :
         { include("controleurs/c_suppressionFrais.php");break;}
+	case 'detailNote' :
+        { include("controleurs/c_detailNote.php");break;}
 }
 include("vues/v_pied.php");
 ?>

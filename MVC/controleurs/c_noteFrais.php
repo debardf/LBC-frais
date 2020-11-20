@@ -4,7 +4,8 @@
 	{
 		case 'creationNote':
 		{
-            $matricule = $_REQUEST['matricule'];
+			$matricule = $_REQUEST['matricule'];
+			$leMatricule = $pdo->getLeMatricule($matricule);
 			include("vues/v_noteFrais.php");
 			break;
 		}
@@ -18,7 +19,7 @@
 			$lienpdf = $_REQUEST['Flien'];
 			$pdo->creerFrais($matricule,$annee,$mois,$statut,$datefiche,$lienpdf);
 			
-			header("Location: afficherNote.php");
+			header("Location: afficherNotes.php");
 			break;
 		}
 	}
