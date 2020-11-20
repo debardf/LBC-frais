@@ -9,7 +9,6 @@ else
 {
     $action = $_REQUEST['action'];
 }
-var_dump($action);
 switch($action)
 {
 	case 'afficherNotes' :
@@ -17,10 +16,6 @@ switch($action)
 
         $id = $_SESSION['typeprofil'];
         if($id == "V")
-
-        $id = $_SESSION['idClient'];
-        if($id == "Visiteur")
-
         {
             $login = $_SESSION['valeur'];
             var_dump($login);
