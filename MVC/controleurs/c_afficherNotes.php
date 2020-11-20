@@ -9,14 +9,15 @@ else
 {
     $action = $_REQUEST['action'];
 }
-var_dump($action);
 switch($action)
 {
 	case 'afficherNotes' :
 	{
-        var_dump($action);
-        $id = $_SESSION['typeprofil']
-        if($id == "Visiteur")
+
+
+        $id = $_SESSION['typeprofil'];
+        if($id == "V")
+
         {
             var_dump($action);//ne rentre pas la
             $login = $_SESSION['valeur'];
