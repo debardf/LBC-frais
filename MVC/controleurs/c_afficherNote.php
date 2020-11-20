@@ -13,18 +13,19 @@ switch($action)
 {
 	case 'afficherNotes' :
 	{
-        $id = $_SESSION['idClient'];
-        var_dump($id);
-        if($id == "Visiteur")
+        $id = $_SESSION['typeprofil'];
+        if($id == "V")
         {
-            $login = $_SESSION['login'];
+            $login = $_SESSION['valeur'];
+            var_dump($login);
 	        $matricule = $pdo->getmatricule($login);
             $lesNotes = $pdo->getlesNotes($matricule);
             include("vues/v_afficherNote.php");
         }
-        if($_SESSION['idClient'] == 'Comptable')
+        if($id == "C")
         {
-	        $lesNotes = getTouteslesNotes($matricule);
+            $lesNotes = $pdo->getTouteslesNotes($matricule);
+            include("vues/v_afficherNote.php");
         }
         
         /*
