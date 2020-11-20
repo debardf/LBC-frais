@@ -85,7 +85,7 @@ class PdoLBC
 
 	public function getMatricule($login)
 	{
-		$req = "SELECT valeur FROM profil WHERE login = $login";
+		$req = "SELECT matricule FROM visiteur WHERE matricule = $login";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
