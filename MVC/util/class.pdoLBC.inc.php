@@ -60,11 +60,19 @@ class PdoLBC
 
 	public function getLaNote($matricule, $mois, $annee)
 	{
-		$req = "SELECT * FROM fiche WHERE matricule ='$matricule', annee = '$anne', mois = '$mois' ";
+		$req = "SELECT * FROM fiche WHERE matricule ='$matricule', annee = '$annee', mois = '$mois' ";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
-}
+	}
+
+	public function getLesForfaits()
+	{
+		$req = "SELECT * FROM forfait";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
+}		
 	public function creerForfait($idforfait,$libelleforfait,$montant)
 	{
 		$res = PdoTransNat::$monPdo->prepare('INSERT INTO forfait (idF, 
