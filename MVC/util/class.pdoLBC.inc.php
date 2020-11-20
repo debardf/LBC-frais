@@ -60,7 +60,7 @@ class PdoLBC
 
 	public function getLaNote($matricule, $mois, $annee)
 	{
-		$req = "SELECT * FROM fiche WHERE matricule ='$matricule', annee = '$annee', mois = '$mois' ";
+		$req = "SELECT * FROM fiche WHERE matricule ='$idValeur', annee = '$annee', mois = '$mois' ";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
@@ -86,6 +86,13 @@ class PdoLBC
 	public function getMatricule($login)
 	{
 		$req = "SELECT valeur FROM profil WHERE login = $login";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
+	}
+	public function getLaNoteByID($idValeur)
+	{
+		$req = "SELECT * FROM fiche WHERE matricule ='$idValeur'";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;

@@ -1,21 +1,36 @@
 <?php
 
-$action = ['affichernote'];
+
+if (!isset($_REQUEST['action']))
+{
+    $action = 'afficherNotes';
+}
+else 
+{
+    $action = $_REQUEST['action'];
+}
 switch($action)
 {
-	case 'voirNotes' :
+	case 'afficherNotes' :
 	{
-        if($_SESSION['idClient'] == "Visiteur")
+        $id = $_SESSION['idClient'];
+        var_dump($id);
+        if($id == "Visiteur")
         {
-	        $matricule = getmatricule($login);
-            $lesNotes = getlesNotes($matricule);
+            $login = $_SESSION['login'];
+	        $matricule = $pdo->getmatricule($login);
+            $lesNotes = $pdo->getlesNotes($matricule);
+            include("vues/v_afficherNote.php");
         }
         if($_SESSION['idClient'] == 'Comptable')
         {
 	        $lesNotes = getTouteslesNotes($matricule);
         }
-
-        include("vues/v_afficherNote.php");
+        
+        /*
+        $matricule = $pdo->getMatricule($login);
+        $lesNotes = getlesNotes($matricule);
+        */
   		
 		break;
     }
@@ -38,6 +53,5 @@ switch($action)
 
 
 }
-
 
 

@@ -10,6 +10,7 @@
 </head>
 <body>
     <form>
+        <h2><?php echo $_SESSION['idValeur']. 'Fldzzd'?></h2>
         <p><H1>Détail de la note :</H1><br> 
 
 
@@ -18,17 +19,17 @@
 
         <table border=3 cellspacing=1 >
             <tr>
-            <td>Frais Forfaitaires : </td><td>Quantité : </td>
+            <td>Frais Forfaitaires : </td><td>Quantité : </td>  
             <td>Montant Unitaire: </td><td>Total: </td>
             </tr> 
 
 
-        <?php
-		foreach($lesForfaits as $leForfait)
+<?php
+		foreach($lesForfaits as $unForfait)
         {
-        $id = $leForfait['idforfait'];
-        $libelle = $leForfait['libelleforfait'];
-        $montant = $leForfait['montant'];
+        $id = $unForfait['idforfait'];
+        $libelle = $unForfait['libelleforfait'];
+        $montant = $unForfait['montant'];
            
             
         ?>
