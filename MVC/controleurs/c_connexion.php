@@ -24,7 +24,7 @@ $_SESSION['idClient']=$leProfil['login'];
 $_SESSION['nom']=$leProfil['nom'];
 $_SESSION['prenom']=$leProfil['prenom'];
 $_SESSION['typeprofil']=$leProfil['typeprofil'];
-$_SESSION['valeur']=$leProfil['idValeur'];
+$_SESSION['valeur']=$leProfil['valeur'];
 
 header('Location: index.php?uc=frais');	
 
