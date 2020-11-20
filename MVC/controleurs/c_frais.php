@@ -1,4 +1,4 @@
-<?php
+ <?php
 if(!isset($_REQUEST['ucf']))
      $ucf = 'afficherNote';
 else
