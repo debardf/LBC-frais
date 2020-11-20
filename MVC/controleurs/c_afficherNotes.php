@@ -9,6 +9,7 @@ else
 {
     $action = $_REQUEST['action'];
 }
+var_dump($action);
 switch($action)
 {
 	case 'afficherNotes' :
