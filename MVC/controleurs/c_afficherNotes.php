@@ -14,22 +14,20 @@ switch($action)
 	case 'afficherNotes' :
 	{
 
-
         $id = $_SESSION['typeprofil'];
         if($id == "V")
-
         {
-            var_dump($action);//ne rentre pas la
+            
             $login = $_SESSION['valeur'];
 	        $matricule = $pdo->getmatricule($login);
             $lesNotes = $pdo->getlesNotes($matricule); 
-            include("vues/v_afficherNote.php");
+            include("vues/v_afficherNotes.php");
         }
         if($id == "C")
         {
-            var_dump($action);//ne rentre pas la
+            
             $lesNotes = $pdo->getTouteslesNotes($matricule);
-            include("vues/v_afficherNote.php");
+            include("vues/v_afficherNotes.php");
         }
         
         /*
@@ -42,7 +40,7 @@ switch($action)
     
     case 'detailNotes' :
         {
-            include("vues/v_afficherNote.php");
+            include("vues/v_afficherNotes.php");
             
             {
     
