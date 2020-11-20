@@ -40,8 +40,8 @@
                 <td></td>
 
                 
-                <td width=30><a href=c_frais.php?uc=modifierForfait&action=modificationForfait&num=<?php echo $id ?>><img src="images/modifier.gif" title="Modif"></a></td>
-                <td width=30><a href=c_frais.php?uc=supprimerForfait&action=suppressionForfait&num=<?php echo $id ?>><img src="images/supp.png" title="Suppr"></a></td>
+                <td width=30><a href=c_frais.php?ucf=modifierForfait&action=modificationForfait&num=<?php echo $id ?>><img src="images/modifier.gif" title="Modif"></a></td>
+                <td width=30><a href=c_frais.php?ucf=supprimerForfait&action=suppressionForfait&num=<?php echo $id ?>><img src="images/supp.png" title="Suppr"></a></td>
             </tr>
             <?php 
         }
