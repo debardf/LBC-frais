@@ -1,13 +1,23 @@
 <?php
-	$action=$_REQUEST['action'];
+	if (!isset($_REQUEST['action']))
+		$action = 'creationNote';
+	else 
+		$action = $_REQUEST['action'];
+		
 	switch($action)
 	{
 		case 'creationNote':
 		{
-			$matricule = $_REQUEST['matricule'];
-			$leMatricule = $pdo->getLeMatricule($matricule);
+			$id = $_SESSION['typeprofil'];
+        	if($id == "V")
+        	{
+            $login = $_SESSION['valeur'];
+			
+			$leMatricule = $pdo->getMatricule($login);
 			include("vues/v_noteFrais.php");
+			}
 			break;
+
 		}
 		case 'confirmCreaNote':
 		{
