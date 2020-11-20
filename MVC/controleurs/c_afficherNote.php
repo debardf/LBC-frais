@@ -3,7 +3,7 @@
 
 if (!isset($_REQUEST['action']))
 {
-    $action = 'afficherNotes';
+    $action = 'afficherNote';
 }
 else 
 {
@@ -11,9 +11,9 @@ else
 }
 switch($action)
 {
-	case 'afficherNotes' :
+	case 'afficherNote' :
 	{
-
+       
         $id = $_SESSION['typeprofil'];
         if($id == "V")
 
