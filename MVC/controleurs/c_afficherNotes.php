@@ -3,7 +3,7 @@
 
 if (!isset($_REQUEST['action']))
 {
-    $action = 'afficherNote';
+    $action = 'afficherNotes';
 }
 else 
 {
@@ -12,24 +12,21 @@ else
 var_dump($action);
 switch($action)
 {
-	case 'afficherNote' :
+	case 'afficherNotes' :
 	{
-       
-        $id = $_SESSION['typeprofil'];
-        if($id == "V")
-
-        $id = $_SESSION['idClient'];
+        var_dump($action);
+        $id = $_SESSION['typeprofil']
         if($id == "Visiteur")
-
         {
+            var_dump($action);//ne rentre pas la
             $login = $_SESSION['valeur'];
-            var_dump($login);
 	        $matricule = $pdo->getmatricule($login);
-            $lesNotes = $pdo->getlesNotes($matricule);
+            $lesNotes = $pdo->getlesNotes($matricule); 
             include("vues/v_afficherNote.php");
         }
         if($id == "C")
         {
+            var_dump($action);//ne rentre pas la
             $lesNotes = $pdo->getTouteslesNotes($matricule);
             include("vues/v_afficherNote.php");
         }
