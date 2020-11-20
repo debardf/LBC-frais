@@ -1,6 +1,6 @@
 <div id="salles">
 <?php
-	
+	var_dump($lesNotes);
 foreach($lesNotes as $uneNote) 
 {
 	$matricule = $uneSalle['matricule'];
