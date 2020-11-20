@@ -1,5 +1,6 @@
 <?php
+$valeur = $_SESSION['valeur'];
 
-$lesNotes = $pdo->getLaNoteByID($idValeur);
+$lesNotes = $pdo->getLesNotes($valeur);
 	include("vues/v_detailNote.php");
 ?>

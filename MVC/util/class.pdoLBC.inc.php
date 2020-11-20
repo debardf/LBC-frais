@@ -39,9 +39,9 @@ class PdoLBC
 
 
 
-	public function getLesNotes($matricule)
+	public function getLesNotes($valeur)
 	{
-		$req = "SELECT * FROM fiche WHERE matricule ='$matricule' ";
+		$req = "SELECT * FROM fiche WHERE matricule ='$valeur' ";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;

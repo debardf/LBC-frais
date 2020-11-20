@@ -14,7 +14,6 @@ switch($action)
 	case 'afficherNotes' :
 	{
         $id = $_SESSION['idClient'];
-        var_dump($id);
         if($id == "Visiteur")
         {
             $login = $_SESSION['login'];
