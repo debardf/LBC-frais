@@ -13,8 +13,13 @@ switch($action)
 {
 	case 'afficherNotes' :
 	{
+
         $id = $_SESSION['typeprofil'];
         if($id == "V")
+
+        $id = $_SESSION['idClient'];
+        if($id == "Visiteur")
+
         {
             $login = $_SESSION['valeur'];
             var_dump($login);
