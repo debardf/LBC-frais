@@ -20,7 +20,7 @@ else
 	include("vues/v_informationsConnexion.php");
 }
 $pdo = PdoLBC::getPdoLBC();
-switch($uc)
+switch($uc)	
 {
 	case 'accueil':
 		{include("vues/v_accueil.php");break;}
