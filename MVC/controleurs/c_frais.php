@@ -9,8 +9,8 @@ $pdo = PdoLBC::getPdoLBC();
 
 switch($ucf)
 {
-	case 'afficherNote' :
-		{ include("controleurs/c_afficherNote.php");break;}
+	case 'afficherNotes' :
+		{ include("controleurs/c_afficherNotes.php");break;}
 	case 'connexion' :
 		{ include("controleurs/c_connexion.php");break; }
 	case 'deconnexion' :
