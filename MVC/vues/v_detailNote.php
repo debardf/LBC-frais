@@ -1,4 +1,4 @@
- 
+
 <!doctype html>
 <html>
 
@@ -10,7 +10,7 @@
 </head>
 <body>
     <form>
-        <h2><?php echo $_SESSION['idValeur']. 'Fldzzd'?></h2>
+        <h2><?php echo $_SESSION['valeur'] ?></h2>
         <p><H1>Détail de la note :</H1><br> 
 
 
@@ -25,11 +25,11 @@
 
 
 <?php
-		foreach($lesForfaits as $unForfait)
+		foreach($lesNotes as $uneNote)
         {
-        $id = $unForfait['idforfait'];
-        $libelle = $unForfait['libelleforfait'];
-        $montant = $unForfait['montant'];
+        $id = $uneNote['idforfait'];
+        $libelle = $uneNote['libelleforfait'];
+        $montant = $uneNote['montant'];
            
             
         ?>
