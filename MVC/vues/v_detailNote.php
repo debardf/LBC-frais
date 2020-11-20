@@ -40,14 +40,35 @@
                 <td></td>
 
                 
-                <td width=30><a href=c_frais.php?uc=modifierForfait&action=modificationForfait&num=<?php echo $id ?>><img src="images/modifier.gif" title="Modif"></a></td>
-                <td width=30><a href=c_frais.php?uc=supprimerForfait&action=suppressionForfait&num=<?php echo $id ?>><img src="images/supp.png" title="Suppr"></a></td>
+                <td width=30><a href=c_frais.php?ucf=modifierForfait&action=modificationForfait&num=<?php echo $id ?>><img src="images/modifier.gif" title="Modif"></a></td>
+                <td width=30><a href=c_frais.php?ucf=supprimerForfait&action=suppressionForfait&num=<?php echo $id ?>><img src="images/supp.png" title="Suppr"></a></td>
             </tr>
             <?php 
         }
         ?>
         </table>
         </br>
+
+        <table border=3 cellspacing="1">
+            <tr>
+                <td>Date :</td><td>Libellé : </td><td>Montant : </td>
+
+                <?php 
+                foreach($lesFrais as $leFrais)
+                {
+                    $libelleFrais = $leFrais['libelle'];
+                    $montantFrais = $leFrais['montant'];
+
+                ?>
+                     <tr>
+                        <td width=150><?php echo $libelleFrais ?></a></td>
+                        <td width=150><?php echo $montantFrais ?></td>
+                <td></td>
+
+                <?php
+                }
+                ?>
+        </table>
 
     </form>
 </body>

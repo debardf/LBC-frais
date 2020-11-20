@@ -60,7 +60,7 @@ class PdoLBC
 
 	public function getLaNote($matricule, $mois, $annee)
 	{
-		$req = "SELECT * FROM fiche WHERE matricule ='$idValeur', annee = '$annee', mois = '$mois' ";
+		$req = "SELECT * FROM fiche WHERE matricule ='$idValeur' and annee = '$annee' and mois = '$mois' ";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
@@ -121,5 +121,15 @@ class PdoLBC
 		$res->bindValue('lienpdf', $lienpdf, PDO::PARAM_STR);
 		$res->execute();
 	}
+
+
+	public function getLesFrais($valeur)
+	{
+		$req = "SELECT * FROM frais WHERE matricule ='$idValeur' and annee = '$annee' and mois = '$mois'";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
+	}
+
 
 }
