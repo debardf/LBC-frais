@@ -3,12 +3,12 @@
 	
 foreach($lesNotes as $uneNote) 
 {
-	$matricule = $uneSalle['matricule'];
-	$annee = $uneSalle['annee'];
-	$mois = $uneSalle['mois'];
-	$statut = $uneSalle['statut'];
-	$datefiche=$uneSalle['datefiche'];
-	$lienpdf=$uneSalle['lienpdf'];
+	$matricule = $uneNote['matricule'];
+	$annee = $uneNote['annee'];
+	$mois = $uneNote['mois'];
+	$statut = $uneNote['statut'];
+	$datefiche=$uneNote['datefiche'];
+	$lienpdf=$uneNote['lienpdf'];
 	?>	
 	<ul class="affichageSalles">
 			<li>annee <?php echo $annee ?></li>
