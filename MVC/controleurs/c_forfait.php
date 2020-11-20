@@ -14,7 +14,7 @@
 			$montant = $_REQUEST['montant'];
 			$pdo->creerForfait($idforfait,$libelleforfait,$montant);
 			
-			header('Location: c_frais.php');	
+			header('Location: v_detailNote.php');	
 			
 		}
 	}

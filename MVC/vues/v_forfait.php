@@ -10,12 +10,12 @@
 	
    <body>
    <p><h1>Nouveau forfait créé :</h1></p><BR/>
-	<form action="c_frais.php?ucf=creerforfait&action=confirmCreatForfait" method="post">
+	<form action="c_frais.php?ucf=creerForfait&action=confirmCreatForfait" method="post">
    
 		<table>
 		<tbody>
-			<tr><td>id</td><td><input name="id" size=20></td></tr>
-			<tr><td>libelle </td><td><input name="libelle" size=20></td></tr>	
+			<tr><td>id</td><td><input name="idforfait" size=20></td></tr>
+			<tr><td>libelle </td><td><input name="libelleforfait" size=20></td></tr>	
 			<tr><td>montant</td><td><input name="montant" size=50></td></tr>			
 		</tbody>
 		</table>
