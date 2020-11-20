@@ -49,6 +49,27 @@
         </table>
         </br>
 
+        <table border=3 cellspacing="1">
+            <tr>
+                <td>Date :</td><td>Libellé : </td><td>Montant : </td>
+
+                <?php 
+                foreach($lesFrais as $leFrais)
+                {
+                    $libelleFrais = $leFrais['libelle'];
+                    $montantFrais = $leFrais['montant'];
+
+                ?>
+                     <tr>
+                        <td width=150><?php echo $libelleFrais ?></a></td>
+                        <td width=150><?php echo $montantFrais ?></td>
+                <td></td>
+
+                <?php
+                }
+                ?>
+        </table>
+
     </form>
 </body>
 </html>
