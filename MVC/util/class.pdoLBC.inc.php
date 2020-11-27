@@ -74,14 +74,16 @@ class PdoLBC
 		$lesLignes = $res->fetch();
 		return $lesLignes;
 }		
-	public function creerForfait($idforfait,$libelleforfait,$montant)
+	public function creerForfait($idforfait,$matricule,$annee, $mois, $quantite)
 	{
 
-		$res = PdoTransNat::$monPdo->prepare('INSERT INTO forfait (idforfait, 
-			libelleforfait, montant) VALUES( :id,:libelle, :montant)');
+		$res = PdoTransNat::$monPdo->prepare('INSERT INTO ajouteforfait (idforfait, 
+			matricule, annee, mois, quantite, valideForfait) VALUES( :id,:matricule, :annee, :mois, :quantite, nuLL)');
 		$res->bindValue('idforfait',$id, PDO::PARAM_STR);
-		$res->bindValue('libelleforfait', $libelle, PDO::PARAM_STR);   
-		$res->bindValue('montant', $montant, PDO::PARAM_STR);
+		$res->bindValue('matricule',$matricule, PDO::PARAM_INT);
+		$res->bindValue('annee',$annee, PDO::PARAM_STR);
+		$res->bindValue('mois',$mois, PDO::PARAM_INT);
+		$res->bindValue('quantite',$quantite, PDO::PARAM_INT);
 		$res->execute();
 	}
 

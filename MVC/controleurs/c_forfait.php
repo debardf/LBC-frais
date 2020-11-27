@@ -9,12 +9,15 @@
 		}
 		case 'confirmCreatForfait':
 		{
-			$idforfait = $_REQUEST['id'];
-			$libelleforfait = $_REQUEST['libelle'];
-			$montant = $_REQUEST['montant'];
-			$pdo->creerForfait($idforfait,$libelleforfait,$montant);
 			
-			header('Location: v_detailNote.php');	
+			$idforfait = $_REQUEST['id'];
+			$matricule = $_REQUEST['matricule'];
+			$annee = $_REQUEST['annee'];
+			$mois = $_REQUEST['annee'];
+			$quantite = $_REQUEST['quantite'];
+			$pdo->creerForfait($idforfait,$matricule,$annee, $mois, $quantite);
+			
+			header('Location: v_detailNote.php');
 			
 		}
 	}
