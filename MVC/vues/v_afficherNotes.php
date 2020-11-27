@@ -34,4 +34,5 @@
 }
 ?>	
 </table>
+<a href="index.php"> Ajouter une nouvelle fiche </a>
 </div>

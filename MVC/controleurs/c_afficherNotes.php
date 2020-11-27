@@ -26,7 +26,6 @@ switch($action)
         }
         if($id == "C")
         {
-            
             $lesNotes = $pdo->getTouteslesNotes($matricule);
             include("vues/v_afficherNotes.php");
         }
