@@ -43,7 +43,7 @@ class PdoLBC
 	{
 		$req = "SELECT * FROM fiche WHERE matricule ='$valeur' ";
 		$res = PdoLBC::$monPdo->query($req);
-		$lesLignes = $res->fetch();
+		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 
 	}
@@ -53,7 +53,7 @@ class PdoLBC
 	{
 		$req = "SELECT * FROM fiche ";
 		$res = PdoLBC::$monPdo->query($req);
-		$lesLignes = $res->fetch();
+		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 
 	}

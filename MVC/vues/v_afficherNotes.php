@@ -21,7 +21,6 @@
 
 	</tr>
 	<?php
-
 	foreach($lesNotes as $uneNote) 
 {
 
@@ -48,8 +47,6 @@
 		
 		foreach($lesNotes as $uneNote) 
 		{	
-			echo "une note :" ;
-			 var_dump($uneNote);
 			$matricule = $uneNote['matricule'];
 			$annee = $uneNote['annee'];
 			$mois = $uneNote['mois'];
