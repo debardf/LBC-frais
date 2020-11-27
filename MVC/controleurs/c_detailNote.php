@@ -28,7 +28,7 @@ switch($action)
         {
             
             $lesNotes = $pdo->getTouteslesNotes($matricule);
-            include("vues/v_afficherNotes.php");
+            include("vues/v_detailNote.php");
         }
         
         /*
