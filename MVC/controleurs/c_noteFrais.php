@@ -16,6 +16,10 @@
 			$leMatricule = $pdo->getMatricule($login);
 			include("vues/v_noteFrais.php");
 			}
+			else
+			{
+				include("vues/v_accueil.php");
+			}
 			break;
 
 		}

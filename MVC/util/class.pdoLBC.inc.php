@@ -102,14 +102,14 @@ class PdoLBC
 	public function creerFrais($matricule,$annee,$mois,$statut,$datefiche,$lienpdf)
 	{
 		$res = PdoLBC::$monPdo->prepare('INSERT INTO fiche (matricule, 
-		annee, mois, statut, datefiche, lienpdf) VALUES( :matriculeM, 
-		:anneeM, :moisN, :statutN, :dateficheN, :lienpdfM)');
-		$res->bindValue('matricule',$matricule, PDO::PARAM_STR);
-		$res->bindValue('annee', $annee, PDO::PARAM_STR); 
-		$res->bindValue('mois', $mois, PDO::PARAM_STR);
-		$res->bindValue('statut', $statut, PDO::PARAM_STR);
-		$res->bindValue('datefiche', $datefiche, PDO::PARAM_STR);
-		$res->bindValue('lienpdf', $lienpdf, PDO::PARAM_STR);
+		annee, mois, statut, datefiche, lienpdf) VALUES( :matriculeN, 
+		:anneeN, :moisN, :statutN, :dateficheN, :lienpdfN)');
+		$res->bindValue('matriculeN',$matricule, PDO::PARAM_INT);
+		$res->bindValue('anneeN', $annee, PDO::PARAM_STR);
+		$res->bindValue('moisN', $mois, PDO::PARAM_INT);
+		$res->bindValue('statutN', $statut, PDO::PARAM_STR);
+		$res->bindValue('dateficheN', $datefiche, PDO::PARAM_STR);
+		$res->bindValue('lienpdfN', $lienpdf, PDO::PARAM_STR);
 		$res->execute();
 	}
 
