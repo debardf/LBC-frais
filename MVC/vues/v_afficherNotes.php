@@ -12,19 +12,27 @@
 		<?php
 	}
 	?>	
-			
 			<th width=150>annee</th>
 			<th width=150>mois</th>
 			<th width=150>statut</th>
 			<th width=150>datefiche</th>
 			<th width=150>lienpdf</th>
 			<th width=150></th>
-
 	</tr>
 	<?php
 
 
 		
+	?>		
+			<th>annee</th>
+			<th>mois</th>
+			<th>statut</th>
+			<th>datefiche</th>
+			<th>lienpdf</th>
+			<th></th>
+	</tr>
+	<?php
+	
 		foreach($lesNotes as $uneNote) 
 		{	
 			$matricule = $uneNote['matricule'];
@@ -37,12 +45,12 @@
 		<tr>
 		<?php
 		if($id == "C")
-	{
+		{
 		?>	
 		<td width=150><?php echo $matricule ?></td>
 		<?php
-	}
-	?>	
+		}
+		?>	
 				<td width=150><?php echo $annee ?></td>
 				<td width=150><?php echo $mois ?></td>
 				<td width=150><?php echo $statut ?></td>
