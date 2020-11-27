@@ -17,10 +17,11 @@ switch($action)
         $id = $_SESSION['typeprofil'];
         if($id == "V")
         {
-            
             $login = $_SESSION['valeur'];
-	        $matricule = $pdo->getmatricule($login);
+            $matricules= $pdo->getmatricule($login);
+            $matricule = $matricules['matricule'];
             $lesNotes = $pdo->getlesNotes($matricule); 
+            
             include("vues/v_afficherNotes.php");
         }
         if($id == "C")
