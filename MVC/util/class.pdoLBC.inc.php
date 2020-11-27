@@ -5,7 +5,7 @@ class PdoLBC
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=lbc';  		
       	private static $user='root';
-		  private static $mdp='';
+		  private static $mdp='root';
 		private static $monPdo;
 		private static $monPdoLBC = null;
 			
@@ -126,5 +126,33 @@ class PdoLBC
 		return $Ligne;
 	}
 
+	public function getAnnee()
+	{
+		$req = 'select distinct annee from fiche';
+		$res = PdoLBC::$monPdo->query($req);
+		return $res;
+	}
+
+	public function getMois()
+	{
+		$req = 'select distinct mois from fiche';
+		$res = PdoLBC::$monPdo->query($req);
+		return $res;
+	}
+
+	public function creerAutreForfait($matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais)
+	{
+		$res = PdoLBC::$monPdo->prepare('INSERT INTO frais (matricule, 
+		annee, mois, datefrais, libelle, montant, validefrais) VALUES( :Amatricule, 
+		:Aannee, :Amois, :Adate, :Alibelle, :Amontant, :Avalidefrais)');
+		$res->bindValue('Amatricule',$matricule, PDO::PARAM_INT);
+		$res->bindValue('Aannee', $annee, PDO::PARAM_STR);
+		$res->bindValue('Amois', $mois, PDO::PARAM_INT);
+		$res->bindValue('Adate', $statut, PDO::PARAM_STR);
+		$res->bindValue('Alibelle', $datefiche, PDO::PARAM_STR);
+		$res->bindValue('Amontant', $lienpdf, PDO::PARAM_STR);
+		$res->bindValue('Avalidefrais', $validefrais, PDO::PARAM_STR);
+		$res->execute();
+	}
 
 }
