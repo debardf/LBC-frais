@@ -1,19 +1,13 @@
 <?php
 
-
-$laNote = $pdo->getLaNote($matricule, $annee, $mois);
 $matricule = $_GET['matricule'];
+$annee = $_GET['annee'];
+$mois = $_GET['mois'];
+$laNote = $pdo->getLaNote($matricule, $annee, $mois);
+
 var_dump($matricule);
-
-
-
-
-
-$lesNotes = $pdo->getLesNotes($valeur);
-$lesFrais =  $pdo->getLesFrais($valeur);
-	include("vues/v_detailNote.php");
-
-$_REQUEST['matricule'];
+var_dump($mois);
+var_dump($annee);
 
 
 
