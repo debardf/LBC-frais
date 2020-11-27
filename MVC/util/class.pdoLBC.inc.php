@@ -68,7 +68,7 @@ class PdoLBC
 
 	public function getLesForfaits($matricule)
 	{
-		$req = ('select * from forfais WHERE matricule = :matricule');
+		$req = ('SELECT * from forfais WHERE matricule = :matricule');
 		$res->bindValue('matricule',$matricule, PDO::PARAM_STR);
 		$res->execute();
 		$lesLignes = $res->fetch();
@@ -126,6 +126,7 @@ class PdoLBC
 		return $Ligne;
 	}
 
+
 	public function getAnnee()
 	{
 		$req = 'select distinct annee from fiche';
@@ -153,6 +154,14 @@ class PdoLBC
 		$res->bindValue('Amontant', $lienpdf, PDO::PARAM_STR);
 		$res->bindValue('Avalidefrais', $validefrais, PDO::PARAM_STR);
 		$res->execute();
+
+	public function getLesFraisForfaitaires($matricule, $annee, $mois)
+	{
+	$req = ( "SELECT libelleforfait, quantite, montant FROM ajouteforfait INNER JOIN forfait ON ajouteForfait.idforfait = forfait.idforfait WHERE matricule = '$matricule' AND annee = '$annee' AND mois = '$mois' " );
+	$res = PdoLBC::$monPdo->query($req);
+	$lesLignes = $res->fetchAll();	
+	return $lesLignes;
+
 	}
 
 }
