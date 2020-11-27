@@ -49,7 +49,7 @@ class PdoLBC
 	}
 
 	
-	public function getToutesLesNotes($matricule)
+	public function getToutesLesNotes()
 	{
 		$req = "SELECT * FROM fiche ";
 		$res = PdoLBC::$monPdo->query($req);

@@ -21,13 +21,13 @@ switch($action)
             $matricules= $pdo->getmatricule($login);
             $matricule = $matricules['matricule'];
             $lesNotes = $pdo->getlesNotes($matricule); 
-            
+            var_dump($lesNotes);
             include("vues/v_afficherNotes.php");
         }
         if($id == "C")
         {
             
-            $lesNotes = $pdo->getTouteslesNotes($matricule);
+            $lesNotes = $pdo->getTouteslesNotes();
             include("vues/v_afficherNotes.php");
         }
         
