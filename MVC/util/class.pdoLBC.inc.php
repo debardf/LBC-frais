@@ -99,15 +99,6 @@ class PdoLBC
 		return $lesLignes;
 	}
 
-	public function getLeMatricule($matricule)
-	{
-		$res = PdoLBC::$monPdo->prepare('SELECT * FROM visiteur WHERE matricule = :matricule');
-		$res->bindValue('matricule',$matricule, PDO::PARAM_STR);
-		$res->execute();
-		$Ligne = $res->fetch();
-		return $Ligne;
-	}
-
 	public function creerFrais($matricule,$annee,$mois,$statut,$datefiche,$lienpdf)
 	{
 		$res = PdoLBC::$monPdo->prepare('INSERT INTO fiche (matricule, 
