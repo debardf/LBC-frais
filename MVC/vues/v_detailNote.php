@@ -27,7 +27,7 @@
 <?php
 		foreach($lesNotes as $uneNote)
         {
-        $id = $uneNote['idforfait'];
+        $matricule = $uneNote['matricule'];
         $libelle = $uneNote['libelleforfait'];
         $montant = $uneNote['montant'];
            
@@ -36,8 +36,8 @@
             <tr>
                 <td width=150><?php echo $libelle ?></a></td>
                 <td width=150><?php echo $montant ?></td>
-                <td width=30><a href=c_frais.php?ucf=modifierForfait&action=modificationForfait&num=<?php echo $id ?>><img src="images/modifier.gif" title="Modif"></a></td>
-                <td width=30><a href=c_frais.php?ucf=supprimerForfait&action=suppressionForfait&num=<?php echo $id ?>><img src="images/supp.png" title="Suppr"></a></td>
+                <td width=30><a href=c_frais.php?ucf=modifierForfait&action=modificationForfait&num=<?php echo $matricule ?>><img src="images/modifier.gif" title="Modif"></a></td>
+                <td width=30><a href=c_frais.php?ucf=supprimerForfait&action=suppressionForfait&num=<?php echo $matricule ?>><img src="images/supp.png" title="Suppr"></a></td>
             </tr>
             <?php 
         }
@@ -52,6 +52,7 @@
                 <?php 
                 foreach($lesFrais as $leFrais)
                 {
+                    
                     $libelleFrais = $leFrais['libelle'];
                     $montantFrais = $leFrais['montant'];
 
