@@ -10,7 +10,6 @@
 </head>
 <body>
     <form>
-        <h2><?php echo $_SESSION['valeur'] ?></h2>
         <p><H1>Détail de la note :</H1><br> 
 
 
@@ -26,20 +25,19 @@
 
 <?php
 
-        $matricule= $_GET['matricule'];
+
 		foreach($lesNotes as $uneNote)
         {
-        $id = $uneNote['idforfait'];
-        $libelle = $uneNote['libelleforfait'];
+        $libelleforfait = $uneNote['libelleforfait'];
         $montant = $uneNote['montant'];
-           
-            
-        ?>
+        $quantite = $uneNote['quantite'];
+        var_dump($quantite);
+                ?>
             <tr>
-                <td width=150><?php echo $libelle ?></a></td>
+                <td width=150><?php echo $libelleforfait ?></a></td>
+                <td width=150><?php echo $quantite ?></td>
                 <td width=150><?php echo $montant ?></td>
-                <td width=30><a href=c_frais.php?ucf=modifierForfait&action=modificationForfait&num=<?php echo $id ?>><img src="images/modifier.gif" title="Modif"></a></td>
-                <td width=30><a href=c_frais.php?ucf=supprimerForfait&action=suppressionForfait&num=<?php echo $id ?>><img src="images/supp.png" title="Suppr"></a></td>
+                <td width=150><?php echo $total ?></td>
             </tr>
             <?php 
         }
