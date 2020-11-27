@@ -48,7 +48,7 @@
 				<td><?php echo $statut ?></td>
 				<td><?php echo $datefiche ?></td>
 				<td><?php echo $lienpdf ?></td>
-				<td><a href=index.php?uc=frais&ucf=detailNote&matricule=<?php echo $matricule;?>&annne=<?php echo $annee;?>&mois=<?php echo $mois;?>>détail de la note</a></td>
+				<td><a href=index.php?uc=frais&ucf=detailNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>>détail de la note</a></td>
 		</tr>	
 		<?php
 		}

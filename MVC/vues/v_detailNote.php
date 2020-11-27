@@ -25,6 +25,8 @@
 
 
 <?php
+
+        $matricule= $_GET['matricule'];
 		foreach($lesNotes as $uneNote)
         {
         $id = $uneNote['idforfait'];
