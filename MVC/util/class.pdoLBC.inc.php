@@ -43,17 +43,17 @@ class PdoLBC
 	{
 		$req = "SELECT * FROM fiche WHERE matricule ='$valeur' ";
 		$res = PdoLBC::$monPdo->query($req);
-		$lesLignes = $res->fetch();
+		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 
 	}
 
 	
-	public function getToutesLesNotes($matricule)
+	public function getToutesLesNotes()
 	{
 		$req = "SELECT * FROM fiche ";
 		$res = PdoLBC::$monPdo->query($req);
-		$lesLignes = $res->fetch();
+		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 
 	}
@@ -98,15 +98,6 @@ class PdoLBC
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
-	}
-
-	public function getLeMatricule($matricule)
-	{
-		$res = PdoLBC::$monPdo->prepare('SELECT * FROM visiteur WHERE matricule = :matricule');
-		$res->bindValue('matricule',$matricule, PDO::PARAM_STR);
-		$res->execute();
-		$Ligne = $res->fetch();
-		return $Ligne;
 	}
 
 	public function creerFrais($matricule,$annee,$mois,$statut,$datefiche,$lienpdf)

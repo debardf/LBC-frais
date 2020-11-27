@@ -21,39 +21,19 @@ switch($action)
             $matricules= $pdo->getmatricule($login);
             $matricule = $matricules['matricule'];
             $lesNotes = $pdo->getlesNotes($matricule); 
-            
             include("vues/v_afficherNotes.php");
         }
         if($id == "C")
         {
             
-            $lesNotes = $pdo->getTouteslesNotes($matricule);
+            $lesNotes = $pdo->getTouteslesNotes();
             include("vues/v_afficherNotes.php");
         }
         
-        /*
-        $matricule = $pdo->getMatricule($login);
-        $lesNotes = getlesNotes($matricule);
-        */
   		
 		break;
     }
     
-    case 'detailNotes' :
-        {
-            include("vues/v_afficherNotes.php");
-            
-            {
-    
-            }
-              
-            break;
-        }
-
-	case 'creerNote' :
-	{
-
-	}
 
 
 }
