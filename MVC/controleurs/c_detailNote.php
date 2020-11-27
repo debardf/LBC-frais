@@ -1,6 +1,7 @@
 <?php
 
 
+
 if (!isset($_REQUEST['action']))
 {
     $action = 'detaillerNotes';

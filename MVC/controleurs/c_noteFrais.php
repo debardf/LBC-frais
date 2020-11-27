@@ -16,6 +16,10 @@
 			$leMatricule = $pdo->getMatricule($login);
 			include("vues/v_noteFrais.php");
 			}
+			else
+			{
+				include("vues/v_accueil.php");
+			}
 			break;
 
 		}
@@ -29,7 +33,7 @@
 			$lienpdf = $_REQUEST['Flien'];
 			$pdo->creerFrais($matricule,$annee,$mois,$statut,$datefiche,$lienpdf);
 			
-			header("Location: afficherNotes.php");
+			header("Location: index.php?uc=frais&ucf=afficherNotes");
 			break;
 		}
 	}

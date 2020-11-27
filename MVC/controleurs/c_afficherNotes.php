@@ -25,7 +25,6 @@ switch($action)
         }
         if($id == "C")
         {
-            
             $lesNotes = $pdo->getTouteslesNotes();
             include("vues/v_afficherNotes.php");
         }
