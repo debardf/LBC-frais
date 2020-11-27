@@ -1,0 +1,66 @@
+html {
+font:normal 100%/1.2em "Trebuchet MS",Verdana,Helvetica,Arial,sans-serif;
+text-align: center;
+margin: 0;
+}
+body{
+	margin: 0;
+	background: #ecf0f1;
+}
+
+fieldset {
+	display:block;
+	width:50%;
+	border: 1px dotted #353535;
+	padding:2px;
+	overflow:hidden;                   
+}
+
+label {
+	background:transparent none;
+	display: block;
+	width: 20%;
+	float: left;
+	padding-right: 1%;
+	text-align: left;
+}
+
+
+
+#menu{
+	text-align: center;
+	background-color: grey;
+	position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+#recherches{
+	position: absolute;
+	top: 150px;left: 50px;
+}
+
+#salles{
+	display: inline-block;
+}
+
+#contenu{
+
+}
+
+ul {
+	position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+}
+
+#menu li {
+	list-style-type: none;
+	list-style-image:none;
+	text-align: center;
+	display: inline-block;
+	padding: 10px;
+    
