@@ -14,7 +14,7 @@
     <a href="index.php?uc=administration"> Administration </a>
 </br>
 </br>
-<li><a href="index.php?uc=frais&ucf=creerForfait"> Créer une note de frais </a></li>
+<li><a href="index.php?uc=frais&ucf=creerFrais"> Créer une note de frais </a></li>
 <li><a href="index.php?uc=frais&ucf=forfait"> Ajouter un frais </a></li>
 <li><a href="index.php?uc=frais&ucf=autreForfait"> Ajouter un autre forfait </a></li>
 </ul>
