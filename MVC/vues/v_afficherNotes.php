@@ -23,7 +23,7 @@
 	</tr>
 	<?php
 
-
+	
 		
 		foreach($lesNotes as $uneNote) 
 		{	
