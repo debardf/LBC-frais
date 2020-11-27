@@ -9,29 +9,28 @@
 			<th>datefiche</th>
 			<th>lienpdf</th>
 			<th></th>
-			
-			
+
 	</tr>
 	<?php
 	foreach($lesNotes as $uneNote) 
-{
+	{
 	$matricule = $uneNote['matricule'];
 	$annee = $uneNote['annee'];
 	$mois = $uneNote['mois'];
 	$statut = $uneNote['statut'];
 	$datefiche=$uneNote['datefiche'];
 	$lienpdf=$uneNote['lienpdf'];	
-?>	
+	?>	
 	<tr>
-		<td><?php echo $annee ?></td>
-			<td><?php echo $mois ?></td>
-			<td><?php echo $statut ?></td>
-			<td><?php echo $datefiche ?></td>
-			<td><?php echo $lienpdf ?></td>
-			<td><a href=index.php?uc=frais&ucf=detailNote=<?php echo $matricule, $annee, $mois ?>></a></td>
+		<td width=150><?php echo $annee ?></td>
+		<td width=150><?php echo $mois ?></td>
+		<td width=150><?php echo $statut ?></td>
+		<td width=150><?php echo $datefiche ?></td>
+		<td width=150><?php echo $lienpdf ?></td>
+		<td width=150><a href=index.php?uc=frais&ucf=detailNote=<?php echo $matricule, $annee, $mois ?>></a></td>
 	</tr>	
 	<?php					
-}
-?>	
-</table>
+	}
+	?>	
+	</table>
 </div>
