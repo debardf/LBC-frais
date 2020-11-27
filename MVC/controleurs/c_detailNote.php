@@ -1,5 +1,13 @@
 <?php
-$valeur = $_SESSION['valeur'];
+
+
+$laNote = $pdo->getLaNote($matricule, $annee, $mois);
+$matricule = $_GET['matricule'];
+var_dump($matricule);
+
+
+
+
 
 $lesNotes = $pdo->getLesNotes($valeur);
 $lesFrais =  $pdo->getLesFrais($valeur);

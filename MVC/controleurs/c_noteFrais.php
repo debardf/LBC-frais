@@ -33,7 +33,7 @@
 			$lienpdf = $_REQUEST['Flien'];
 			$pdo->creerFrais($matricule,$annee,$mois,$statut,$datefiche,$lienpdf);
 			
-			header("Location: afficherNotes.php");
+			header("Location: index.php?uc=frais&ucf=afficherNotes");
 			break;
 		}
 	}
