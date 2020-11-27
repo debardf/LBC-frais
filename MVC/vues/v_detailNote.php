@@ -36,10 +36,6 @@
             <tr>
                 <td width=150><?php echo $libelle ?></a></td>
                 <td width=150><?php echo $montant ?></td>
-                <td></td>
-                <td></td>
-
-                
                 <td width=30><a href=c_frais.php?ucf=modifierForfait&action=modificationForfait&num=<?php echo $id ?>><img src="images/modifier.gif" title="Modif"></a></td>
                 <td width=30><a href=c_frais.php?ucf=supprimerForfait&action=suppressionForfait&num=<?php echo $id ?>><img src="images/supp.png" title="Suppr"></a></td>
             </tr>

@@ -39,13 +39,13 @@ class PdoLBC
 
 
 
-	public function getLesNotes($matricule)
+	public function getLesNotes($valeur)
 	{
-		$req = "SELECT * FROM fiche WHERE matricule ='".$matricule."' ;";
+		$req = "SELECT * FROM fiche WHERE matricule ='$valeur' ";
 		$res = PdoLBC::$monPdo->query($req);
-		$lesLignes = $res->fetchall();
+		$lesLignes = $res->fetch();
 		return $lesLignes;
-		
+
 	}
 
 	
@@ -66,10 +66,11 @@ class PdoLBC
 		return $lesLignes;
 	}
 
-	public function getLesForfaits()
+	public function getLesForfaits($matricule)
 	{
-		$req = "SELECT * FROM forfait";
-		$res = PdoLBC::$monPdo->query($req);
+		$req = ('select * from forfais WHERE matricule = :matricule');
+		$res->bindValue('matricule',$matricule, PDO::PARAM_STR);
+		$res->execute();
 		$lesLignes = $res->fetch();
 		return $lesLignes;
 }		
@@ -114,12 +115,13 @@ class PdoLBC
 	}
 
 
-	public function getLesFrais($valeur)
+	public function getLesFrais($matricule)
 	{
-		$req = "SELECT * FROM frais WHERE matricule ='$idValeur' and annee = '$annee' and mois = '$mois'";
-		$res = PdoLBC::$monPdo->query($req);
-		$lesLignes = $res->fetch();
-		return $lesLignes;
+		$req = ('select * from frais WHERE matricule = :matricule');
+		$res->bindValue('matricule',$matricule, PDO::PARAM_STR);
+		$res->execute();
+		$Ligne = $res->fetch();
+		return $Ligne;
 	}
 
 
