@@ -123,11 +123,12 @@ class PdoLBC
 	}
 
 
-	public function getLesFrais($valeur)
+	public function getLesFrais($matricule)
 	{
-		$req = "SELECT * FROM frais WHERE matricule ='$idValeur' and annee = '$annee' and mois = '$mois'";
-		$res = PdoLBC::$monPdo->query($req);
-		$lesLignes = $res->fetch();
+		$req = ('select * from frais WHERE matricule = :matricule');
+		$res->bindValue('matricule',$matricule, PDO::PARAM_STR);
+		$res->execute();
+		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 	}
 

@@ -1,6 +1,5 @@
 <div id="salles">
 <?php
-	var_dump($lesNotes);
 foreach($lesNotes as $uneNote) 
 {
 	$matricule = $uneNote['matricule'];
@@ -16,7 +15,7 @@ foreach($lesNotes as $uneNote)
 			<li>statut<?php echo $statut ?></li>
 			<li>datefiche : <?php echo $datefiche ?></li>
 			<li>lienpdf : <?php echo $lienpdf ?></li>
-			<li><a href=index.php?uc=frais&ucf=detailNote=<?php echo $matricule, $annee, $mois ?>> 
+			<li><a href=index.php?uc=frais&ucf=detailNote=<?php echo $matricule, $annee, $mois ?>>
 			
 	</ul>
 			
