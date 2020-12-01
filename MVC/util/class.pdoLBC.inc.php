@@ -5,7 +5,7 @@ class PdoLBC
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=lbc';  		
       	private static $user='root';
-		  private static $mdp='';
+		private static $mdp='';
 		private static $monPdo;
 		private static $monPdoLBC = null;
 			
@@ -157,6 +157,8 @@ class PdoLBC
 		$res->bindValue('Amontant', $lienpdf, PDO::PARAM_STR);
 		$res->bindValue('Avalidefrais', $validefrais, PDO::PARAM_STR);
 		$res->execute();
+
+	}
 
 	public function getLesFraisForfaitaires($matricule, $annee, $mois)
 	{
