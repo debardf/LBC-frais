@@ -46,8 +46,8 @@
                 <td width=150><?php echo $montant ?></td>
                 <td width=150><?php echo ($montant*$qte) ?></td>
                 <td width=150><?php echo $vforfait ?></td>
-                <td width=30><a href=index.php?uc=frais&ucf=modifierForfait&action=modificationForfait&num=<?php echo $id ?>><img src="images/modifier.gif" title="Modif"></a></td>
-                <td width=30><a href=index.php?uc=frais&ucf=supprimerForfait&action=suppressionForfait&num=<?php echo $id ?>><img src="images/supp.png" title="Suppr"></a></td>
+                <td width=30><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&idforfait=<?php echo $id;?>><img src="images/modifier.gif" title="Modif"></a></td>
+                <td width=30><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&idforfait=<?php echo $id;?>><img src="images/supp.png" title="Suppr"></a></td>
             </tr>
             <?php
             }
@@ -80,8 +80,8 @@
                 <td width=150><?php echo $libelleFrais; ?></td>
                 <td width=150><?php echo $montantFrais; ?></td>
                 <td width=150><?php echo $vfrais; ?></td>
-                <td width=30><a href=index.php?uc=frais&ucf=modifierForfait&action=modificationForfait&num=<?php echo $id ?>><img src="images/modifier.gif" title="Modif"></a></td>
-                <td width=30><a href=index.php?uc=frais&ucf=supprimerForfait&action=suppressionForfait&num=<?php echo $id ?>><img src="images/supp.png" title="Suppr"></a></td>
+                <td width=30><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>><img src="images/modifier.gif" title="Modif"></a></td>
+                <td width=30><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>><img src="images/supp.png" title="Suppr"></a></td>
                 </tr>
 
                 <?php

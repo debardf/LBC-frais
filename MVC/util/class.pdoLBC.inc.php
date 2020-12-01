@@ -78,7 +78,44 @@ class PdoLBC
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
-	}		
+	}
+
+	//obtenir un forfait d'un visiteur
+
+	public function getLeForfait($id)
+	{
+		$req = "SELECT * FROM ajouteforfait inner join forfait on forfait.idforfait=ajouteforfait.idforfait WHERE ajouteforfait.idforfait='$id'";
+		$res = PdoLBC::$monPdo->query($req);
+		return $res;
+	}
+
+    //liste des années
+
+	public function getAnnee()
+	{
+		$req = 'select distinct annee from ajouteforfait';
+		$res = PdoLBC::$monPdo->query($req);
+		return $res;
+	}
+
+    //liste des mois
+
+	public function getMois()
+	{
+		$req = 'select distinct mois from ajouteforfait';
+		$res = PdoLBC::$monPdo->query($req);
+		return $res;
+	}
+
+    //liste des libellés
+
+	public function getLibelle()
+	{
+		$req = "SELECT idforfait, libelleforfait FROM forfait";
+		$res = PdoLBC::$monPdo->query($req);
+		$laLigne = $res->fetchAll();
+		return $laLigne;
+	}
 	
 	//obtenir la liste des autres frais du visiteur
 
