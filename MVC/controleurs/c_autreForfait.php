@@ -7,19 +7,11 @@
 	{
 		case 'creationAutreForfait':
 		{
-            $id = $_SESSION['typeprofil'];
-        	if($id == "V")
-        	{
-            $login = $_SESSION['valeur'];
-            $leMatricule = $pdo->getMatricule($login);
-            $recupannee = $pdo->getAnnee();
-            $recupmois = $pdo->getMois();
+
+            $matricule = $_REQUEST['matricule'];
+            $annee = $_REQUEST['annee'];
+            $mois = $_REQUEST['mois'];
 			include("vues/v_autreForfait.php");
-            }
-            else
-			{
-				include("vues/v_accueil.php");
-			}
             break;
             
 		}
