@@ -5,7 +5,7 @@ class PdoLBC
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=lbc';  		
       	private static $user='root';
-		  private static $mdp='root';
+		  private static $mdp='';
 		private static $monPdo;
 		private static $monPdoLBC = null;
 			
@@ -28,7 +28,8 @@ class PdoLBC
 	}
 
 	
-
+	//recupération du login et du mdp
+	
 	public function getInformationsConnexion($login,$mdp)
 	{
 		$req = "SELECT * FROM profil WHERE login='$login' and mdp ='$mdp' ";
@@ -36,18 +37,19 @@ class PdoLBC
 		$lesLignes = $res->fetch();
 		return $lesLignes;
 	}
-
-
-
+	
+	//récupérer les notes du visiteur
+	
 	public function getLesNotes($valeur)
 	{
 		$req = "SELECT * FROM fiche WHERE matricule ='$valeur' ";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
-
+		
 	}
-
+	
+	//récupérer toutes les notes pour le comptable
 	
 	public function getToutesLesNotes()
 	{
@@ -55,38 +57,42 @@ class PdoLBC
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
-
+		
 	}
-
+	
+	//récupération d'une note selon le matricule, l'année et le mois
+	
 	public function getLaNote($matricule, $mois, $annee)
 	{
 		$req = "SELECT * FROM fiche WHERE matricule ='$matricule' and annee = '$annee' and mois = '$mois' ";
 		$res = PdoLBC::$monPdo->query($req);
-		$lesLignes = $res->fetch();
+		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 	}
-
-	public function getLesForfaits($matricule)
+	
+	//obtenir la liste des forfaits du visiteur
+	
+	public function getLesForfaits($matricule, $annee, $mois)
 	{
-		$req = ('select * from forfais WHERE matricule = :matricule');
-		$res->bindValue('matricule',$matricule, PDO::PARAM_STR);
-		$res->execute();
-		$lesLignes = $res->fetch();
+		$req = "SELECT * FROM ajouteforfait inner join forfait on forfait.idforfait=ajouteforfait.idforfait WHERE matricule='$matricule' and annee='$annee' and mois='$mois'";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
 		return $lesLignes;
-}		
-	public function creerForfait($idforfait,$matricule,$annee, $mois, $quantite)
-	{
+	}		
+	
+	//obtenir la liste des autres frais du visiteur
 
-		$res = PdoTransNat::$monPdo->prepare('INSERT INTO ajouteforfait (idforfait, 
-			matricule, annee, mois, quantite, valideForfait) VALUES( :id,:matricule, :annee, :mois, :quantite, nuLL)');
-		$res->bindValue('idforfait',$id, PDO::PARAM_STR);
-		$res->bindValue('matricule',$matricule, PDO::PARAM_INT);
-		$res->bindValue('annee',$annee, PDO::PARAM_STR);
-		$res->bindValue('mois',$mois, PDO::PARAM_INT);
-		$res->bindValue('quantite',$quantite, PDO::PARAM_INT);
-		$res->execute();
+	public function getLesFrais($matricule, $annee, $mois)
+	{
+		$req = ("SELECT * from frais WHERE matricule = '$matricule' and annee= '$annee' and mois = '$mois'");
+		$res = PdoLBC::$monPdo->query($req);
+		$Ligne = $res->fetchAll();
+		return $Ligne;
 	}
 
+	
+	//associer le matricule au login(profil)
+	
 	public function getMatricule($login)
 	{
 		$req = "SELECT matricule FROM visiteur WHERE matricule = $login";
@@ -94,6 +100,9 @@ class PdoLBC
 		$lesLignes = $res->fetch();
 		return $lesLignes;
 	}
+	
+	
+	
 	public function getLaNoteByID($idValeur)
 	{
 		$req = "SELECT * FROM fiche WHERE matricule ='$valeur', mois=' $mois'";
@@ -101,6 +110,8 @@ class PdoLBC
 		$lesLignes = $res->fetch();
 		return $lesLignes;
 	}
+	
+	//création d'une note de frais
 
 	public function creerFrais($matricule,$annee,$mois,$statut,$datefiche,$lienpdf)
 	{
@@ -116,29 +127,22 @@ class PdoLBC
 		$res->execute();
 	}
 
-
-	public function getLesFrais($matricule)
+	//création d'un nouveau forfait
+	
+	public function creerForfait($idforfait,$matricule,$annee, $mois, $quantite)
 	{
-		$req = ('select * from frais WHERE matricule = :matricule');
-		$res->bindValue('matricule',$matricule, PDO::PARAM_STR);
+		
+		$res = PdoTransNat::$monPdo->prepare('INSERT INTO ajouteforfait (idforfait, 
+			matricule, annee, mois, quantite, valideForfait) VALUES( :id,:matricule, :annee, :mois, :quantite, nuLL)');
+		$res->bindValue('idforfait',$id, PDO::PARAM_STR);
+		$res->bindValue('matricule',$matricule, PDO::PARAM_INT);
+		$res->bindValue('annee',$annee, PDO::PARAM_STR);
+		$res->bindValue('mois',$mois, PDO::PARAM_INT);
+		$res->bindValue('quantite',$quantite, PDO::PARAM_INT);
 		$res->execute();
-		$Ligne = $res->fetch();
-		return $Ligne;
 	}
 
-	public function getAnnee()
-	{
-		$req = 'select distinct annee from fiche';
-		$res = PdoLBC::$monPdo->query($req);
-		return $res;
-	}
-
-	public function getMois()
-	{
-		$req = 'select distinct mois from fiche';
-		$res = PdoLBC::$monPdo->query($req);
-		return $res;
-	}
+	//création d'un autre forfait
 
 	public function creerAutreForfait($matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais)
 	{
