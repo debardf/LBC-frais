@@ -1,12 +1,5 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Autre forfait</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<link href="style.css" rel="stylesheet" type="text/css" /> 
-
-    </head>
-	
    <body>
    <p><h1>Création d'un autre forfait :</h1></p><BR/>
 	<form action="c_frais.php?ucf=autreForfait&action=confirmCreatAutreForfait" method="post">
