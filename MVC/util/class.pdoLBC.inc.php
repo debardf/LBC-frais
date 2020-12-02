@@ -94,7 +94,7 @@ class PdoLBC
 
 	public function getAnnee($matricule)
 	{
-		$req = "select distinct annee from ajouteforfait where matricule = '$matricule'";
+		$req = "select distinct annee from fiche where matricule = '$matricule'";
 		$res = PdoLBC::$monPdo->query($req);
 		return $res;
 	}
@@ -103,7 +103,7 @@ class PdoLBC
 
 	public function getMois($matricule)
 	{
-		$req = "select distinct mois from ajouteforfait where matricule = '$matricule'";
+		$req = "select distinct mois from fiche where matricule = '$matricule'";
 		$res = PdoLBC::$monPdo->query($req);
 		return $res;
 	}
