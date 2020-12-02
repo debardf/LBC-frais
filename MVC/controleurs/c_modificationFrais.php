@@ -7,7 +7,9 @@
 			$id = $_REQUEST['idforfait'];
 			$matricule = $_REQUEST['matricule'];
 			$qte = $_REQUEST['quantite'];
-            $leForfait = $pdo->getLeForfait($id);
+			$annee = $_REQUEST['annee'];
+			$mois = $_REQUEST['mois'];
+            $leForfait = $pdo->getLeForfait($matricule);
             $recuplibelle = $pdo->getLibelle();
             $recupannee = $pdo->getAnnee($matricule);
 			$recupmois = $pdo->getMois($matricule);
@@ -21,9 +23,11 @@
 			$annee = $_REQUEST['anneeM'];
 			$mois = $_REQUEST['moisM'];
 			$qte = $_REQUEST['quantite'];
+			var_dump($id,$matricule,$annee,$mois,$qte);
 			$pdo->modifFrais($id,$matricule,$annee,$mois,$qte);
 			
-			header('Location: v_detailNote.php');
+			
+			//header('Location: index.php?uc=frais&ucf=afficherNotes');
 			break;
 		}
 	}

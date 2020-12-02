@@ -3,16 +3,16 @@
 	
    <body>
    <p><h1>Modification Frais :</h1></p><BR/>
-	<form action="index.php?uc=modifierFrais&action=confirmModifFrais" method="post">
+	<form action="index.php?uc=frais&ucf=modifierFrais&action=confirmModifFrais" method="post">
    
 		<table>
 		<tbody>
-            <tr><td>Année : </td><td><select name="anneeM" size="1"value="">
+            <tr><td>Année : </td><td><select name="anneeM" size="1"value="<?php echo $annee ?>">
                                 <?php   
                                 $ligne = $recupannee->fetch();
 								while ($ligne)
 									{
-									if ($ligne["annee"] == 1) {
+									if ($ligne["annee"] == $annee) {
 									echo '<OPTION selected value = "' . $ligne["annee"] . '">' . $ligne["annee"] . '</OPTION>'; 
 									$ligne = $recupannee->fetch();
 									}
@@ -24,12 +24,12 @@
 								}
                                 ?>
                             </select></td></tr>
-            <tr><td>Mois : </td><td><select name="moisM" size="1"value="">
+            <tr><td>Mois : </td><td><select name="moisM" size="1"value="<?php echo $mois ?>">
                                 <?php
                                 $ligne = $recupmois->fetch();
 								while ($ligne)
 									{
-									if ($ligne["mois"] == 1) {
+									if ($ligne["mois"] == $mois) {
 									echo '<OPTION selected value = "' . $ligne["mois"] . '">' . $ligne["mois"] . '</OPTION>'; 
 									$ligne = $recupmois->fetch();
 									}

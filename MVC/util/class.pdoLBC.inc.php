@@ -82,9 +82,9 @@ class PdoLBC
 
 	//obtenir un forfait d'un visiteur
 
-	public function getLeForfait($id)
+	public function getLeForfait($matricule)
 	{
-		$req = "SELECT * FROM ajouteforfait inner join forfait on forfait.idforfait=ajouteforfait.idforfait WHERE ajouteforfait.idforfait='$id'";
+		$req = "SELECT * FROM ajouteforfait inner join forfait on forfait.idforfait=ajouteforfait.idforfait WHERE matricule ='$matricule'";
 		$res = PdoLBC::$monPdo->query($req);
 		$laLigne = $res->fetchAll();
 		return $laLigne;
@@ -196,6 +196,20 @@ class PdoLBC
 		$res->bindValue('Avalidefrais', $validefrais, PDO::PARAM_STR);
 		$res->execute();
 
+	}
+
+	//modification frais
+
+	public function modifFrais($id,$matricule,$annee,$mois,$qte)
+	{
+		$res = PdoLBC::$monPdo->prepare("UPDATE ajouteforfait
+		SET idforfait = :idforfait, matricule = :matricule, annee = :annee, mois = :mois, quantite =  :quantite WHERE idforfait = '$id'");
+		$res->bindValue('idforfait',$id, PDO::PARAM_INT);
+		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);   
+		$res->bindValue('annee', $annee, PDO::PARAM_INT);
+		$res->bindValue('mois', $mois, PDO::PARAM_INT);
+		$res->bindValue('quantite', $qte, PDO::PARAM_INT);
+		$res->execute();
 	}
 
 	public function getLesFraisForfaitaires($matricule, $annee, $mois)
