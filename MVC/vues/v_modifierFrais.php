@@ -1,20 +1,9 @@
 <!doctype html>
 <html>
-	<?php
-
-		$matriculeM = $leForfait['matricule'];
-		$anneeM = $leForfait['annee'];
-		$moisM = $leForfait['mois'];
-        $idM = $leForfait['idforfait'];
-        $montantM = $leForfait['montant'];
-        $qteM = $leForfait['quantite'];
-
-	?>
-	
 	
    <body>
    <p><h1>Modification Frais :</h1></p><BR/>
-	<form action="index.php?uc=modifierClient&action=confirmModifCLient" method="post">
+	<form action="index.php?uc=modifierFrais&action=confirmModifFrais" method="post">
    
 		<table>
 		<tbody>
@@ -52,7 +41,7 @@
 								}
                                 ?>
                             </select></td></tr>
-			<tr><td>Libellé :</td><td><select name="idforfait" size="1" value="<?php echo $idM ?>">
+			<tr><td>Libellé :</td><td><select name="idforfait" size="1" value="<?php echo $id ?>">
                                 <?php
                                 $ligne = $recuplibelle->fetch();
 								while ($ligne)
@@ -68,15 +57,12 @@
 									}
 								}
                                 ?>
-                            </select>
-                            </tr></td>
-			<tr><td>Montant : </td><td><input name="Montant" value="<?php echo $montantM ?>"size=5></td></tr>
-			<tr><td>Quantité : </td><td><input name="quantite" value="<?php echo $qteM ?>" size=20></td></tr>
-			<input type="hidden" name="matricule" value="<?php echo $matriculeM ;?>"/>
+                            </select></tr></td>
+			<tr><td>Quantité : </td><td><input name="quantite" value="<?php echo $qte ?>" size=20></td></tr>
+			<input type="hidden" name="matricule" value="<?php echo $matricule ;?>"/>
 		</tbody>
 		</table>
-		
-                <br/>
+        <br/>
 		<input type="submit" value="Valider">
 	</form>
  

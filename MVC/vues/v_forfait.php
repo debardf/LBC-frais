@@ -11,7 +11,6 @@
 			<input type="hidden" name="mois" value="<?php echo $mois;?>">
 			<tr><td>libellé : </td><td><input name="id" size=30></td></tr>
 			<tr><td>Quantité : </td><td><input name="quantite" size=10></td></tr>
-			<tr><td>Montant : </td><td><input name="montant" size=10></td></tr>
 			<input type = "hidden" name="valideForfait" value=0>
 		</tbody>
 		</table>

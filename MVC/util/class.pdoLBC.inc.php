@@ -86,23 +86,24 @@ class PdoLBC
 	{
 		$req = "SELECT * FROM ajouteforfait inner join forfait on forfait.idforfait=ajouteforfait.idforfait WHERE ajouteforfait.idforfait='$id'";
 		$res = PdoLBC::$monPdo->query($req);
-		return $res;
+		$laLigne = $res->fetchAll();
+		return $laLigne;
 	}
 
     //liste des années
 
-	public function getAnnee()
+	public function getAnnee($matricule)
 	{
-		$req = 'select distinct annee from ajouteforfait';
+		$req = "select distinct annee from ajouteforfait where matricule = '$matricule'";
 		$res = PdoLBC::$monPdo->query($req);
 		return $res;
 	}
 
     //liste des mois
 
-	public function getMois()
+	public function getMois($matricule)
 	{
-		$req = 'select distinct mois from ajouteforfait';
+		$req = "select distinct mois from ajouteforfait where matricule = '$matricule'";
 		$res = PdoLBC::$monPdo->query($req);
 		return $res;
 	}
@@ -111,10 +112,9 @@ class PdoLBC
 
 	public function getLibelle()
 	{
-		$req = "SELECT idforfait, libelleforfait FROM forfait";
+		$req = "SELECT * FROM forfait";
 		$res = PdoLBC::$monPdo->query($req);
-		$laLigne = $res->fetchAll();
-		return $laLigne;
+		return $res;
 	}
 	
 	//obtenir la liste des autres frais du visiteur

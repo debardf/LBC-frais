@@ -4,31 +4,26 @@
 	{
 		case 'modifFrais':
 		{
-            $id = $_REQUEST['idforfait'];
+			$id = $_REQUEST['idforfait'];
+			$matricule = $_REQUEST['matricule'];
+			$qte = $_REQUEST['quantite'];
             $leForfait = $pdo->getLeForfait($id);
             $recuplibelle = $pdo->getLibelle();
-            $recupannee = $pdo->getAnnee();
-            $recupmois = $pdo->getMois();
+            $recupannee = $pdo->getAnnee($matricule);
+			$recupmois = $pdo->getMois($matricule);
 			include("vues/v_modifierFrais.php");
 			break;
 		}
-		case 'confirmModifCLient':
+		case 'confirmModifFrais':
 		{
-			$numE = $_REQUEST['NumC'];
-			$nomE = $_REQUEST['NomC'];
-			$prenomE = $_REQUEST['PrenomC'];
-			$adresseE = $_REQUEST['AdresseC'];
-			$codepostalE = $_REQUEST['CodepostalC'];
-			$villeE = $_REQUEST['VilleC'];
-			$regionE = $_REQUEST['regionC'];
-			$pdo->modifClient($numE,$nomE,$prenomE,$adresseE,$codepostalE,$villeE,$regionE);
+			$id = $_REQUEST['idforfait'];
+			$matricule = $_REQUEST['matricule'];
+			$annee = $_REQUEST['anneeM'];
+			$mois = $_REQUEST['moisM'];
+			$qte = $_REQUEST['quantite'];
+			$pdo->modifFrais($id,$matricule,$annee,$mois,$qte);
 			
-			//soit ce code :
-			$lesClients = $pdo->getLesClients();
-			include("vues/v_clients.php");
-			
-			// ou ce code : (attention pas d'espace avant location)
-			//header('Location: index.php');
+			header('Location: v_detailNote.php');
 			break;
 		}
 	}
