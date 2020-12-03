@@ -124,6 +124,13 @@ class PdoLBC
 		$res = PdoLBC::$monPdo->query($req);
 		return $res;
 	}
+
+	public function getUnLibelle()
+	{
+		$req = "SELECT libelle from forfait where idforfait = '$id'";
+		$res = PdoLBC::$monPdo->query($req);
+		return $res;
+	}
 	
 	//obtenir la liste des autres frais du visiteur
 
@@ -154,6 +161,16 @@ class PdoLBC
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
+	}
+
+
+	public function getLesFraisForfaitaires($matricule, $annee, $mois)
+	{
+	$req = ( "SELECT libelleforfait, quantite, montant FROM ajouteforfait INNER JOIN forfait ON ajouteForfait.idforfait = forfait.idforfait WHERE matricule = '$matricule' AND annee = '$annee' AND mois = '$mois' " );
+	$res = PdoLBC::$monPdo->query($req);
+	$lesLignes = $res->fetchAll();	
+	return $lesLignes;
+
 	}
 	
 	//création d'une note de frais
@@ -233,6 +250,16 @@ class PdoLBC
 		$res->bindValue('mois', $moisO, PDO::PARAM_INT);
 
 		$res->execute();
+	}
+
+	public function supprFrais($matricule, $annee, $mois, $id)
+	{
+        $res = PdoTransNat::$monPdo->prepare("DELETE FROM ajouteforfait WHERE matricule = :matricule AND annee = :annee AND mois = :mois AND idforfait = :id ");
+        $res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+        $res->bindValue('annee', $annee, PDO::PARAM_STR);
+        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+        $res->bindValue('id', $id, PDO::PARAM_INT);
+        $res->execute();
 	}
 
 }
