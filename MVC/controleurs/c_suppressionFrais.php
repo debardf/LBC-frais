@@ -17,7 +17,12 @@
 		}
 		case 'confirmSupprFrais':
 		{
-			
+			$matricule = $_REQUEST['matricule'];
+			$annee = $_REQUEST['annee'];
+			$matricule = $_REQUEST['matricule'];
+			$mois = $_REQUEST['mois'];
+			$id = $_REQUEST['id'];
+			$pdo->modifFrais($matricule,$annee,$mois,$id);
 		}
 	}
 ?>
