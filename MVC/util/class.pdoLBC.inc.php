@@ -255,7 +255,7 @@ class PdoLBC
 
 	public function supprFrais($matricule, $annee, $mois, $id)
 	{
-        $res = PdoTransNat::$monPdo->prepare("DELETE FROM ajouteforfait WHERE matricule = :matricule AND annee = :annee AND mois = :mois AND idforfait = :id ");
+        $res = PdoLBC::$monPdo->prepare("DELETE FROM ajouteforfait WHERE matricule = :matricule AND annee = :annee AND mois = :mois AND idforfait = :id ");
         $res->bindValue('matricule', $matricule, PDO::PARAM_INT);
         $res->bindValue('annee', $annee, PDO::PARAM_STR);
         $res->bindValue('mois', $mois, PDO::PARAM_STR);
