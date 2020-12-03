@@ -11,15 +11,15 @@
         $annee= $_REQUEST['annee'];
         $mois= $_REQUEST['mois'];
 
-        /**
-        *if(empty($LesForfaits))
-        *{
-        *    echo "Il n'existe pas de forfait ";
-        *    
-        *} 
-        *else
-        *{
-        */
+    
+        if($cumulForfait==0)
+        {
+            echo "Il n'existe pas de forfaits ";
+            
+        } 
+        else
+        {
+    
         ?>
         </br>
             <table border=3 cellspacing=1>
@@ -61,14 +61,25 @@
             ?>
         </table>
         <?php
-        /*
+        
         }
-        */
+        
         ?>
         </br>
             <h3>Autre Frais</h3>
         </br>
-
+        <?php
+        
+        if($cumulFrais==0)
+        {
+            echo "Il n'existe pas d'autres forfaits ";
+            ?>
+            </br>
+            <?php
+        } 
+        else
+        {
+        ?>
         <table border=3 cellspacing="1">
             <tr>
             <td>Date</td>
@@ -100,6 +111,9 @@
                 }
                 ?>
         </table>
+        <?php
+        }
+        ?>
         </br>
         </br>
         <a href="index.php?uc=frais&ucf=forfait&action=creationForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">Ajouter un forfait</a>

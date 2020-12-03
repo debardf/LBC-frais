@@ -39,7 +39,7 @@
 		if($id == "C")
 	{
 		?>	
-		<td width=150><?php echo $matricule ?></td>
+		<td><?php echo $matricule ?></td>
 		<?php
 	}
 	?>	

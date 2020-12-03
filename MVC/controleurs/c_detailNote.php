@@ -13,6 +13,8 @@
             $laNote = $pdo->getLaNote($matricule, $annee, $mois);
             $lesForfaits = $pdo->getLesForfaits($matricule, $annee, $mois);
             $lesFrais = $pdo->getLesFrais($matricule, $annee, $mois);
+            $cumulForfait = count($lesForfaits);
+            $cumulFrais = count($lesFrais);
 			include("vues/v_detailNote.php");
             break;
 
