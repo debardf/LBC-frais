@@ -1,45 +1,52 @@
-
 <!doctype html>
 <html>
 
-<head>
-	<title>Détail note</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="design.css" />
-        
-</head>
 <body>
     <form>
         <p><H1>Détail de la note :</H1>
         <h3>Frais Forfaitaires</h3>
-        </br>
-        <table border=3 cellspacing=1>
-            <tr>
-            <td>Frais Forfaitaires</td>
-            <td>Quantité </td>  
-            <td>Montant Unitaire</td>
-            <td>Total</td>
-            <td>validé ?</td>
-            <td></td>
-            <td></td>
-            </tr>
-
-
-<?php
+        <?php
 
         $matricule= $_REQUEST['matricule'];
         $annee= $_REQUEST['annee'];
         $mois= $_REQUEST['mois'];
 
-        foreach($lesForfaits as $leForfait)
-		{
-        $id = $leForfait['idforfait'];
-        $libelle = $leForfait['libelleforfait'];
-        $qte = $leForfait['quantite'];
-        $montant = $leForfait['montant'];
-        $vforfait = $leForfait['valideForfait'];
+        /**
+        *if(empty($LesForfaits))
+        *{
+        *    echo "Il n'existe pas de forfait ";
+        *    
+        *} 
+        *else
+        *{
+        */
+        ?>
+        </br>
+            <table border=3 cellspacing=1>
+                <tr>
+                    <td>Frais Forfaitaires</td>
+                    <td>Quantité </td>  
+                    <td>Montant Unitaire</td>
+                    <td>Total</td>
+                    <td>validé ?</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+        <?php
+
+            foreach($lesForfaits as $leForfait)
+            {
+            $id = $leForfait['idforfait'];
+            $libelle = $leForfait['libelleforfait'];
+            $qte = $leForfait['quantite'];
+            $montant = $leForfait['montant'];
+            $vforfait = $leForfait['valideForfait'];
             
         ?>
+
+
+
             <tr>
                 <td width=150><?php echo $libelle ?></td>
                 <td width=150><?php echo $qte ?></td>
@@ -53,6 +60,11 @@
             }
             ?>
         </table>
+        <?php
+        /*
+        }
+        */
+        ?>
         </br>
             <h3>Autre Frais</h3>
         </br>
