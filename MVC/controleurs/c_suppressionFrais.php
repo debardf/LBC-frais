@@ -2,21 +2,19 @@
 	$action=$_REQUEST['action'];
 	switch($action)
 	{
-		case 'SupprFrais':
+		case 'supprFrais':
 		{
 			$id = $_REQUEST['idforfait'];
-			$id = $_REQUEST['idforfait'];
+			var_dump($id);
 			$matricule = $_REQUEST['matricule'];
 			$annee = $_REQUEST['annee'];
 			$mois = $_REQUEST['mois'];
 			$qte = $_REQUEST['quantite'];
             $libelle = $pdo->getUnLibelle($id);
-            $recupannee = $pdo->getAnnee($matricule);
-			$recupmois = $pdo->getMois($matricule);
 			include("vues/v_supprimerFrais.php");
 			break;
 		}
-		case 'confirmModifFrais':
+		case 'confirmSupprFrais':
 		{
 			$id = $_REQUEST['id'];
 			$annee = $_REQUEST['anneeM'];
@@ -28,5 +26,8 @@
 			$moisO = $_REQUEST['mois'];
 			var_dump($matricule,$idO,$anneeO,$moisO);
 			$pdo->modifFrais($matricule,$idO,$anneeO,$moisO,$id,$annee,$mois,$qte);
+		}
+	}
+?>
 			
 		

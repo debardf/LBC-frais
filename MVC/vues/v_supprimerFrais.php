@@ -19,7 +19,8 @@
 
         <table>
         <tbody>
-            <tr><td>Id du forfait</td><td><input Type="hidden" name="idForfait" value="<?php echo $idForfait ?>" size=20 readonly></td></tr>
+            <input Type="hidden" name="idForfait" value="<?php echo $idForfait ?>">
+            <input Type="hidden" name="idForfait" value="<?php echo $idForfait ?>">
             <tr><td>libelleForfait </td><td><input name="libelleForfait" value="<?php echo $libelleForfait ?>" size=20 readonly></td></tr>
             <tr><td>Année</td><td><input name="annee" value="<?php echo $annee ?>" size=50 readonly></td></tr>
             <tr><td>qte</td><td><input name="mois" value="<?php echo $mois ?>"size=5 readonly></td></tr>
