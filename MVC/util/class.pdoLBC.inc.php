@@ -11,8 +11,16 @@ class PdoLBC
 			
 	private function __construct()
 	{
+    
+		if ($_SERVER['SERVER_NAME'] == 'localhost'){
     		PdoLBC::$monPdo = new PDO(PdoLBC::$serveur.';'.PdoLBC::$bdd, PdoLBC::$user, PdoLBC::$mdp); 
 			PdoLBC::$monPdo->query("SET CHARACTER SET utf8");
+		}else{
+			PdoLBC::$monPdo = new PDO('mysql:host=db718502955.db.1and1.com;dbname=db718502955','dbo718502955','BMw1234*'); 
+			PdoLBC::$monPdo->query("SET CHARACTER SET utf8");
+		}
+			
+
 	}
 	public function _destruct(){
 		PdoLBC::$monPdo = null;
@@ -195,6 +203,7 @@ class PdoLBC
 		$res->bindValue('Amontant', $lienpdf, PDO::PARAM_STR);
 		$res->bindValue('Avalidefrais', $validefrais, PDO::PARAM_STR);
 		$res->execute();
+
 
 	}
 
