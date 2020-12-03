@@ -207,8 +207,6 @@ class PdoLBC
 
 	}
 
-
-
 	//modification frais
 
 	public function modifFrais($matricule, $idO,$anneeO,$moisO, $id,$annee,$mois,$qte)

@@ -31,7 +31,7 @@
 			var_dump($matricule,$idO,$anneeO,$moisO);
 			$pdo->modifFrais($matricule,$idO,$anneeO,$moisO,$id,$annee,$mois,$qte);
 			
-			//header('Location: index.php?uc=frais&ucf=afficherNotes');
+			header('Location: index.php?uc=frais&ucf=afficherNotes');
 			break;
 		}
 	}
