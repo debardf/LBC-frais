@@ -162,6 +162,16 @@ class PdoLBC
 		$lesLignes = $res->fetch();
 		return $lesLignes;
 	}
+
+
+	public function getLesFraisForfaitaires($matricule, $annee, $mois)
+	{
+	$req = ( "SELECT libelleforfait, quantite, montant FROM ajouteforfait INNER JOIN forfait ON ajouteForfait.idforfait = forfait.idforfait WHERE matricule = '$matricule' AND annee = '$annee' AND mois = '$mois' " );
+	$res = PdoLBC::$monPdo->query($req);
+	$lesLignes = $res->fetchAll();	
+	return $lesLignes;
+
+	}
 	
 	//création d'une note de frais
 
@@ -232,13 +242,9 @@ class PdoLBC
 		$res->execute();
 	}
 
-	public function getLesFraisForfaitaires($matricule, $annee, $mois)
+	public function supprFrais($matricule, $annee, $mois, $id)
 	{
-	$req = ( "SELECT libelleforfait, quantite, montant FROM ajouteforfait INNER JOIN forfait ON ajouteForfait.idforfait = forfait.idforfait WHERE matricule = '$matricule' AND annee = '$annee' AND mois = '$mois' " );
-	$res = PdoLBC::$monPdo->query($req);
-	$lesLignes = $res->fetchAll();	
-	return $lesLignes;
-
+		
 	}
 
 }
