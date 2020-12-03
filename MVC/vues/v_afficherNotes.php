@@ -8,17 +8,17 @@
 		if($id == "C")
 	{
 		?>	
-		<th>matricule</th>
+		<th width=150>matricule</th>
 		<?php
 	}
 	?>	
 			
-			<th>annee</th>
-			<th>mois</th>
-			<th>statut</th>
-			<th>datefiche</th>
-			<th>lienpdf</th>
-			<th></th>
+			<th width=150>annee</th>
+			<th width=150>mois</th>
+			<th width=150>statut</th>
+			<th width=150>datefiche</th>
+			<th width=150>lienpdf</th>
+			<th width=150></th>
 
 	</tr>
 	<?php
@@ -39,7 +39,7 @@
 		if($id == "C")
 	{
 		?>	
-		<td><?php echo $matricule ?></td>
+		<td width=150><?php echo $matricule ?></td>
 		<?php
 	}
 	?>	
@@ -48,14 +48,13 @@
 				<td><?php echo $statut ?></td>
 				<td><?php echo $datefiche ?></td>
 				<td><?php echo $lienpdf ?></td>
-				<td><a href=index.php?uc=frais&ucf=detailNote&matricule=<?php echo $matricule;?>&annne=<?php echo $annee;?>&mois=<?php echo $mois;?>>détail de la note</a></td>
+				<td><a href="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">détail de la note</a></td>
+
 		</tr>	
 		<?php
 		}
-		
-		
-
-
-?>	
-</table>
+		?>
+	</table>
+	<p><b>NV = non validé</b></p>
+	<p><b>V = validé</b></p>
 </div>

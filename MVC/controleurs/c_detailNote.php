@@ -1,60 +1,24 @@
 <?php
 
-
-
-if (!isset($_REQUEST['action']))
-{
-    $action = 'detaillerNotes';
-}
-else 
-{
+    if(!isset($_REQUEST['action']))
+    $action = 'detNote';
+    else
     $action = $_REQUEST['action'];
-}
-switch($action)
-{
-	case 'detaillerNotes' :
-	{
-
-        $id = $_SESSION['typeprofil'];
-        if($id == "V")
+    switch($action)
+    {
+        case 'detNote':
         {
-            $login = $_SESSION['valeur'];
-            $matricules= $pdo->getmatricule($login);
-            $matricule = $matricules['matricule'];
-            $lesNotes = $pdo->getLesFrais($matricule); 
-            
-            include("vues/v_afficherNotes.php");
-        }
-        if($id == "C")
-        {
-            
-            $lesNotes = $pdo->getTouteslesNotes($matricule);
-            include("vues/v_detailNote.php");
-        }
-        
-        /*
-        $matricule = $pdo->getMatricule($login);
-        $lesNotes = getlesNotes($matricule);
-        */
-  		
-		break;
-    }
-    
-    case 'detailNotes' :
-        {
-            include("vues/v_afficherNotes.php");
-            
-            {
-    
-            }
-              
+            $matricule = $_REQUEST['matricule'];
+            $annee = $_REQUEST['annee'];
+            $mois = $_REQUEST['mois'];
+            $laNote = $pdo->getLaNote($matricule, $annee, $mois);
+            $lesForfaits = $pdo->getLesForfaits($matricule, $annee, $mois);
+            $lesFrais = $pdo->getLesFrais($matricule, $annee, $mois);
+			include("vues/v_detailNote.php");
             break;
+
         }
 
-	case 'creerNote' :
-	{
+    }
+?>
 
-	}
-
-
-}

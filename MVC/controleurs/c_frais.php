@@ -1,6 +1,6 @@
  <?php
 if(!isset($_REQUEST['ucf']))
-     $ucf = 'afficherNote';
+     $ucf = 'afficherNotes';
 else
 	$ucf = $_REQUEST['ucf'];
 
