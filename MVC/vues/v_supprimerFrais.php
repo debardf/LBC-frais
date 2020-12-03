@@ -19,11 +19,10 @@
 
         <table>
         <tbody>
-        <tr><td>Id du forfait</td><td><input name="idForfait" Type ="hidden" value="<?php echo $idForfait ?>" size=20 readonly></td></tr>
+            <tr><td>Id du forfait</td><td><input Type="hidden" name="idForfait" value="<?php echo $idForfait ?>" size=20 readonly></td></tr>
             <tr><td>libelleForfait </td><td><input name="libelleForfait" value="<?php echo $libelleForfait ?>" size=20 readonly></td></tr>
             <tr><td>Année</td><td><input name="annee" value="<?php echo $annee ?>" size=50 readonly></td></tr>
             <tr><td>qte</td><td><input name="mois" value="<?php echo $mois ?>"size=5 readonly></td></tr>
-            <input type="hidden" name="numC" value="<?php echo $numS ;?>"/>
         </tbody>
         </table>
         <br/>

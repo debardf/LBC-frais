@@ -5,11 +5,11 @@
 		case 'SupprFrais':
 		{
 			$id = $_REQUEST['idforfait'];
+			$id = $_REQUEST['idforfait'];
 			$matricule = $_REQUEST['matricule'];
-			$qte = $_REQUEST['quantite'];
 			$annee = $_REQUEST['annee'];
 			$mois = $_REQUEST['mois'];
-			$idO = $_REQUEST['idforfait'];
+			$qte = $_REQUEST['quantite'];
             $libelle = $pdo->getUnLibelle($id);
             $recupannee = $pdo->getAnnee($matricule);
 			$recupmois = $pdo->getMois($matricule);
