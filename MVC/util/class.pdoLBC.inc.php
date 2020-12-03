@@ -194,16 +194,18 @@ class PdoLBC
 	public function creerForfait($matricule,$annee, $mois, $idforfait, $quantite, $valideForfait)
 	{
 		
-		$res = PdoTransNat::$monPdo->prepare('INSERT INTO ajouteforfait (matricule, annee, mois, idforfait, quantite, valideForfait)
+		$res = PdoLBC::$monPdo->prepare('INSERT INTO ajouteforfait (matricule, annee, mois, idforfait, quantite, valideForfait)
 				VALUES(:matricule, :annee, :mois, :id, :quantite, :valideForfait)');
 		$res->bindValue('matricule',$matricule, PDO::PARAM_INT);
 		$res->bindValue('annee',$annee, PDO::PARAM_STR);
 		$res->bindValue('mois',$mois, PDO::PARAM_INT);
-		$res->bindValue('id',$id, PDO::PARAM_STR);
+		$res->bindValue('id',$idforfait, PDO::PARAM_STR);
 		$res->bindValue('quantite',$quantite, PDO::PARAM_INT);
 		$res->bindValue('valideForfait',$valideForfait, PDO::PARAM_INT);
 		$res->execute();
 	}
+
+	
 
 	//création d'un autre forfait
 
@@ -213,14 +215,13 @@ class PdoLBC
 		annee, mois, datefrais, libelle, montant, validefrais) VALUES( :Amatricule, 
 		:Aannee, :Amois, :Adate, :Alibelle, :Amontant, :Avalidefrais)');
 		$res->bindValue('Amatricule',$matricule, PDO::PARAM_INT);
-		$res->bindValue('Aannee', $annee, PDO::PARAM_STR);
+		$res->bindValue('Aannee', $annee, PDO::PARAM_INT);
 		$res->bindValue('Amois', $mois, PDO::PARAM_INT);
-		$res->bindValue('Adate', $statut, PDO::PARAM_STR);
-		$res->bindValue('Alibelle', $datefiche, PDO::PARAM_STR);
-		$res->bindValue('Amontant', $lienpdf, PDO::PARAM_STR);
+		$res->bindValue('Adate', $datefrais, PDO::PARAM_STR);
+		$res->bindValue('Alibelle', $libelle, PDO::PARAM_STR);
+		$res->bindValue('Amontant', $montant, PDO::PARAM_STR);
 		$res->bindValue('Avalidefrais', $validefrais, PDO::PARAM_STR);
 		$res->execute();
-
 
 	}
 
