@@ -6,11 +6,6 @@
 
     </head>
 
-    <?php
-
-
-
-    ?>
 
 
    <body>
@@ -19,15 +14,15 @@
 
         <table>
         <tbody>
-            <input Type="hidden" name="idForfait" value="<?php echo $idForfait ?>">
-            <input Type="hidden" name="idForfait" value="<?php echo $idForfait ?>">
-            <tr><td>libelleForfait </td><td><input name="libelleForfait" value="<?php echo $libelleForfait ?>" size=20 readonly></td></tr>
-            <tr><td>Année</td><td><input name="annee" value="<?php echo $annee ?>" size=50 readonly></td></tr>
-            <tr><td>qte</td><td><input name="mois" value="<?php echo $mois ?>"size=5 readonly></td></tr>
+            <input Type="hidden" name="idForfait" value="<?php echo $id ?>">
+            <input Type="hidden" name="matricule" value="<?php echo $matricule ?>">
+            <tr><td>libelle du Forfait </td><td><input name="libelleForfait" value="<?php echo $libelle?>" size=20 readonly></td></tr>
+            <tr><td>Année</td><td><input name="annee" value="<?php echo $annee ?>" size=5 readonly></td></tr>
+            <tr><td>quantitée</td><td><input name="mois" value="<?php echo $mois ?>"size=5 readonly></td></tr>
         </tbody>
         </table>
         <br/>
-        <input type="submit" value="Valider">
+        <input type="submit" value="supprimer le forfait">
     </form>
  
 
