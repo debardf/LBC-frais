@@ -2,7 +2,7 @@
 <html>
    <body>
    <p><h1>Création d'un autre forfait :</h1></p><BR/>
-	<form action="c_frais.php?ucf=autreForfait&action=confirmCreatAutreForfait" method="post">
+	<form action="index.php?uc=frais&ucf=autreForfait&action=confirmCreatAutreForfait" method="post">
    
 		<table>
 		<tbody>
@@ -12,6 +12,7 @@
 			<tr><td>libelle : </td><td><input name="Alibelle" size=20></td></tr>	
             <tr><td>Date : </td><td><input name="Adate" size=20></td><td>(format = yyyy-mm-dd )</td></tr>
 			<tr><td>montant : </td><td><input name="Amontant" size=10></td></tr>
+			<input type = "hidden" name="Avalide" value=0>
             
 		</tbody>
 		</table>

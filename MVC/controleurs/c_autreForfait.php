@@ -24,9 +24,12 @@
             $libelle = $_REQUEST['Alibelle'];
             $montant = $_REQUEST['Amontant'];
             $validefrais = $_REQUEST['Avalide'];
-			$pdo->creerAutreForfait($matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais);
+            $id = $pdo->cumulId();
+            $id = max($id);
+            $id++;
+			$pdo->creerAutreForfait($id, $matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais);
 			
-			header('Location: v_detailNote.php');	
+			header('Location: index.php?uc=frais&ucf=afficherNotes');	
 			
 		}
 	}

@@ -188,15 +188,24 @@ class PdoLBC
 		$res->execute();
 	}
 
-	
+	//count du nombre de ligne dans frais pour récupérer la valeur de l'id
+
+	public function cumulId()
+	{
+		$req = "SELECT count(*) FROM frais";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
+	}
 
 	//création d'un autre forfait
 
-	public function creerAutreForfait($matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais)
+	public function creerAutreForfait($idfrais, $matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais)
 	{
-		$res = PdoLBC::$monPdo->prepare('INSERT INTO frais (matricule, 
-		annee, mois, datefrais, libelle, montant, validefrais) VALUES( :Amatricule, 
+		$res = PdoLBC::$monPdo->prepare('INSERT INTO frais (idfrais, matricule, 
+		annee, mois, datefrais, libelle, montant, validefrais) VALUES( :Aid, :Amatricule, 
 		:Aannee, :Amois, :Adate, :Alibelle, :Amontant, :Avalidefrais)');
+		$res->bindValue('Aid',$idfrais, PDO::PARAM_INT);
 		$res->bindValue('Amatricule',$matricule, PDO::PARAM_INT);
 		$res->bindValue('Aannee', $annee, PDO::PARAM_INT);
 		$res->bindValue('Amois', $mois, PDO::PARAM_INT);
@@ -224,15 +233,6 @@ class PdoLBC
 		$res->bindValue('mois', $moisO, PDO::PARAM_INT);
 
 		$res->execute();
-	}
-
-	public function getLesFraisForfaitaires($matricule, $annee, $mois)
-	{
-	$req = ( "SELECT libelleforfait, quantite, montant FROM ajouteforfait INNER JOIN forfait ON ajouteForfait.idforfait = forfait.idforfait WHERE matricule = '$matricule' AND annee = '$annee' AND mois = '$mois' " );
-	$res = PdoLBC::$monPdo->query($req);
-	$lesLignes = $res->fetchAll();	
-	return $lesLignes;
-
 	}
 
 }
