@@ -3,14 +3,13 @@
     <head>
         <title>Suppresion d'un forfait</title>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-
     </head>
 
 
 
    <body>
-   <p><h1>Supprimer le client :</h1></p><BR/>
-    <form action="index.php?uc=supprimerClient&action=confirmsupprCLient" method="post">
+   <p><h1>Supprimer le forfait :</h1></p><BR/>
+    <form action="index.php?uc=confirmSupprFrais&action=confirmFraisCLient&id<?php echo $id;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>" method="post">
 
         <table>
         <tbody>
