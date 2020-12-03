@@ -30,7 +30,9 @@ switch($ucf)
     case 'supprimerFrais' :
         { include("controleurs/c_suppressionFrais.php");break;}
 	case 'detailNote' :
-        { include("controleurs/c_detailNote.php");break;}
+		{ include("controleurs/c_detailNote.php");break;}
+	case 'modifierAutreForfait' :
+		{ include("controleurs/c_modificationAutreForfait.php");break;}
 }
 include("vues/v_pied.php");
 ?>

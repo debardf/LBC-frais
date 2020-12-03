@@ -67,7 +67,6 @@
         ?>
         </br>
             <h3>Autre Frais</h3>
-        </br>
         <?php
         
         if($cumulFrais==0)
@@ -80,6 +79,7 @@
         else
         {
         ?>
+        </br>
         <table border=3 cellspacing="1">
             <tr>
             <td>Date</td>
@@ -93,17 +93,18 @@
             <?php 
             foreach($lesFrais as $leFrais)
             {
-                $dateFrais = $leFrais['datefrais'];
+                $idfrais = $leFrais['idfrais'];
+                $datefrais = $leFrais['datefrais'];
                 $libelleFrais = $leFrais['libelle'];
                 $montantFrais = $leFrais['montant'];
                 $vfrais = $leFrais['validefrais'];
             ?>
                 <tr>
-                <td width=150><?php echo $dateFrais; ?></td>
+                <td width=150><?php echo $datefrais; ?></td>
                 <td width=150><?php echo $libelleFrais; ?></td>
                 <td width=150><?php echo $montantFrais; ?></td>
                 <td width=150><?php echo $vfrais; ?></td>
-                <td width=30><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>><img src="images/modifier.gif" title="Modif"></a></td>
+                <td width=30><a href=index.php?uc=frais&ucf=modifierAutreForfait&action=modifAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idfrais=<?php echo $idfrais;?>&montant=<?php echo $montantFrais?>&libelle=<?php echo $libelleFrais?>&datefrais=<?php echo $datefrais?>><img src="images/modifier.gif" title="Modif"></a></td>
                 <td width=30><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>><img src="images/supp.png" title="Suppr"></a></td>
                 </tr>
 
