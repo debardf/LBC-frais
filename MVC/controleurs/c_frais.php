@@ -28,7 +28,9 @@ switch($ucf)
     case 'modifierFrais' :
         { include("controleurs/c_modificationFrais.php");break;}
     case 'supprimerFrais' :
-        { include("controleurs/c_suppressionFrais.php");break;}
+		{ include("controleurs/c_suppressionFrais.php");break;}
+	case 'supprimerForfait' :
+		{ include("controleurs/c_suppressionForfait.php");break;}
 	case 'detailNote' :
         { include("controleurs/c_detailNote.php");break;}
 }

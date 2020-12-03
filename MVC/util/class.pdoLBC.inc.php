@@ -173,6 +173,7 @@ class PdoLBC
 	return $lesLignes;
 
 	}
+
 	
 	//création d'une note de frais
 
