@@ -124,6 +124,13 @@ class PdoLBC
 		$res = PdoLBC::$monPdo->query($req);
 		return $res;
 	}
+
+	public function getUnLibelle()
+	{
+		$req = "SELECT libelle from forfait where idforfait = '$id'";
+		$res = PdoLBC::$monPdo->query($req);
+		return $res;
+	}
 	
 	//obtenir la liste des autres frais du visiteur
 
