@@ -9,7 +9,9 @@
 			$qte = $_REQUEST['quantite'];
 			$annee = $_REQUEST['annee'];
 			$mois = $_REQUEST['mois'];
-            $leForfait = $pdo->getLeForfait($matricule);
+			$idO = $_REQUEST['idforfait'];
+			$anneeO = $_REQUEST['annee'];
+			$moisO = $_REQUEST['mois'];
             $recuplibelle = $pdo->getLibelle();
             $recupannee = $pdo->getAnnee($matricule);
 			$recupmois = $pdo->getMois($matricule);
@@ -18,14 +20,16 @@
 		}
 		case 'confirmModifFrais':
 		{
-			$id = $_REQUEST['idforfait'];
-			$matricule = $_REQUEST['matricule'];
+			$id = $_REQUEST['id'];
 			$annee = $_REQUEST['anneeM'];
 			$mois = $_REQUEST['moisM'];
 			$qte = $_REQUEST['quantite'];
-			var_dump($id,$matricule,$annee,$mois,$qte);
-			$pdo->modifFrais($id,$matricule,$annee,$mois,$qte);
-			
+			$matricule = $_REQUEST['matricule'];
+			$idO = $_REQUEST['idforfait'];
+			$anneeO = $_REQUEST['annee'];
+			$moisO = $_REQUEST['mois'];
+			var_dump($matricule,$idO,$anneeO,$moisO);
+			$pdo->modifFrais($matricule,$idO,$anneeO,$moisO,$id,$annee,$mois,$qte);
 			
 			//header('Location: index.php?uc=frais&ucf=afficherNotes');
 			break;

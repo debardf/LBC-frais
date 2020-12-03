@@ -3,9 +3,9 @@
 	
    <body>
    <p><h1>Modification Frais :</h1></p><BR/>
-	<form action="index.php?uc=frais&ucf=modifierFrais&action=confirmModifFrais" method="post">
-   
-		<table>
+	<form action="index.php?uc=frais&ucf=modifierFrais&action=confirmModifFrais&idforfait=<?php echo $idO;?>&matricule=<?php echo $matricule?>&annee=<?php echo $anneeO?>&mois=<?php echo $moisO?>" method="post">
+   	
+	   	<table>
 		<tbody>
             <tr><td>Année : </td><td><select name="anneeM" size="1"value="<?php echo $annee ?>">
                                 <?php   
@@ -41,7 +41,7 @@
 								}
                                 ?>
                             </select></td></tr>
-			<tr><td>Libellé :</td><td><select name="idforfait" size="1" value="<?php echo $id ?>">
+			<tr><td>Libellé :</td><td><select name="id" size="1" value="<?php echo $id ?>">
                                 <?php
                                 $ligne = $recuplibelle->fetch();
 								while ($ligne)
