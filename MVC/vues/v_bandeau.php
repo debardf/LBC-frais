@@ -1,6 +1,11 @@
 <div class="bandeau">
 
-<!--  Menu haut-->
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="LBC-frais/MVC/util/cssGeneral.css" />
+    </head>
+
+<!--  Menu haut
 <ul id="menu">
     <a href="index.php"> Accueil </a>
     <a href="index.php?uc=frais"> Frais </a>
@@ -13,4 +18,4 @@
     </br>
     <a href="index.php?uc=frais&ucf=creerFrais"> Créer une note de frais </a>
 </ul>
-</div>
+</div> -->
