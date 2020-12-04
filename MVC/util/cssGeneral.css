@@ -36,11 +36,6 @@ nav a{
 	color: black;
 }
 
-nav a:hover{
-	color: blue;
-	border-bottom: 2px solid gold;
-}
-
 nav a{
 	display: block;
 	text-decoration: none;
