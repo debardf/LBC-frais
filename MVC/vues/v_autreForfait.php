@@ -10,7 +10,7 @@
 			<input type="hidden" name="Aannee" value="<?php echo $annee;?>">
 			<input type="hidden" name="Amois" value="<?php echo $mois;?>">
 			<tr><td>libelle : </td><td><input name="Alibelle" size=20></td></tr>	
-            <tr><td>Date : </td><td><input name="Adate" size=20></td><td>(format = yyyy-mm-dd )</td></tr>
+            <tr><td>Date : </td><td><input type="date" name="Adate" size=20></td></tr>
 			<tr><td>montant : </td><td><input name="Amontant" size=10></td></tr>
 			<input type = "hidden" name="Avalide" value=0>
             
