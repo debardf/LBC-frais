@@ -2,20 +2,18 @@
 	$action=$_REQUEST['action'];
 	switch($action)
 	{
-		case 'supprFrais':
+		case 'supprAutreFrais':
 		{
-			$id = $_REQUEST['idforfait'];
-			$libelle = $pdo->getUnLibelle($id);
-			$libelle = $libelle['libelleforfait'];
 			$matricule = $_REQUEST['matricule'];
 			$annee = $_REQUEST['annee'];
 			$mois = $_REQUEST['mois'];
-			$qte = $_REQUEST['quantite'];
+			$libelle = $_REQUEST['libelle'];
+			$id = $_REQUEST['id'];
 			
-			include("vues/v_supprimerFrais.php");
+			include("vues/v_supprimerAutreForfait.php");
 			break;
 		}
-		case 'confirmSupprFrais':
+		case 'confirmsupprAutreFrais':
 		{
 			$annee = $_REQUEST['annee'];
 			$matricule = $_REQUEST['matricule'];

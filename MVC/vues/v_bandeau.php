@@ -1,7 +1,4 @@
 <div class="bandeau">
-<!-- Images En-tête -->
-<!--<img src="images/menuGauche.gif"    alt="Choisir" title="Choisir"/>-->
-
 
 <!--  Menu haut-->
 <ul id="menu">
@@ -12,10 +9,8 @@
     <a href="index.php?uc=carrières"> Carrières </a>
     <a href="index.php?uc=visite"> Visite </a>
     <a href="index.php?uc=administration"> Administration </a>
-</br>
-</br>
-<li><a href="index.php?uc=frais&ucf=creerFrais"> Créer une note de frais </a></li>
-<li><a href="index.php?uc=frais&ucf=forfait"> Ajouter un forfait </a></li>
-<li><a href="index.php?uc=frais&ucf=autreForfait"> Ajouter un autre forfait </a></li>
+    </br>
+    </br>
+    <a href="index.php?uc=frais&ucf=creerFrais"> Créer une note de frais </a>
 </ul>
 </div>

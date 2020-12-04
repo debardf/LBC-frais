@@ -1,32 +1,40 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Creation d'un nouveau forfait</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<link href="style.css" rel="stylesheet" type="text/css" /> 
-
-    </head>
-	
-	
    <body>
-   <p><h1>Creation d'un nouveau forfait pour la fiche</h1></p><BR/>
-	<form action="c_frais.php?ucf=creerForfait&action=confirmCreatForfait" method="post">
+   <p><h1>Creation d'un forfait</h1></p></BR>
+	<form action="index.php?uc=frais&ucf=forfait&action=confirmCreatForfait" method="post">
    
 		<table>
 		<tbody>
-			<tr><td>id</td><td><input name="id" size=20></td></tr> 
-			<tr><td>matricule </td><td><input type = "hidden" name="matricule" size=20></td></tr>	
-			<tr><td>annee</td><td><input type = "hidden" name="annee" size=50></td></tr>
-			<tr><td>mois</td><td><input type = "hidden" name="mois" size=50></td></tr>
-			<tr><td>quantite</td><td><input name="quantite" size=50></td></tr>
-			<tr><td>valideForfait</td><td><input name="montant" size=50></td></tr>	
+			<input type="hidden" name="matricule" value="<?php echo $matricule;?>">
+			<input type="hidden" name="annee" value="<?php echo $annee;?>">
+			<input type="hidden" name="mois" value="<?php echo $mois;?>">
+			<tr><td>Libellé :</td><td><select name="id" size="1" value="">
+                                <?php
+                                $ligne = $recuplibelle->fetch();
+								while ($ligne)
+									{
+									if ($ligne["idforfait"] == 1) {
+									echo '<OPTION selected value = "' . $ligne["idforfait"] . '">' . $ligne["idforfait"] . ' ' . $ligne["libelleforfait"] . '</OPTION>'; 
+									$ligne = $recuplibelle->fetch();
+									}
+									else 
+									{
+									echo '<OPTION value = "' . $ligne["idforfait"] . '">' . $ligne["idforfait"] . ' ' . $ligne["libelleforfait"] . '</OPTION>';
+									$ligne = $recuplibelle->fetch();
+									}
+								}
+                                ?>
+                            </select></tr></td>
+			<tr><td>Quantité : </td><td><input name="quantite" size=10></td></tr>
+			<input type = "hidden" name="valideForfait" value=0>
 		</tbody>
 		</table>
 		
                 <br/>
 		<input type="submit" value="Valider">
 	</form>
-<php
+<?php
 //ajouter les libelles des id pour la selection
 ?>
 	

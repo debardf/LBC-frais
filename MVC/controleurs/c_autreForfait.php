@@ -7,19 +7,11 @@
 	{
 		case 'creationAutreForfait':
 		{
-            $id = $_SESSION['typeprofil'];
-        	if($id == "V")
-        	{
-            $login = $_SESSION['valeur'];
-            $leMatricule = $pdo->getMatricule($login);
-            $recupannee = $pdo->getAnnee();
-            $recupmois = $pdo->getMois();
+
+            $matricule = $_REQUEST['matricule'];
+            $annee = $_REQUEST['annee'];
+            $mois = $_REQUEST['mois'];
 			include("vues/v_autreForfait.php");
-            }
-            else
-			{
-				include("vues/v_accueil.php");
-			}
             break;
             
 		}
@@ -32,9 +24,12 @@
             $libelle = $_REQUEST['Alibelle'];
             $montant = $_REQUEST['Amontant'];
             $validefrais = $_REQUEST['Avalide'];
-			$pdo->creerAutreForfait($matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais);
+            $id = $pdo->cumulId();
+            $id = max($id);
+            $id++;
+			$pdo->creerAutreForfait($id, $matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais);
 			
-			header('Location: v_detailNote.php');	
+			header('Location: index.php?uc=frais&ucf=afficherNotes');	
 			
 		}
 	}

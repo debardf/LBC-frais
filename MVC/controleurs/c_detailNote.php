@@ -1,16 +1,24 @@
 <?php
+    if(!isset($_REQUEST['action']))
+    $action = 'detNote';
+    else
+    $action = $_REQUEST['action'];
+    switch($action)
+    {
+        case 'detNote':
+        {
+            $matricule = $_REQUEST['matricule'];
+            $annee = $_REQUEST['annee'];
+            $mois = $_REQUEST['mois'];
+            $laNote = $pdo->getLaNote($matricule, $annee, $mois);
+            $lesForfaits = $pdo->getLesForfaits($matricule, $annee, $mois);
+            $lesFrais = $pdo->getLesFrais($matricule, $annee, $mois);
+            $cumulForfait = count($lesForfaits);
+            $cumulFrais = count($lesFrais);
+			include("vues/v_detailNote.php");
+            break;
 
-$matricule = $_GET['matricule'];
-$annee = $_GET['annee'];
-$mois = $_GET['mois'];
-$lesNotes = $pdo->getLesFraisForfaitaires($matricule, $annee, $mois);
-$total = $montant * $quantite ;
+        }
 
-var_dump($matricule);
-var_dump($mois);
-var_dump($annee);
-include("vues/v_detailNote.php");
-
-
-
+    }
 ?>
