@@ -7,10 +7,11 @@
 			$matricule = $_REQUEST['matricule'];
 			$annee = $_REQUEST['annee'];
 			$mois = $_REQUEST['mois'];
-			$libelle = $_REQUEST['libelle'];
-			$id = $_REQUEST['id'];
-			$montant = $_REQUEST['montant'];
-			$dateFrais = $_REQUEST['date'];
+			$id = $_REQUEST['idfrais'];
+			$unAutreForfait = $pdo->getAutreForfait($matricule,$annee,$mois,$id);
+			$dateFrais = $unAutreForfait['datefrais'];
+			$libelle = $unAutreForfait['libelle'];
+			$montant = $unAutreForfait['montant'];
 			include("vues/v_supprimerAutreForfait.php");
 			break;
 		}

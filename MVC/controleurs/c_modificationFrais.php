@@ -6,9 +6,9 @@
 		{
 			$id = $_REQUEST['idforfait'];
 			$matricule = $_REQUEST['matricule'];
-			$qte = $_REQUEST['quantite'];
 			$annee = $_REQUEST['annee'];
 			$mois = $_REQUEST['mois'];
+			$qte = $pdo->getLeforfait($matricule,$annee,$mois,$id)['quantite'];
 			$idO = $_REQUEST['idforfait'];
 			$anneeO = $_REQUEST['annee'];
 			$moisO = $_REQUEST['mois'];
@@ -24,7 +24,7 @@
 			$annee = $_REQUEST['anneeM'];
 			$mois = $_REQUEST['moisM'];
 			$qte = $_REQUEST['quantite'];
-			$matricule = $_REQUEST['matricule'];
+			$matricule = $REQUEST['matricule'];
 			$idO = $_REQUEST['idforfait'];
 			$anneeO = $_REQUEST['annee'];
 			$moisO = $_REQUEST['mois'];
