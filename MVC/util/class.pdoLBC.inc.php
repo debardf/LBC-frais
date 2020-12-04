@@ -90,11 +90,21 @@ class PdoLBC
 
 	//obtenir un forfait d'un visiteur
 
-	public function getLeForfait($matricule)
+	public function getLeForfait($matricule,$annee,$mois,$id)
 	{
-		$req = "SELECT * FROM ajouteforfait inner join forfait on forfait.idforfait=ajouteforfait.idforfait WHERE matricule ='$matricule'";
+		$req = "SELECT * FROM ajouteforfait inner join forfait on forfait.idforfait=ajouteforfait.idforfait WHERE matricule ='$matricule' AND  annee='$annee' AND mois='$mois' AND ajouteforfait.idforfait = '$id'";
 		$res = PdoLBC::$monPdo->query($req);
-		$laLigne = $res->fetchAll();
+		$laLigne = $res->fetch();
+		return $laLigne;
+	}
+
+	//obtenir l'autre forfait d'un visiteur
+
+	public function getAutreForfait($matricule,$annee,$mois,$id)
+	{
+		$req = "SELECT * FROM frais WHERE matricule ='$matricule' AND  annee='$annee' AND mois='$mois' AND idfrais = '$id'";
+		$res = PdoLBC::$monPdo->query($req);
+		$laLigne = $res->fetch();
 		return $laLigne;
 	}
 
@@ -272,16 +282,6 @@ class PdoLBC
 		$res->bindValue('mois', $moisO, PDO::PARAM_INT);
 
 		$res->execute();
-	}
-
-	//sélectionner la date d'un autre forfait
-
-	public function getLaDate($matricule,$annee,$mois,$idfrais)
-	{
-		$req = "SELECT datefrais FROM frais WHERE matricule = '$matricule' AND annee = '$annee' AND mois = '$mois' AND idfrais = '$idfrais'";
-		$res = PdoLBC::$monPdo->query($req);
-		$laLigne = $res->fetch();	
-		return $laLigne;
 	}
 
 	//suppression frais
