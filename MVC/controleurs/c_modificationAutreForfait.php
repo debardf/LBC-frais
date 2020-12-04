@@ -13,7 +13,6 @@
 			$anneeO = $_REQUEST['annee'];
 			$moisO = $_REQUEST['mois'];
 			$datefrais = $pdo->getLaDate($matricule,$annee,$mois,$idfrais)['datefrais'];
-			var_dump($datefrais);
             $recupannee = $pdo->getAnnee($matricule);
 			$recupmois = $pdo->getMois($matricule);
 			include("vues/v_modifierAutreForfait.php");
