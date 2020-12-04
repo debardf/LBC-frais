@@ -53,8 +53,8 @@
                 <td width=150><?php echo $montant ?></td>
                 <td width=150><?php echo ($montant*$qte) ?></td>
                 <td width=150><?php echo $vforfait ?></td>
-                <td width=30><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&quantite=<?php echo $qte?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
-                <td width=30><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&quantite=<?php echo $qte?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/supp.png" title="Suppr"></a></td>
+                <td width=30><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
+                <td width=30><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/supp.png" title="Suppr"></a></td>
             </tr>
             <?php
             }
@@ -104,8 +104,8 @@
                 <td width=150><?php echo $libelleFrais; ?></td>
                 <td width=150><?php echo $montantFrais; ?></td>
                 <td width=150><?php echo $vfrais; ?></td>
-                <td width=30><a href=index.php?uc=frais&ucf=modifierAutreForfait&action=modifAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idfrais=<?php echo $idfrais;?>&montant=<?php echo $montantFrais?>&libelle=<?php echo $libelleFrais?>&datefrais=<?php echo $datefrais?>><img src="images/modifier.gif" title="Modif"></a></td>
-                <td width=30><a href=index.php?uc=frais&ucf=supprimerAutreForfait&action=supprAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&libelle=<?php echo $libelleFrais;?>&montant=<?php echo $montantFrais;?>&id=<?php echo $idfrais;?>&date=<?php echo $datefrais?>><img src="images/supp.png" title="Suppr"></a></td>
+                <td width=30><a href=index.php?uc=frais&ucf=modifierAutreForfait&action=modifAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idfrais=<?php echo $idfrais;?>><img src="images/modifier.gif" title="Modif"></a></td>
+                <td width=30><a href=index.php?uc=frais&ucf=supprimerAutreForfait&action=supprAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idfrais=<?php echo $idfrais;?>><img src="images/supp.png" title="Suppr"></a></td>
                 </tr>
 
                 <?php

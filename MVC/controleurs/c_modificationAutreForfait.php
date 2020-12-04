@@ -8,11 +8,12 @@
 			$matricule = $_REQUEST['matricule'];
 			$annee = $_REQUEST['annee'];
 			$mois = $_REQUEST['mois'];
-			$libelle = $_REQUEST['libelle'];
-			$montant = $_REQUEST['montant'];
 			$anneeO = $_REQUEST['annee'];
 			$moisO = $_REQUEST['mois'];
-			$datefrais = $pdo->getLaDate($matricule,$annee,$mois,$idfrais)['datefrais'];
+			$unAutreForfait = $pdo->getAutreForfait($matricule,$annee,$mois,$idfrais);
+			$datefrais = $unAutreForfait['datefrais'];
+			$libelle = $unAutreForfait['libelle'];
+			$montant = $unAutreForfait['montant'];
             $recupannee = $pdo->getAnnee($matricule);
 			$recupmois = $pdo->getMois($matricule);
 			include("vues/v_modifierAutreForfait.php");
