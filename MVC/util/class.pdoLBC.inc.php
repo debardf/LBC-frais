@@ -154,20 +154,21 @@ class PdoLBC
 		return $lesLignes;
 	}
 	
-	
-	
-	public function getLaNoteByID($idValeur)
-	{
-		$req = "SELECT * FROM fiche WHERE matricule ='$valeur', mois=' $mois'";
-		$res = PdoLBC::$monPdo->query($req);
-		$lesLignes = $res->fetch();
-		return $lesLignes;
-	}
 
 
 	public function getLesFraisForfaitaires($matricule, $annee, $mois)
 	{
 	$req = ( "SELECT libelleforfait, quantite, montant FROM ajouteforfait INNER JOIN forfait ON ajouteForfait.idforfait = forfait.idforfait WHERE matricule = '$matricule' AND annee = '$annee' AND mois = '$mois' " );
+	$res = PdoLBC::$monPdo->query($req);
+	$lesLignes = $res->fetchAll();	
+	return $lesLignes;
+
+	}
+
+
+	public function getLesJustificatifs($matricule, $annee, $mois)
+	{
+	$req = ( "SELECT * FROM justificatif WHERE matricule = '$matricule' And annee = '$annee' AND mois = '$mois'" );
 	$res = PdoLBC::$monPdo->query($req);
 	$lesLignes = $res->fetchAll();	
 	return $lesLignes;
@@ -256,20 +257,31 @@ class PdoLBC
 
 	//modification autre forfait
 
-	public function modifAutreForfait($matricule,$anneeO,$moisO,$idfrais,$annee,$mois,$montant,$libelle)
+	public function modifAutreForfait($matricule,$anneeO,$moisO,$idfrais,$annee,$mois,$montant,$libelle,$datefrais)
 	{
 		$res = PdoLBC::$monPdo->prepare("UPDATE frais
-		SET annee = :anneeM, mois = :moisM, montant =  :montantM, libelle = :libelleM  WHERE annee = :annee and mois = :mois and idfrais = :idfrais and matricule = :matricule");
-		$res->bindValue('idforfaitM',$id, PDO::PARAM_INT);
+		SET annee = :anneeM, mois = :moisM, montant =  :montantM, libelle = :libelleM, datefrais = :datefrais  WHERE annee = :annee and mois = :mois and idfrais = :idfrais and matricule = :matricule");
+		$res->bindValue('idfrais',$idfrais, PDO::PARAM_INT);
 		$res->bindValue('anneeM', $annee, PDO::PARAM_INT);
 		$res->bindValue('moisM', $mois, PDO::PARAM_INT);
-		$res->bindValue('quantiteM', $qte, PDO::PARAM_INT);
+		$res->bindValue('libelleM', $libelle, PDO::PARAM_STR);
+		$res->bindValue('montantM', $montant, PDO::PARAM_INT);
+		$res->bindValue('datefrais', $datefrais, PDO::PARAM_INT);
 		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
-		$res->bindValue('idforfait',$idO, PDO::PARAM_INT);
 		$res->bindValue('annee', $anneeO, PDO::PARAM_INT);
 		$res->bindValue('mois', $moisO, PDO::PARAM_INT);
 
 		$res->execute();
+	}
+
+	//sélectionner la date d'un autre forfait
+
+	public function getLaDate($matricule,$annee,$mois,$idfrais)
+	{
+		$req = "SELECT datefrais FROM frais WHERE matricule = '$matricule' AND annee = '$annee' AND mois = '$mois' AND idfrais = '$idfrais'";
+		$res = PdoLBC::$monPdo->query($req);
+		$laLigne = $res->fetch();	
+		return $laLigne;
 	}
 
 	//suppression frais
@@ -283,5 +295,42 @@ class PdoLBC
         $res->bindValue('id', $id, PDO::PARAM_INT);
         $res->execute();
 	}
+
+
+
+	//valider frais forfaitaires
+	public function validerFrais($matricule, $id,$annee,$mois)
+	{
+		$res = PdoLBC::$monPdo->prepare("UPDATE ajouteforfait SET valideForfait = 1 WHERE annee = '$annee' and mois = '$mois' and idforfait = '$id' and matricule = '$matricule'");
+		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+        $res->bindValue('annee', $annee, PDO::PARAM_STR);
+        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+        $res->bindValue('id', $id, PDO::PARAM_INT);
+		$res->execute();
+	}
+	
+
+	//validation d'un autre forfait
+	public function validerAutreFrais($matricule,$id,$annee,$mois)
+	{
+		$res = PdoLBC::$monPdo->prepare("UPDATE frais SET valideFrais = 1 WHERE annee = '$annee' and mois = '$mois' and idFrais = '$id' and matricule = '$matricule'  ");
+		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+        $res->bindValue('annee', $annee, PDO::PARAM_STR);
+        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+        $res->bindValue('id', $id, PDO::PARAM_INT);
+		$res->execute();
+}
+
+	public function supprAutreForfait($matricule, $annee, $mois, $id)
+	{
+        $res = PdoLBC::$monPdo->prepare("DELETE FROM frais WHERE matricule = :matricule AND annee = :annee AND mois = :mois AND idfrais = :id ");
+        $res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+        $res->bindValue('annee', $annee, PDO::PARAM_STR);
+        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+        $res->bindValue('id', $id, PDO::PARAM_INT);
+        $res->execute();
+
+	}
+
 
 }
