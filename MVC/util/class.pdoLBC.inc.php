@@ -319,7 +319,7 @@ class PdoLBC
         $res->bindValue('mois', $mois, PDO::PARAM_STR);
         $res->bindValue('id', $id, PDO::PARAM_INT);
 		$res->execute();
-
+}
 
 	public function supprAutreForfait($matricule, $annee, $mois, $id)
 	{
