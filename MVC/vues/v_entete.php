@@ -18,7 +18,13 @@
             <li><a href="./index.php?uc=carrieres">Carrières</a></li>
             <li><a href="./index.php?uc=visite">Visite</a></li>
             <li><a href="./index.php?uc=administration">Administration</a>
-        	<li><a class="metadata" href="index.php?uc=frais&ucf=deconnexion"> Deconnexion </a></li>
+            <?php if(isset($_SESSION['idClient']))
+{
+    ?>
+    <li><a class="metadata" href="index.php?uc=frais&ucf=deconnexion">Deconnexion </li></a>
+    <?php
+}
+?>
 		</ul>
 
    	</nav>
