@@ -12,7 +12,7 @@
             <input Type="hidden" name="mois" value="<?php echo $mois ?>">
             <tr><td>libelle du frais</td><td><input name="libelleAutreForfait" value="<?php echo $libelle?>" size=20 readonly></td></tr>
             <tr><td>montant</td><td><input name="montant" value="<?php echo $montant ?>" size=5 readonly></td></tr>
-            <tr><td>Date du frais</td><td><input name="dateFrais" value="<?php echo $dateFrais ?>"size=5 readonly></td></tr>
+            <tr><td>Date du frais</td><td><input name="dateFrais" value="<?php echo $dateFrais ?>"size=10 readonly></td></tr>
         </tbody>
         </table>
         <br/>
