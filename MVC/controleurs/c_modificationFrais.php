@@ -34,5 +34,6 @@
 			header('Location: index.php?uc=frais&ucf=afficherNotes');
 			break;
 		}
+		
 	}
 ?>

@@ -284,4 +284,30 @@ class PdoLBC
         $res->execute();
 	}
 
+
+	//valider frais forfaitaires
+	public function validerFrais($matricule, $id,$annee,$mois)
+	{
+		$res = PdoLBC::$monPdo->prepare("UPDATE ajouteforfait SET valideForfait = 1 WHERE annee = '$annee' and mois = '$mois' and idforfait = '$id' and matricule = '$matricule'");
+		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+        $res->bindValue('annee', $annee, PDO::PARAM_STR);
+        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+        $res->bindValue('id', $id, PDO::PARAM_INT);
+		$res->execute();
+	}
+	
+
+	//validation d'un autre forfait
+	public function validerAutreFrais($matricule,$id,$annee,$mois)
+	{
+		$res = PdoLBC::$monPdo->prepare("UPDATE frais SET valideFrais = 1 WHERE annee = '$annee' and mois = '$mois' and idFrais = '$id' and matricule = '$matricule'  ");
+		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+        $res->bindValue('annee', $annee, PDO::PARAM_STR);
+        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+        $res->bindValue('id', $id, PDO::PARAM_INT);
+		$res->execute();
+
+	}
+
+
 }
