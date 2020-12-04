@@ -9,7 +9,7 @@
 			$mois = $_REQUEST['mois'];
 			$libelle = $_REQUEST['libelle'];
 			$id = $_REQUEST['id'];
-			
+			var_dump($matricule, $annee, $mois, $libelle,$id);
 			include("vues/v_supprimerAutreForfait.php");
 			break;
 		}

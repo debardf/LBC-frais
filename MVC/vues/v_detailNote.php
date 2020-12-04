@@ -105,7 +105,7 @@
                 <td width=150><?php echo $montantFrais; ?></td>
                 <td width=150><?php echo $vfrais; ?></td>
                 <td width=30><a href=index.php?uc=frais&ucf=modifierAutreForfait&action=modifAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idfrais=<?php echo $idfrais;?>&montant=<?php echo $montantFrais?>&libelle=<?php echo $libelleFrais?>&datefrais=<?php echo $datefrais?>><img src="images/modifier.gif" title="Modif"></a></td>
-                <td width=30><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>><img src="images/supp.png" title="Suppr"></a></td>
+                <td width=30><a href=index.php?uc=frais&ucf=supprimerAutreForfait=supprAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&libelle=<?php echo $libelleFrais;?>&mois=<?php echo $mois;?>><img src="images/supp.png" title="Suppr"></a></td>
                 </tr>
 
                 <?php
