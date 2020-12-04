@@ -11,8 +11,16 @@ class PdoLBC
 			
 	private function __construct()
 	{
+    
+		if ($_SERVER['SERVER_NAME'] == 'localhost'){
     		PdoLBC::$monPdo = new PDO(PdoLBC::$serveur.';'.PdoLBC::$bdd, PdoLBC::$user, PdoLBC::$mdp); 
 			PdoLBC::$monPdo->query("SET CHARACTER SET utf8");
+		}else{
+			PdoLBC::$monPdo = new PDO('mysql:host=db718502955.db.1and1.com;dbname=db718502955','dbo718502955','BMw1234*'); 
+			PdoLBC::$monPdo->query("SET CHARACTER SET utf8");
+		}
+			
+
 	}
 	public function _destruct(){
 		PdoLBC::$monPdo = null;
@@ -116,6 +124,14 @@ class PdoLBC
 		$res = PdoLBC::$monPdo->query($req);
 		return $res;
 	}
+
+	public function getUnLibelle($id)
+	{
+		$req = "SELECT libelleforfait from forfait where idforfait = '$id'";
+		$res = PdoLBC::$monPdo->query($req);
+		$Ligne = $res->fetch();
+		return $Ligne;
+	}
 	
 	//obtenir la liste des autres frais du visiteur
 
@@ -147,6 +163,17 @@ class PdoLBC
 		$lesLignes = $res->fetch();
 		return $lesLignes;
 	}
+
+
+	public function getLesFraisForfaitaires($matricule, $annee, $mois)
+	{
+	$req = ( "SELECT libelleforfait, quantite, montant FROM ajouteforfait INNER JOIN forfait ON ajouteForfait.idforfait = forfait.idforfait WHERE matricule = '$matricule' AND annee = '$annee' AND mois = '$mois' " );
+	$res = PdoLBC::$monPdo->query($req);
+	$lesLignes = $res->fetchAll();	
+	return $lesLignes;
+
+	}
+
 	
 	//création d'une note de frais
 
@@ -169,56 +196,92 @@ class PdoLBC
 	public function creerForfait($matricule,$annee, $mois, $idforfait, $quantite, $valideForfait)
 	{
 		
-		$res = PdoTransNat::$monPdo->prepare('INSERT INTO ajouteforfait (matricule, annee, mois, idforfait, quantite, valideForfait)
+		$res = PdoLBC::$monPdo->prepare('INSERT INTO ajouteforfait (matricule, annee, mois, idforfait, quantite, valideForfait)
 				VALUES(:matricule, :annee, :mois, :id, :quantite, :valideForfait)');
 		$res->bindValue('matricule',$matricule, PDO::PARAM_INT);
 		$res->bindValue('annee',$annee, PDO::PARAM_STR);
 		$res->bindValue('mois',$mois, PDO::PARAM_INT);
-		$res->bindValue('id',$id, PDO::PARAM_STR);
+		$res->bindValue('id',$idforfait, PDO::PARAM_STR);
 		$res->bindValue('quantite',$quantite, PDO::PARAM_INT);
 		$res->bindValue('valideForfait',$valideForfait, PDO::PARAM_INT);
 		$res->execute();
 	}
 
+	//count du nombre de ligne dans frais pour récupérer la valeur de l'id
+
+	public function cumulId()
+	{
+		$req = "SELECT count(*) FROM frais";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
+	}
+
 	//création d'un autre forfait
 
-	public function creerAutreForfait($matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais)
+	public function creerAutreForfait($idfrais, $matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais)
 	{
 
-		$res = PdoLBC::$monPdo->prepare('INSERT INTO frais (matricule, 
-		annee, mois, datefrais, libelle, montant, validefrais) VALUES( :Amatricule, 
+		$res = PdoLBC::$monPdo->prepare('INSERT INTO frais (idfrais, matricule, 
+		annee, mois, datefrais, libelle, montant, validefrais) VALUES( :Aid, :Amatricule, 
 		:Aannee, :Amois, :Adate, :Alibelle, :Amontant, :Avalidefrais)');
+		$res->bindValue('Aid',$idfrais, PDO::PARAM_INT);
 		$res->bindValue('Amatricule',$matricule, PDO::PARAM_INT);
-		$res->bindValue('Aannee', $annee, PDO::PARAM_STR);
+		$res->bindValue('Aannee', $annee, PDO::PARAM_INT);
 		$res->bindValue('Amois', $mois, PDO::PARAM_INT);
-		$res->bindValue('Adate', $statut, PDO::PARAM_STR);
-		$res->bindValue('Alibelle', $datefiche, PDO::PARAM_STR);
-		$res->bindValue('Amontant', $lienpdf, PDO::PARAM_STR);
+		$res->bindValue('Adate', $datefrais, PDO::PARAM_STR);
+		$res->bindValue('Alibelle', $libelle, PDO::PARAM_STR);
+		$res->bindValue('Amontant', $montant, PDO::PARAM_STR);
 		$res->bindValue('Avalidefrais', $validefrais, PDO::PARAM_STR);
 		$res->execute();
 	}
 
 	//modification frais
 
-	public function modifFrais($id,$matricule,$annee,$mois,$qte)
+	public function modifFrais($matricule, $idO,$anneeO,$moisO, $id,$annee,$mois,$qte)
 	{
 		$res = PdoLBC::$monPdo->prepare("UPDATE ajouteforfait
-		SET idforfait = :idforfait, matricule = :matricule, annee = :annee, mois = :mois, quantite =  :quantite WHERE idforfait = '$id'");
-		$res->bindValue('idforfait',$id, PDO::PARAM_INT);
-		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);   
-		$res->bindValue('annee', $annee, PDO::PARAM_INT);
-		$res->bindValue('mois', $mois, PDO::PARAM_INT);
-		$res->bindValue('quantite', $qte, PDO::PARAM_INT);
+		SET idforfait = :idforfaitM, annee = :anneeM, mois = :moisM, quantite =  :quantiteM WHERE annee = :annee and mois = :mois and idforfait = :idforfait and matricule = :matricule");
+		$res->bindValue('idforfaitM',$id, PDO::PARAM_INT);
+		$res->bindValue('anneeM', $annee, PDO::PARAM_INT);
+		$res->bindValue('moisM', $mois, PDO::PARAM_INT);
+		$res->bindValue('quantiteM', $qte, PDO::PARAM_INT);
+		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+		$res->bindValue('idforfait',$idO, PDO::PARAM_INT);
+		$res->bindValue('annee', $anneeO, PDO::PARAM_INT);
+		$res->bindValue('mois', $moisO, PDO::PARAM_INT);
+
 		$res->execute();
 	}
 
-	public function getLesFraisForfaitaires($matricule, $annee, $mois)
-	{
-	$req = ( "SELECT libelleforfait, quantite, montant FROM ajouteforfait INNER JOIN forfait ON ajouteForfait.idforfait = forfait.idforfait WHERE matricule = '$matricule' AND annee = '$annee' AND mois = '$mois' " );
-	$res = PdoLBC::$monPdo->query($req);
-	$lesLignes = $res->fetchAll();	
-	return $lesLignes;
+	//modification autre forfait
 
+	public function modifAutreForfait($matricule,$anneeO,$moisO,$idfrais,$annee,$mois,$montant,$libelle)
+	{
+		$res = PdoLBC::$monPdo->prepare("UPDATE frais
+		SET annee = :anneeM, mois = :moisM, montant =  :montantM, libelle = :libelleM  WHERE annee = :annee and mois = :mois and idfrais = :idfrais and matricule = :matricule");
+		$res->bindValue('idforfaitM',$id, PDO::PARAM_INT);
+		$res->bindValue('anneeM', $annee, PDO::PARAM_INT);
+		$res->bindValue('moisM', $mois, PDO::PARAM_INT);
+		$res->bindValue('quantiteM', $qte, PDO::PARAM_INT);
+		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+		$res->bindValue('idforfait',$idO, PDO::PARAM_INT);
+		$res->bindValue('annee', $anneeO, PDO::PARAM_INT);
+		$res->bindValue('mois', $moisO, PDO::PARAM_INT);
+
+		$res->execute();
+	}
+
+	//suppression frais
+
+	public function supprFrais($matricule, $annee, $mois, $id)
+	{
+        $res = PdoLBC::$monPdo->prepare("DELETE FROM ajouteforfait WHERE matricule = :matricule AND annee = :annee AND mois = :mois AND idforfait = :id ");
+        $res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+        $res->bindValue('annee', $annee, PDO::PARAM_STR);
+        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+        $res->bindValue('id', $id, PDO::PARAM_INT);
+        $res->execute();
 	}
 
 }

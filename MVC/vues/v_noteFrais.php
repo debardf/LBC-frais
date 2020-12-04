@@ -1,11 +1,5 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Nouvelle note</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<link href="style.css" rel="stylesheet" type="text/css" /> 
-
-    </head>	
 	
     <?php
         $matricule = $leMatricule['matricule'];
@@ -22,7 +16,7 @@
             <tr><td>Mois</td><td><input name="Fmois" size=20></td></tr>
             <input type="hidden" name="Fstatut" value="NV">
             <input type="hidden" name="Fdatefiche" value=<?php echo $datefiche=date('Y-m-d');?>>
-            <input type="hidden" name="Flien" value="NV">
+            <input type="hidden" name="Flien" value="pas de lien">
 		</tbody>
 		</table>
         </br>
