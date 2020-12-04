@@ -24,11 +24,11 @@
         </br>
             <table border=3 cellspacing=1>
                 <tr>
-                    <td>Frais Forfaitaires</td>
-                    <td>Quantité </td>  
-                    <td>Montant Unitaire</td>
-                    <td>Total</td>
-                    <td>validé ?</td>
+                    <th>Frais Forfaitaires</th>
+                    <th>Quantité </th>  
+                    <th>Montant Unitaire</th>
+                    <th>Total</th>
+                    <th>validé ?</th>
                   <?php
                   if($idProfil == "C")
     {
@@ -40,8 +40,8 @@
         if($idProfil == "V") 
         {
             ?>
-                    <td></td>
-                    <td></td>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <?php
 
@@ -71,15 +71,15 @@
                  if($idProfil == "C")
     {
        ?>  
-        <td width=30><a href=index.php?uc=frais&ucf=validerFrais&action=validerFraisF&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?> ><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+        <td id="icone" width=30><a href=index.php?uc=frais&ucf=validerFrais&action=validerFraisF&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?> ><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
         <?php
     }  
         
         if($idProfil == "V") 
         {
             ?>
-                   <td width=30><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&quantite=<?php echo $qte?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
-                <td width=30><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&quantite=<?php echo $qte?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/supp.png" title="Suppr"></a></td>
+                   <td id="icone" width=30><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&quantite=<?php echo $qte?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
+                <td id="icone" width=30><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&quantite=<?php echo $qte?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/supp.png" title="Suppr"></a></td>
 
                 <?php
 
@@ -112,10 +112,10 @@
         </br>
         <table border=3 cellspacing="1">
             <tr>
-            <td>Date</td>
-            <td>Libellé</td>
-            <td>Montant</td>
-            <td>validé ?</td>
+            <th>Date</th>
+            <th>Libellé</th>
+            <th>Montant</th>
+            <th>validé ?</th>
              <?php
                   if($idProfil == "C")
     {
@@ -127,8 +127,8 @@
         if($idProfil == "V") 
         {
             ?>
-                    <td></td>
-                    <td></td>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <?php
 
@@ -154,15 +154,15 @@
                  if($idProfil == "C")
     {
        ?>  
-        <td width=30><a href=index.php?uc=frais&ucf=validerFrais&action=validerAutreFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+        <td id="icone" width=30><a href=index.php?uc=frais&ucf=validerFrais&action=validerAutreFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
         <?php
     }
         
         if($idProfil == "V") 
         {
             ?>
-                   <td width=30><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&quantite=<?php echo $qte?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
-                <td width=30><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&quantite=<?php echo $qte?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/supp.png" title="Suppr"></a></td>
+                   <td id="icone" width=30><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&quantite=<?php echo $qte?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
+                <td id="icone" width=30><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&quantite=<?php echo $qte?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/supp.png" title="Suppr"></a></td>
 
                 <?php
 

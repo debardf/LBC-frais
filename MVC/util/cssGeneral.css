@@ -68,7 +68,44 @@ nav a:hover{
 nav{
 	width: 100%;
 	margin : 0 auto;
-	background-color: grey;
+	background-color: #9998A1;
 	position: sticky;
 	top: 0px;
+}
+
+table {
+  width:50%;
+  height: 5px;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+}
+table caption {
+  font-size:1.4rem;
+  color:#ffff;
+  background-color: #5d625c;
+ /* caption-side: bottom; // top|bottom|initial|inherit; */
+}
+table th {
+  background-color:#999690;
+  color:#000000;
+
+}
+table tfoot td {
+  color:#fff;
+  background-color:#999690;
+  border-top:1px solid #5d625c;
+  border-bottom:1px solid #5d625c;
+}
+
+body
+{
+    background-color:#D6D5DB; /* Le fond de la page sera noir */
+    color: black; /* Le texte de la page sera blanc */
+}
+
+#icone{
+
+	width:5px;
+  	height: 5px;
 }
