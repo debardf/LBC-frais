@@ -26,7 +26,7 @@ $_SESSION['prenom']=$leProfil['prenom'];
 $_SESSION['typeprofil']=$leProfil['typeprofil'];
 $_SESSION['valeur']=$leProfil['valeur'];
 
-header('Location: index.php?uc=frais&ucf=afficherNotes');	
+header('Location: index.php');	
 
 if($leClient['typeprofil'] == 'C')
 {
