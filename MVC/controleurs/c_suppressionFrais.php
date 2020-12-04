@@ -5,12 +5,12 @@
 		case 'supprFrais':
 		{
 			$id = $_REQUEST['idforfait'];
-			$libelle = $pdo->getUnLibelle($id);
-			$libelle = $libelle['libelleforfait'];
 			$matricule = $_REQUEST['matricule'];
 			$annee = $_REQUEST['annee'];
 			$mois = $_REQUEST['mois'];
-			$qte = $_REQUEST['quantite'];
+			$libelle = $pdo->getUnLibelle($id);
+			$libelle = $libelle['libelleforfait'];
+			$qte = $pdo->getLeforfait($matricule,$annee,$mois,$id)['quantite'];
 			
 			include("vues/v_supprimerFrais.php");
 			break;
