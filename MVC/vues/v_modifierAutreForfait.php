@@ -3,7 +3,7 @@
 	
    <body>
    <p><h1>Modification autre forfait :</h1></p><BR/>
-	<form action="index.php?uc=frais&ucf=modifierAutreForfait&action=confirmModifAutreForfait&idfrais=<?php echo $idO;?>&matricule=<?php echo $matricule?>&annee=<?php echo $anneeO?>&mois=<?php echo $moisO?>" method="post">
+	<form action="index.php?uc=frais&ucf=modifierAutreForfait&action=confirmModifAutreForfait&idfrais=<?php echo $idfrais;?>&matricule=<?php echo $matricule?>&annee=<?php echo $anneeO?>&mois=<?php echo $moisO?>" method="post">
    	
 	   	<table>
 		<tbody>
@@ -44,6 +44,7 @@
                             </select></td></tr>
 			<tr><td>Libellé :</td><td><input name="libelleM" size="20" value="<?php echo $libelle ?>"></tr></td>
 			<tr><td>Montant : </td><td><input name="montantM" value="<?php echo $montant ?>" size=20></td></tr>
+			<tr><td>Date : </td><td><input type="date" name="dateM" size=20 value="<?php echo $datefrais?>"></td></tr>
 			<input type="hidden" name="matricule" value="<?php echo $matricule ;?>"/>
 		</tbody>
 		</table>
