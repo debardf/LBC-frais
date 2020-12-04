@@ -30,6 +30,7 @@ case 'validerNote':
             $matricule = $_REQUEST['matricule'];
             $annee = $_REQUEST['annee'];
             $mois = $_REQUEST['mois'];  
+            $pdo ->getLaNote($matricule, $mois, $annee);
             $pdo ->validerNote( $matricule, $id,$annee,$mois);
             include("vues/v_validerNote.php");
             break;
