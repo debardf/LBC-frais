@@ -1,66 +1,111 @@
-html {
-font:normal 100%/1.2em "Trebuchet MS",Verdana,Helvetica,Arial,sans-serif;
-text-align: center;
-margin: 0;
-}
-body{
-	margin: 0;
-	background: #ecf0f1;
+*{
+	margin: 10px;
+	padding: 0px;
+	font-family: Avenir, sans-serif;
 }
 
-fieldset {
-	display:block;
-	width:50%;
-	border: 1px dotted #353535;
-	padding:2px;
-	overflow:hidden;                   
-}
-
-label {
-	background:transparent none;
-	display: block;
-	width: 20%;
-	float: left;
-	padding-right: 1%;
-	text-align: left;
-}
-
-
-
-#menu{
-	text-align: center;
-	background-color: grey;
-	position: absolute;
-    width: 100%;
-    left: 0;
-    right: 0;
-}
-
-#recherches{
-	position: absolute;
-	top: 150px;left: 50px;
-}
-
-#salles{
-	display: inline-block;
-}
-
-#contenu{
-
-}
-
-ul {
-	position: absolute;
-    width: 100%;
-    left: 0;
-    right: 0;
-}
-}
-
-#menu li {
+nav ul{
 	list-style-type: none;
-	list-style-image:none;
 	text-align: center;
-	display: inline-block;
-	padding: 10px;
-    
+}
+
+nav li{
+	float: left;
+
+}
+
+nav ul::after{
+	content : "";
+	display: table;
+	clear: both;
+
+}
+
+nav li{
+
+	float: letf;
+	width: 10%;
+	
+}
+
+nav{
+	width:100%;
+	margin: 0 auto;
+}
+
+nav a{
+	display: block;
+	text-decoration: none;
+	color: black;
+}
+
+nav a:hover{
+	color: blue;
+	border-bottom: 2px solid gold;
+}
+
+nav a{
+	display: block;
+	text-decoration: none;
+	color: black;
+	border-bottom: 2px solid transparent;
+}
+
+
+nav a{
+	display: block;
+	text-decoration: none;
+	color: black;
+	border-bottom : 2px solid transparent;
+	padding: 10px 0px;
+}
+
+nav a:hover{
+	color: white;
+	border-bottom: 2px solid gold;
+}
+
+nav{
+	width: 100%;
+	margin : 0 auto;
+	background-color: #9998A1;
+	position: sticky;
+	top: 0px;
+}
+
+table {
+  width:50%;
+  height: 5px;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+}
+table caption {
+  font-size:1.4rem;
+  color:#ffff;
+  background-color: #5d625c;
+ /* caption-side: bottom; // top|bottom|initial|inherit; */
+}
+table th {
+  background-color:#999690;
+  color:#000000;
+
+}
+table tfoot td {
+  color:#fff;
+  background-color:#999690;
+  border-top:1px solid #5d625c;
+  border-bottom:1px solid #5d625c;
+}
+
+body
+{
+    background-color:#D6D5DB; /* Le fond de la page sera noir */
+    color: black; /* Le texte de la page sera blanc */
+}
+
+#icone{
+
+	width:5px;
+  	height: 5px;
+}

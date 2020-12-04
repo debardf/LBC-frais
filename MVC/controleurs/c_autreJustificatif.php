@@ -5,29 +5,27 @@
     $action = $_REQUEST['action'];
 	switch($action)
 	{
-		case 'creationAutreForfait':
+		case 'creationJustificatif':
 		{
 
             $matricule = $_REQUEST['matricule'];
             $annee = $_REQUEST['annee'];
             $mois = $_REQUEST['mois'];
-			include("vues/v_autreForfait.php");
+            $pdfjustificatif = $_REQUEST['pdfjustificatif'];
+			include("vues/v_autreJustificatif.php");
             break;
             
 		}
-		case 'confirmCreatAutreForfait':
+		case 'confirmCreatJustificatif':
 		{
-            $matricule = $_REQUEST['Amatricule'];
-            $annee = $_REQUEST['Aannee'];
-            $mois = $_REQUEST['Amois'];
-			$datefrais = $_REQUEST['Adate'];
-            $libelle = $_REQUEST['Alibelle'];
-            $montant = $_REQUEST['Amontant'];
-            $validefrais = $_REQUEST['Avalide'];
-            $id = $pdo->cumulId();
+            $matricule = $_REQUEST['matricule'];
+            $annee = $_REQUEST['annee'];
+            $mois = $_REQUEST['mois'];
+			$pdfjustificatif = $_REQUEST['pdfjustificatif'];
+            $id = $pdo->countId();
             $id = max($id);
             $id++;
-			$pdo->creerAutreForfait($id, $matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais);
+			$pdo->creerJustificatif($id, $matricule, $annee, $mois, $pdfjustificatif);
 			
 			header('Location: index.php?uc=frais&ucf=afficherNotes');	
 			
