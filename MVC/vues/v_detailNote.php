@@ -116,12 +116,37 @@
         }
         ?>
         </br>
+        <h3>Justificatifs</h3>
+        <table border=3 cellspacing="1">
+                <tr>
+                <td>lien pdf</td>
+
+    <?php 
+            foreach($lesJustificatifs as $leJustificatif)
+            {
+                $pdf = $leJustificatif['pdfjustificatif'];
+            ?>
+                <tr>
+                <td width=150><?php echo $pdf; ?></td>
+                </tr>
+
+                <?php
+                }
+                ?>
+        </table>
+        </br>
         </br>
         <a href="index.php?uc=frais&ucf=forfait&action=creationForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">Ajouter un forfait</a>
         </br>
         </br>
         <a href="index.php?uc=frais&ucf=autreForfait&action=creationAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un autre forfait </a>
     </form>
+
+
+
+
+
+
 </body>
 </html>
 

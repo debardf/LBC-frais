@@ -164,20 +164,21 @@ class PdoLBC
 		return $lesLignes;
 	}
 	
-	
-	
-	public function getLaNoteByID($idValeur)
-	{
-		$req = "SELECT * FROM fiche WHERE matricule ='$valeur', mois=' $mois'";
-		$res = PdoLBC::$monPdo->query($req);
-		$lesLignes = $res->fetch();
-		return $lesLignes;
-	}
 
 
 	public function getLesFraisForfaitaires($matricule, $annee, $mois)
 	{
 	$req = ( "SELECT libelleforfait, quantite, montant FROM ajouteforfait INNER JOIN forfait ON ajouteForfait.idforfait = forfait.idforfait WHERE matricule = '$matricule' AND annee = '$annee' AND mois = '$mois' " );
+	$res = PdoLBC::$monPdo->query($req);
+	$lesLignes = $res->fetchAll();	
+	return $lesLignes;
+
+	}
+
+
+	public function getLesJustificatifs($matricule, $annee, $mois)
+	{
+	$req = ( "SELECT * FROM justificatif WHERE matricule = '$matricule' And annee = '$annee' AND mois = '$mois'" );
 	$res = PdoLBC::$monPdo->query($req);
 	$lesLignes = $res->fetchAll();	
 	return $lesLignes;
