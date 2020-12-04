@@ -217,6 +217,15 @@ class PdoLBC
 		$lesLignes = $res->fetch();
 		return $lesLignes;
 	}
+	//count du nombre de ligne dans justificatif pour récupérer la valeur de l'id
+
+	public function countlId()
+	{
+		$req = "SELECT count(*) FROM justificatif";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
+	}
 
 	//création d'un autre forfait
 
@@ -236,6 +245,22 @@ class PdoLBC
 		$res->execute();
 
 	}
+
+	//création d'un justificatif
+
+	public function creerjustificatif($idJustifcatif, $matricule, $annee, $mois, $pdfjustificatif )
+	{
+		$res = PdoLBC::$monPdo->prepare("INSERT INTO justificatif (idjustificatif, pdfjustificatif, matricule, annee, mois)
+		VALUES (:idJustificatif, :pdfjustificatif, :matricule, :annee, :mois)");
+		$res->bindValue('idJustifcatif',$idJustifcatif, PDO::PARAM_INT);
+		$res->bindValue('matricule',$matricule, PDO::PARAM_INT);
+		$res->bindValue('Aannee', $annee, PDO::PARAM_INT);
+		$res->bindValue('mois', $mois, PDO::PARAM_INT);
+		$res->bindValue('pdfjustificatif', $pdfjustificatif, PDO::PARAM_STR);
+		$res->execute();
+
+	}
+
 
 	//modification frais
 
