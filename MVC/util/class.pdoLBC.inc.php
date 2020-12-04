@@ -295,4 +295,15 @@ class PdoLBC
         $res->execute();
 	}
 
+	public function supprAutreForfait($matricule, $annee, $mois, $id)
+	{
+        $res = PdoLBC::$monPdo->prepare("DELETE FROM frais WHERE matricule = :matricule AND annee = :annee AND mois = :mois AND idfrais = :id ");
+        $res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+        $res->bindValue('annee', $annee, PDO::PARAM_STR);
+        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+        $res->bindValue('id', $id, PDO::PARAM_INT);
+        $res->execute();
+	}
+
+
 }
