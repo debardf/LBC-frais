@@ -8,6 +8,7 @@
         </br>
         <?php
 
+
         $matricule= $_REQUEST['matricule'];
         $annee= $_REQUEST['annee'];
         $mois= $_REQUEST['mois'];
@@ -65,6 +66,7 @@
                 <td width=150><?php echo $libelle ?></td>
                 <td width=150><?php echo $qte ?></td>
                 <td width=150><?php echo $montant ?></td>
+
                 <td width=150><?php echo ($montant*$qte) ?></td>
                 <td width=150><?php echo $vforfait ?></td>
 
@@ -115,10 +117,12 @@
         </br>
         <table border=3 cellspacing="1">
             <tr>
+
             <th>Date</th>
             <th>Libellé</th>
             <th>Montant</th>
             <th>validé ?</th>
+
              <?php
                   if($idProfil == "C")
     {

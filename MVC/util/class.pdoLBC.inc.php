@@ -241,6 +241,7 @@ class PdoLBC
 
 	public function creerAutreForfait($idfrais, $matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais)
 	{
+
 		$res = PdoLBC::$monPdo->prepare('INSERT INTO frais (idfrais, matricule, 
 		annee, mois, datefrais, libelle, montant, validefrais) VALUES( :Aid, :Amatricule, 
 		:Aannee, :Amois, :Adate, :Alibelle, :Amontant, :Avalidefrais)');
@@ -253,7 +254,6 @@ class PdoLBC
 		$res->bindValue('Amontant', $montant, PDO::PARAM_STR);
 		$res->bindValue('Avalidefrais', $validefrais, PDO::PARAM_STR);
 		$res->execute();
-
 	}
 
 	//création d'un justificatif
@@ -357,5 +357,14 @@ class PdoLBC
 
 	}
 
+	//validation d'une note
+	public function validerNote($matricule,$id,$annee,$mois)
+	{
+		$res = PdoLBC::$monPdo->prepare("UPDATE fiche SET statut = 'V' WHERE annee = '$annee' and mois = '$mois' and matricule = '$matricule'  ");
+		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+        $res->bindValue('annee', $annee, PDO::PARAM_STR);
+        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+		$res->execute();
+}
 
 }

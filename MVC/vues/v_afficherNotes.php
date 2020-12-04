@@ -3,7 +3,7 @@
 
 	<table border=3 cellspacing=1 width = 150>
 	<tr class="affichageNotes">
-
+	
 	<?php
 		if($id == "C")
 	{
@@ -19,6 +19,7 @@
 			<th width=150>datefiche</th>
 			<th width=150>lienpdf</th>
 			<th width=150></th>
+
 
 	</tr>
 	<?php
@@ -49,6 +50,15 @@
 				<td><?php echo $datefiche ?></td>
 				<td><?php echo $lienpdf ?></td>
 				<td><a href="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">détail de la note</a></td>
+				<?php
+
+                 if($id == "C")
+    {
+       ?>  
+        <td width=30><a href=index.php?uc=frais&ucf=validerFrais&action=validerNote&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?> ><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+        <?php
+    }
+    ?>
 
 		</tr>	
 		<?php

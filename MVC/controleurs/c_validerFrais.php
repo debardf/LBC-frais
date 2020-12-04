@@ -24,5 +24,17 @@ case 'validerAutreFrais':
             break;
 
         }
+case 'validerNote':
+        {
+            $id = $_REQUEST['id'];
+            $matricule = $_REQUEST['matricule'];
+            $annee = $_REQUEST['annee'];
+            $mois = $_REQUEST['mois'];  
+            $pdo ->validerNote( $matricule, $id,$annee,$mois);
+            include("vues/v_validerNote.php");
+            break;
+
+        }
+
 
 }
