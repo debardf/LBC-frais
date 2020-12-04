@@ -332,5 +332,14 @@ class PdoLBC
 
 	}
 
+	//validation d'une note
+	public function validerNote($matricule,$id,$annee,$mois)
+	{
+		$res = PdoLBC::$monPdo->prepare("UPDATE fiche SET statut = 'V' WHERE annee = '$annee' and mois = '$mois' and matricule = '$matricule'  ");
+		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+        $res->bindValue('annee', $annee, PDO::PARAM_STR);
+        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+		$res->execute();
+}
 
 }
