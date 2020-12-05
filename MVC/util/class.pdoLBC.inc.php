@@ -74,7 +74,7 @@ class PdoLBC
 	{
 		$req = "SELECT * FROM fiche WHERE matricule ='$matricule' and annee = '$annee' and mois = '$mois' ";
 		$res = PdoLBC::$monPdo->query($req);
-		$lesLignes = $res->fetchAll();
+		$lesLignes = $res->fetch();
 		return $lesLignes;
 	}
 	
@@ -358,7 +358,7 @@ class PdoLBC
 	}
 
 	//validation d'une note
-	public function validerNote($matricule,$id,$annee,$mois)
+	public function validerNote($matricule,$annee,$mois)
 	{
 		$res = PdoLBC::$monPdo->prepare("UPDATE fiche SET statut = 'V' WHERE annee = '$annee' and mois = '$mois' and matricule = '$matricule'  ");
 		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
