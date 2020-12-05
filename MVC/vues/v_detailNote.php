@@ -210,6 +210,9 @@
         </br>
         </br>
         <a href="index.php?uc=frais&ucf=autreForfait&action=creationAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un autre forfait </a>
+        </br>
+        </br>
+        <a href="index.php?uc=frais&ucf=justicatif&action=creationJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un autre Justificatif </a>
     </form>
 
 

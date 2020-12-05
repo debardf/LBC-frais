@@ -12,6 +12,7 @@
             $annee = $_REQUEST['annee'];
             $mois = $_REQUEST['mois'];
             $pdfjustificatif = $_REQUEST['pdfjustificatif'];
+            var_dump($matricule);
 			include("vues/v_autreJustificatif.php");
             break;
             
@@ -27,7 +28,7 @@
             $id++;
 			$pdo->creerJustificatif($id, $matricule, $annee, $mois, $pdfjustificatif);
 			
-			header('Location: index.php?uc=frais&ucf=afficherNotes');	
+			header('Location: index.php?uc=frais&ucf=afficherNotes');
 			
 		}
 	}
