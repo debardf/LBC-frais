@@ -52,13 +52,13 @@
 				<td><a href="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">détail de la note</a></td>
 				<?php
 
-                 if($id == "C")
-    {
-       ?>  
-        <td width=30><a href=index.php?uc=frais&ucf=validerFrais&action=validerNote&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?>&statut=<?php echo $statut ?>&datefiche=<?php echo $datefiche ?>&lienpdf=<?php echo $lienpdf?> ><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+        if($id == "C")
+    	{
+       	?>  
+        <td width=30><a href=index.php?uc=frais&ucf=validerFrais&action=validerNote&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
         <?php
-    }
-    ?>
+    	}
+    	?>
 
 		</tr>	
 		<?php
