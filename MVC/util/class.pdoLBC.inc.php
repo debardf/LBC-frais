@@ -185,6 +185,15 @@ class PdoLBC
 
 	}
 
+	public function getLeJustificatif($matricule, $annee, $mois, $id)
+	{
+	$req = ( "SELECT pdfjustificatif FROM justificatif WHERE matricule = '$matricule' And annee = '$annee' AND mois = '$mois' AND idjustificatif = '$id'" );
+	$res = PdoLBC::$monPdo->query($req);
+	$lesLignes = $res->fetch();	
+	return $lesLignes;
+
+	}
+
 	
 	//création d'une note de frais
 
