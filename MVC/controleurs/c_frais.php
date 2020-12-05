@@ -35,6 +35,8 @@ switch($ucf)
 		{ include("controleurs/c_detailNote.php");break;}
 	case 'modifierAutreForfait' :
 		{ include("controleurs/c_modificationAutreForfait.php");break;}
+	case 'modifierAutreJustificatif' :
+		{ include("controleurs/c_Justicatif.php");break;}
 }
 include("vues/v_pied.php");
 ?>
