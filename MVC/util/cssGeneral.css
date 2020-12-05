@@ -25,6 +25,13 @@ nav li{
 
 }
 
+#justif::before {
+	
+	margin-left: 5px;
+	content: "- ";
+	color: black;
+}
+
 nav{
 	width:100%;
 	margin: 0 auto;

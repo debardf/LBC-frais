@@ -94,10 +94,11 @@
         ?>
         </table>
         <?php
-        
         }
-        
         ?>
+        </br>
+        </br>
+        <a href="index.php?uc=frais&ucf=forfait&action=creationForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">Ajouter un forfait</a>
         </br>
         </br>
             <h3>Autre Frais</h3>
@@ -185,41 +186,40 @@
         ?>
         </br>
         </br>
+        <a href="index.php?uc=frais&ucf=autreForfait&action=creationAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un autre forfait </a>
+        </br>
+        </br>
         <h3>Justificatifs</h3>
         </br>
-        <table border=3 cellspacing="1">
-            <tr>
-            <td>lien pdf</td>
-
+        <?php
+        if($cumulForfait==0)
+        {
+            echo "Il n'y a pas de justificatif ";
+            
+        } 
+        else
+        {
+    
+        ?>
+        <ul>
     <?php 
             foreach($lesJustificatifs as $leJustificatif)
             {
                 $pdf = $leJustificatif['pdfjustificatif'];
             ?>
-                <tr>
-                <td width=150><?php echo $pdf; ?></td>
-                </tr>
+                    <li id="justif" width=150><?php echo $pdf; ?></li>
+            <?php
+            }
+            ?>
+        </ul>
 
-                <?php
-                }
-                ?>
-        </table>
-        </br>
-        </br>
-        <a href="index.php?uc=frais&ucf=forfait&action=creationForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">Ajouter un forfait</a>
-        </br>
-        </br>
-        <a href="index.php?uc=frais&ucf=autreForfait&action=creationAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un autre forfait </a>
+        <?php
+        }
+        ?>
         </br>
         </br>
         <a href="index.php?uc=frais&ucf=creerJustificatif&action=creationJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un justificatif </a>
     </form>
 
-
-
-
-
-
 </body>
 </html>
-
