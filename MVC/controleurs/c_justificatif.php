@@ -11,8 +11,7 @@
             $matricule = $_REQUEST['matricule'];
             $annee = $_REQUEST['annee'];
             $mois = $_REQUEST['mois'];
-            $pdfjustificatif = $_REQUEST['pdfjustificatif'];
-            var_dump($matricule);
+            var_dump($matricule, $annee, $mois);
 			include("vues/v_justificatif.php");
             break;
             
@@ -23,9 +22,10 @@
             $annee = $_REQUEST['annee'];
             $mois = $_REQUEST['mois'];
 			$pdfjustificatif = $_REQUEST['pdfjustificatif'];
-            $id = $pdo->countId();
+            $id = $pdo->compterId();
             $id = max($id);
             $id++;
+            var_dump($id, $matricule, $annee, $mois, $pdfjustificatif);
 			$pdo->creerJustificatif($id, $matricule, $annee, $mois, $pdfjustificatif);
 			
 			header('Location: index.php?uc=frais&ucf=afficherNotes');

@@ -229,7 +229,7 @@ class PdoLBC
 	}
 	//count du nombre de ligne dans justificatif pour récupérer la valeur de l'id
 
-	public function countlId()
+	public function compterId()
 	{
 		$req = "SELECT count(*) FROM justificatif";
 		$res = PdoLBC::$monPdo->query($req);
@@ -258,13 +258,13 @@ class PdoLBC
 
 	//création d'un justificatif
 
-	public function creerjustificatif($idJustifcatif, $matricule, $annee, $mois, $pdfjustificatif )
+	public function creerJustificatif($id, $matricule, $annee, $mois, $pdfjustificatif )
 	{
 		$res = PdoLBC::$monPdo->prepare("INSERT INTO justificatif (idjustificatif, pdfjustificatif, matricule, annee, mois)
-		VALUES (:idJustificatif, :pdfjustificatif, :matricule, :annee, :mois)");
-		$res->bindValue('idJustifcatif',$idJustifcatif, PDO::PARAM_INT);
+		VALUES (:id, :pdfjustificatif, :matricule, :annee, :mois)");
+		$res->bindValue('id',$id, PDO::PARAM_INT);
 		$res->bindValue('matricule',$matricule, PDO::PARAM_INT);
-		$res->bindValue('Aannee', $annee, PDO::PARAM_INT);
+		$res->bindValue('annee', $annee, PDO::PARAM_INT);
 		$res->bindValue('mois', $mois, PDO::PARAM_INT);
 		$res->bindValue('pdfjustificatif', $pdfjustificatif, PDO::PARAM_STR);
 		$res->execute();

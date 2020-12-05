@@ -9,10 +9,7 @@
             <input type="hidden" name="matricule" value="<?php echo $matricule;?>">
 			<input type="hidden" name="annee" value="<?php echo $annee;?>">
 			<input type="hidden" name="mois" value="<?php echo $mois;?>">
-			<input type="hidden" name="idjustificatif" value="<?php echo $id;?>">
-			<tr><td>nom du pdf du justificatif (format "nom".pdf) : </td><td><input name="pdfjustificatif" size=20></td></tr>	
-            <tr><td>Date : </td><td><input type="date" name="Adate" size=20></td></tr>
-			<tr><td>montant : </td><td><input name="Amontant" size=10></td></tr>
+			<tr><td>nom du pdf du justificatif (format "nom".pdf) : </td><td><input name="pdfjustificatif"  size=20></td></tr>	
 			<input type = "hidden" name="Avalide" value=0>
             
 		</tbody>
