@@ -200,7 +200,7 @@
                 $pdf = $leJustificatif['pdfjustificatif'];
                 $idjustificatif = $leJustificatif['idjustificatif'];
             ?>
-                    <li id="justif" width=150><?php echo $pdf; ?><a href=index.php?uc=frais&ucf=supprimerJustificatif&action=supprJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idjustificatif=<?php echo $idjustificatif;?>><img src="images/supp.png" title="Suppr"></a></li>
+                    <li id="justif" width=150><?php echo $pdf; ?><a href=index.php?uc=frais&ucf=Justificatif&action=supprJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idjustificatif=<?php echo $idjustificatif;?>><img src="images/supp.png" title="Suppr"></a></li>
             <?php
             }
             ?>

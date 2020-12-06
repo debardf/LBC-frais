@@ -25,8 +25,6 @@ switch($ucf)
         { include("controleurs/c_autreForfait.php");break;}
 	case 'justificatifs' :
 		{ include("controleurs/c_justificatif.php");break;}
-	case 'supprimerJustificatif' :
-		{ include("controleurs/c_suppressionJustificatif.php");break;}
 	case 'valider' :
 		{ include("controleurs/c_valider.php");break;}
 	case 'realiserFrais' :
