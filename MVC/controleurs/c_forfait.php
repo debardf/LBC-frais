@@ -36,7 +36,6 @@
 				$idO = $_REQUEST['idforfait'];
 				$anneeO = $_REQUEST['annee'];
 				$moisO = $_REQUEST['mois'];
-				var_dump($id);
 				$recuplibelle = $pdo->getLibelle();
 				$recupannee = $pdo->getAnnee($matricule);
 				$recupmois = $pdo->getMois($matricule);
@@ -53,7 +52,6 @@
 				$idO = $_REQUEST['idforfait'];
 				$anneeO = $_REQUEST['annee'];
 				$moisO = $_REQUEST['mois'];
-				var_dump($matricule,$idO,$anneeO,$moisO);
 				$pdo->modifFrais($matricule,$idO,$anneeO,$moisO,$id,$annee,$mois,$qte);
 				
 				header('Location: index.php?uc=frais&ucf=afficherNotes');
@@ -69,7 +67,6 @@
 					$mois = $_REQUEST['mois'];
 					$libelle = $pdo->getUnLibelle($id);
 					$libelle = $libelle['libelleforfait'];
-					var_dump($id);
 					$qte = $pdo->getLeforfait($matricule,$annee,$mois,$id)['quantite'];
 					
 					include("vues/v_supprimerForfait.php");
