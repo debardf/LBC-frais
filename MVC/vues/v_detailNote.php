@@ -2,8 +2,10 @@
 <html>
 
 <body>
+    </br>
     <form>
         <p><H1>Détail de la note :</H1>
+        </br>
         <h3>Frais Forfaitaires</h3>
         </br>
         <?php
@@ -192,7 +194,7 @@
         <h3>Justificatifs</h3>
         </br>
         <?php
-        if($cumulForfait==0)
+        if($cumulJustif==0)
         {
             echo "Il n'y a pas de justificatif ";
             

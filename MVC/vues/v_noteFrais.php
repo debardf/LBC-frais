@@ -1,13 +1,9 @@
 <!doctype html>
 <html>
-	
-    <?php
-        $matricule = $leMatricule['matricule'];
-    ?>
-
    <body>
+   </br>
    <p><h1>Nouvelle note :</h1></p></br>
-	<form action="index.php?uc=frais&ucf=creerFrais&action=confirmCreaNote" method="post">
+	<form action="index.php?uc=frais&ucf=creerNote&action=confirmCreatNote" method="post">
    
 		<table>
 		<tbody>

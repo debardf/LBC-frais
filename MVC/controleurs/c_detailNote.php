@@ -18,6 +18,7 @@
             $lesJustificatifs = $pdo->getLesJustificatifs($matricule, $annee, $mois);
             $cumulForfait = count($lesForfaits);
             $cumulFrais = count($lesFrais);
+            $cumulJustif = count($lesJustificatifs);
 			include("vues/v_detailNote.php");
             break;
 

@@ -17,7 +17,7 @@ switch($ucf)
 		{ include("controleurs/c_deconnexion.php");break; }
 	case 'detailNote' :
 		{ include("controleurs/c_detailNote.php");break;}
-	case 'creerFrais' :
+	case 'creerNote' :
 		{include("controleurs/c_noteFrais.php");break;}
 	case 'forfait' :
 		{ include("controleurs/c_forfait.php");break;}

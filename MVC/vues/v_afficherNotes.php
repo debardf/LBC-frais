@@ -3,7 +3,8 @@
 
 	<table border=3 cellspacing=1 width = 150>
 	<tr class="affichageNotes">
-	
+	</br>
+	</br>
 	<?php
 		if($id == "C")
 	{
@@ -65,6 +66,18 @@
 		}
 		?>
 	</table>
+	</br>
 	<p><b>NV = non validé</b></p>
 	<p><b>V = validé</b></p>
+	</br>
+	</br>
+	<?php
+	if($id == "V")
+    {
+    ?>  
+    	<td width=30><a href=index.php?uc=frais&ucf=creerNote&action=creationNote&matricule=<?php echo $matricule?>>Création d'une note</a></td>
+    <?php
+    }
+    ?>
+
 </div>

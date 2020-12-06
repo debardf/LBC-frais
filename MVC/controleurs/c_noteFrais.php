@@ -13,7 +13,7 @@
         	{
             $login = $_SESSION['valeur'];
 			
-			$leMatricule = $pdo->getMatricule($login);
+			$matricule = $_REQUEST['matricule'];
 			include("vues/v_noteFrais.php");
 			}
 			else
@@ -23,7 +23,7 @@
 			break;
 
 		}
-		case 'confirmCreaNote':
+		case 'confirmCreatNote':
 		{
 			$matricule = $_REQUEST['Fmatricule'];
 			$annee = $_REQUEST['Fannee'];
