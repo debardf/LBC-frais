@@ -67,10 +67,10 @@
 				<td><a href="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">détail de la note</a></td>
 				<?php
 
-        if($id == "C")
+        if($id == "C" && $statut != "V")
     	{
        	?>  
-        <td width=30><a href=index.php?uc=frais&ucf=valider&action=validerNote&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+        <td width=30><a href=index.php?uc=frais&ucf=valider&action=validerNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
         <?php
     	}
     	?>

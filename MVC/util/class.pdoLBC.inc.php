@@ -333,24 +333,24 @@ class PdoLBC
 
 
 	//valider frais forfaitaires
-	public function validerFrais($matricule, $id,$annee,$mois)
+	public function validerFrais($id, $matricule, $annee, $mois)
 	{
-		$res = PdoLBC::$monPdo->prepare("UPDATE ajouteforfait SET valideForfait = 1 WHERE annee = '$annee' and mois = '$mois' and idforfait = '$id' and matricule = '$matricule'");
+		$res = PdoLBC::$monPdo->prepare("UPDATE ajouteforfait SET valideForfait = 1 WHERE annee = :annee and mois = :mois and idforfait = :id and matricule = :matricule");
 		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
-        $res->bindValue('annee', $annee, PDO::PARAM_STR);
-        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+        $res->bindValue('annee', $annee, PDO::PARAM_INT);
+        $res->bindValue('mois', $mois, PDO::PARAM_INT);
         $res->bindValue('id', $id, PDO::PARAM_INT);
 		$res->execute();
 	}
 	
 
-	//validation d'un autre forfait
-	public function validerAutreFrais($matricule,$id,$annee,$mois)
+	//validation d'un autre frais
+	public function validerAutreFrais($id, $matricule, $annee, $mois)
 	{
-		$res = PdoLBC::$monPdo->prepare("UPDATE frais SET valideFrais = 1 WHERE annee = '$annee' and mois = '$mois' and idFrais = '$id' and matricule = '$matricule'  ");
+		$res = PdoLBC::$monPdo->prepare("UPDATE frais SET validefrais = 1 WHERE annee = :annee and mois = :mois and idfrais = :id and matricule = :matricule");
 		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
-        $res->bindValue('annee', $annee, PDO::PARAM_STR);
-        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+        $res->bindValue('annee', $annee, PDO::PARAM_INT);
+        $res->bindValue('mois', $mois, PDO::PARAM_INT);
         $res->bindValue('id', $id, PDO::PARAM_INT);
 		$res->execute();
 	}
@@ -359,8 +359,8 @@ class PdoLBC
 	{
         $res = PdoLBC::$monPdo->prepare("DELETE FROM frais WHERE matricule = :matricule AND annee = :annee AND mois = :mois AND idfrais = :id ");
         $res->bindValue('matricule', $matricule, PDO::PARAM_INT);
-        $res->bindValue('annee', $annee, PDO::PARAM_STR);
-        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+        $res->bindValue('annee', $annee, PDO::PARAM_INT);
+        $res->bindValue('mois', $mois, PDO::PARAM_INT);
         $res->bindValue('id', $id, PDO::PARAM_INT);
         $res->execute();
 
@@ -369,10 +369,10 @@ class PdoLBC
 	//validation d'une note
 	public function validerNote($matricule,$annee,$mois)
 	{
-		$res = PdoLBC::$monPdo->prepare("UPDATE fiche SET statut = 'V' WHERE annee = '$annee' and mois = '$mois' and matricule = '$matricule'  ");
+		$res = PdoLBC::$monPdo->prepare("UPDATE fiche SET statut = 'V' WHERE matricule = :matricule AND annee = :annee AND mois = :mois");
 		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
-        $res->bindValue('annee', $annee, PDO::PARAM_STR);
-        $res->bindValue('mois', $mois, PDO::PARAM_STR);
+        $res->bindValue('annee', $annee, PDO::PARAM_INT);
+        $res->bindValue('mois', $mois, PDO::PARAM_INT);
 		$res->execute();
 	}
 

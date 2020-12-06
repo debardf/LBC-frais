@@ -34,12 +34,6 @@
                     <th>Total</th>
                     <th>validé ?</th>
                   <?php
-                  if($idProfil == "C")
-    {
-        ?>  
-        <th>validation</th>
-        <?php
-    }
         
         if($idProfil == "V") 
         {
@@ -50,12 +44,16 @@
                 <?php
 
             }
-?>
-        <?php
+        else
+        {
+            ?>
+            </tr>
+            <?php
+        }
 
             foreach($lesForfaits as $leForfait)
             {
-            $id = $leForfait['idforfait'];
+            $idforfait = $leForfait['idforfait'];
             $libelle = $leForfait['libelleforfait'];
             $qte = $leForfait['quantite'];
             $montant = $leForfait['montant'];
@@ -76,27 +74,20 @@
 
                  if($idProfil == "C" && $vforfait == 0)
     {
-       ?>  
-        <td id="icone" width=30><a href=index.php?uc=frais&ucf=valider&action=validerFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?> ><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+       ?>
+        <td width=30><a href=index.php?uc=frais&ucf=valider&action=validerFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idforfait ?>&matricule=<?php echo $matricule?> ><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
         <?php
-    }
-                else
-        {
-            ?>  
-        <td> </td>
-        <?php
-        }  
-        
+    }        
         if($idProfil == "V") 
         {
             ?>
-            <td id="icone" ><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
-            <td id="icone" ><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/supp.png" title="Suppr"></a></td>
+            <td id="icone" ><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&idforfait=<?php echo $idforfait;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
+            <td id="icone" ><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&idforfait=<?php echo $idforfait;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/supp.png" title="Suppr"></a></td>
             <?php
             }
 			?>
+            </tr>
 
-        </tr>
         <?php
         }
         ?>
@@ -133,12 +124,6 @@
             <th>validé ?</th>
 
              <?php
-                  if($idProfil == "C")
-    {
-        ?>  
-        <th></th>
-        <?php
-    }
         
         if($idProfil == "V") 
         {
@@ -170,16 +155,9 @@
                  if($idProfil == "C" && $vfrais == 0)
     {
        ?>  
-        <td id="icone" width=30><a href=index.php?uc=frais&ucf=valider&action=validerAutreFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+        <td width=30><a href=index.php?uc=frais&ucf=valider&action=validerAutreFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idfrais ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
         <?php
     }
-                else
-        {
-        ?>  
-        <td> </td>
-        <?php
-        }  
-        
         if($idProfil == "V") 
         {
             ?>
