@@ -2,7 +2,7 @@
     $action=$_REQUEST['action'];
     switch($action)
 {
-case 'validerFraisF':
+case 'validerFrais':
         {
             $id = $_REQUEST['id'];
             $matricule = $_REQUEST['matricule'];

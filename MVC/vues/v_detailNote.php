@@ -37,7 +37,7 @@
                   if($idProfil == "C")
     {
         ?>  
-        <td></td>
+        <th>validation</th>
         <?php
     }
         
@@ -74,12 +74,18 @@
 
     <?php
 
-                 if($idProfil == "C")
+                 if($idProfil == "C" && $vforfait == 0)
     {
        ?>  
-        <td id="icone" width=30><a href=index.php?uc=frais&ucf=validerFrais&action=validerFraisF&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?> ><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+        <td id="icone" width=30><a href=index.php?uc=frais&ucf=valider&action=validerFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?> ><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
         <?php
-    }  
+    }
+                else
+        {
+            ?>  
+        <td> </td>
+        <?php
+        }  
         
         if($idProfil == "V") 
         {
@@ -130,7 +136,7 @@
                   if($idProfil == "C")
     {
         ?>  
-        <td></td>
+        <th></th>
         <?php
     }
         
@@ -161,12 +167,18 @@
                 <td width=150><?php echo $vfrais; ?></td>
 
                     <?php
-                 if($idProfil == "C")
+                 if($idProfil == "C" && $vfrais == 0)
     {
        ?>  
-        <td id="icone" width=30><a href=index.php?uc=frais&ucf=validerFrais&action=validerAutreFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+        <td id="icone" width=30><a href=index.php?uc=frais&ucf=valider&action=validerAutreFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $id ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
         <?php
     }
+                else
+        {
+        ?>  
+        <td> </td>
+        <?php
+        }  
         
         if($idProfil == "V") 
         {
