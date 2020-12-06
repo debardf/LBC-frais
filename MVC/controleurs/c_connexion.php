@@ -33,11 +33,10 @@ if($leClient['typeprofil'] == 'C')
 	$_SESSION['idClient']="Comptable";
 	$_SESSION['typeprofil']="typeprofil";
 }
-if($leClient['typeprofil'] == 'V')
+else if($leClient['typeprofil'] == 'V')
 {
 	$_SESSION['idClient']="Visiteur";
 	$_SESSION['typeprofil']="typeprofil";
 }
-
 
 ?>

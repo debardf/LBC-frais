@@ -23,7 +23,7 @@
         <table border=3 cellspacing=1>
             <tr>
                 <th width = 200px>Frais Forfaitaires</th>
-                <th>Quantité </th>  
+                <th width = 120px>Quantité </th>  
                 <th>Montant Unitaire</th>
                 <th>Total</th>
                 <th>validé ?</th>
@@ -32,8 +32,8 @@
         if($idProfil == "V") 
         {
             ?>
-                    <th></th>
-                    <th></th>
+                    <th width = 50px></th>
+                    <th width = 50px></th>
                     <?php
 
         }
@@ -79,7 +79,7 @@
         ?>
         </br>
         </br>
-        <a href="index.php?uc=frais&ucf=forfait&action=creationForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">Ajouter un forfait</a>
+        <a id="lien" href="index.php?uc=frais&ucf=forfait&action=creationForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">Ajouter un forfait</a>
         </br>
         </br>
             <h3>Autre Frais</h3>
@@ -100,8 +100,8 @@
         <table border=3 cellspacing="1">
             <tr>
 
-            <th>Date</th>
-            <th>Libellé</th>
+            <th width=200px>Libellé</th>
+            <th width=200px>Date</th>
             <th>Montant</th>
             <th>validé ?</th>
 
@@ -110,8 +110,8 @@
         if($idProfil == "V") 
         {
             ?>
-                <th></th>
-                <th></th>
+                <th width = 50px></th>
+                <th width = 50px></th>
                 <?php
 
         }
@@ -127,8 +127,8 @@
                 $vfrais = $leFrais['validefrais'];
             ?>
                 <tr>
-                <td width=150><?php echo $datefrais; ?></td>
                 <td width=150><?php echo $libelleFrais; ?></td>
+                <td width=150><?php echo $datefrais; ?></td>
                 <td width=150><?php echo $montantFrais; ?></td>
                 <td width=150><?php echo $vfrais; ?></td>
 
@@ -159,7 +159,7 @@
         ?>
         </br>
         </br>
-        <a href="index.php?uc=frais&ucf=autreForfait&action=creationAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un autre forfait </a>
+        <a id="lien" href="index.php?uc=frais&ucf=autreForfait&action=creationAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un autre forfait </a>
         </br>
         </br>
         <h3>Justificatifs</h3>
@@ -192,7 +192,7 @@
         ?>
         </br>
         </br>
-        <a href="index.php?uc=frais&ucf=justificatifs&action=creationJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un justificatif </a>
+        <a id="lien" href="index.php?uc=frais&ucf=justificatifs&action=creationJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un justificatif </a>
     </form>
 
 </body>

@@ -23,13 +23,11 @@ switch($action)
             $lesNotes = $pdo->getlesNotes($matricule); 
             include("vues/v_afficherNotes.php");
         }
-        if($id == "C")
+        else if($id == "C")
         {
             $lesNotes = $pdo->getTouteslesNotes();
             include("vues/v_afficherNotes.php");
         }
-        
-  		
 		break;
     }
     
