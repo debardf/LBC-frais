@@ -31,7 +31,7 @@ switch($ucf)
 		{ include("controleurs/c_modificationAutreForfait.php");break;}
 	case 'supprimerAutreForfait' :
 		{ include("controleurs/c_suppressionAutreForfait.php");break;}
-	case 'creerJustificatif' :
+	case 'justificatifs' :
 		{ include("controleurs/c_justificatif.php");break;}
 	case 'supprimerJustificatif' :
 		{ include("controleurs/c_suppressionJustificatif.php");break;}

@@ -221,7 +221,7 @@
         ?>
         </br>
         </br>
-        <a href="index.php?uc=frais&ucf=creerJustificatif&action=creationJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un justificatif </a>
+        <a href="index.php?uc=frais&ucf=justificatifs&action=creationJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un justificatif </a>
     </form>
 
 </body>

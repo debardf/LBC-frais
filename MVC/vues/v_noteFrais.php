@@ -12,7 +12,7 @@
             <tr><td>Mois</td><td><input name="Fmois" size=20></td></tr>
             <input type="hidden" name="Fstatut" value="NV">
             <input type="hidden" name="Fdatefiche" value=<?php echo $datefiche=date('Y-m-d');?>>
-            <input type="hidden" name="Flien" value="pas de lien">
+            <input type="hidden" name="Flien">
 		</tbody>
 		</table>
         </br>

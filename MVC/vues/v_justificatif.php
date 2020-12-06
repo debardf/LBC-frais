@@ -2,7 +2,7 @@
 <html>
    <body>
    <p><h1>Ajout d'un justificatif :</h1></p><BR/>
-	<form action="index.php?uc=frais&ucf=creerJustificatif&action=confirmCreatJustificatif" method="post">
+	<form action="index.php?uc=frais&ucf=justificatifs&action=confirmCreatJustificatif" method="post">
    
 		<table>
 		<tbody>

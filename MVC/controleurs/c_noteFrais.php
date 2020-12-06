@@ -32,7 +32,6 @@
 			$datefiche = $_REQUEST['Fdatefiche'];
 			$lienpdf = $_REQUEST['Flien'];
 			$pdo->creerFrais($matricule,$annee,$mois,$statut,$datefiche,$lienpdf);
-			
 			header("Location: index.php?uc=frais&ucf=afficherNotes");
 			break;
 		}
