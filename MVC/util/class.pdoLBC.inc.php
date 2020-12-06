@@ -353,7 +353,7 @@ class PdoLBC
         $res->bindValue('mois', $mois, PDO::PARAM_STR);
         $res->bindValue('id', $id, PDO::PARAM_INT);
 		$res->execute();
-}
+	}
 
 	public function supprAutreForfait($matricule, $annee, $mois, $id)
 	{
@@ -374,6 +374,18 @@ class PdoLBC
         $res->bindValue('annee', $annee, PDO::PARAM_STR);
         $res->bindValue('mois', $mois, PDO::PARAM_STR);
 		$res->execute();
-}
+	}
+
+	public function supprJustificatif($matricule, $annee, $mois, $idjustificatif)
+	{
+        $res = PdoLBC::$monPdo->prepare("DELETE FROM justificatif WHERE matricule = :matricule AND annee = :annee AND mois = :mois AND idjustificatif = :idjustificatif ");
+        $res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+        $res->bindValue('annee', $annee, PDO::PARAM_INT);
+        $res->bindValue('mois', $mois, PDO::PARAM_INT);
+        $res->bindValue('idjustificatif', $idjustificatif, PDO::PARAM_INT);
+        $res->execute();
+
+	}
+
 
 }
