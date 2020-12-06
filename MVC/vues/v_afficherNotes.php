@@ -39,38 +39,37 @@
 		<tr>
 		<?php
 		if($id == "C")
-	{
+		{
 		?>	
 		<td><?php echo $matricule ?></td>
 		<?php
-	}
-	?>	
-				<td><?php echo $annee ?></td>
-				<td><?php echo $mois ?></td>
-				<td><?php echo $statut ?></td>
-				<td><?php echo $datefiche ?></td>
-				<td><a href=index.php?uc=frais&ucf=justificatifs&action=generepdf&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>>
-				<?php 
-				if(!empty($lienpdf))
-				{ 
-					echo $lienpdf;
-				} 
-				else 
-				{
+		}
+		?>	
+			<td><?php echo $annee ?></td>
+			<td><?php echo $mois ?></td>
+			<td><?php echo $statut ?></td>
+			<td><?php echo $datefiche ?></td>
+			<td><a href=index.php?uc=frais&ucf=justificatifs&action=generepdf&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>>
+			<?php 
+			if(!empty($lienpdf))
+			{ 
+				echo $lienpdf;
+			} 
+			else 
+			{
 				?></a>
 				Pas de lien
 				<?php
-				}
-				?>
-				</td>
-
-				<td><a href="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">détail de la note</a></td>
-				<?php
+			}
+			?>
+			</td>
+			<td><a href="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">détail de la note</a></td>
+			<?php
 
         if($id == "C" && $statut != "V")
     	{
-       	?>  
-        <td width=30><a href=index.php?uc=frais&ucf=valider&action=validerNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+		?>
+        	<td width=30><a href=index.php?uc=frais&ucf=valider&action=validerNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
         <?php
     	}
     	?>

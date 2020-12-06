@@ -9,12 +9,6 @@
         <h3>Frais Forfaitaires</h3>
         </br>
         <?php
-
-
-        $matricule= $_REQUEST['matricule'];
-        $annee= $_REQUEST['annee'];
-        $mois= $_REQUEST['mois'];
-
    
         if($cumulForfait==0)
         {
@@ -26,31 +20,26 @@
     
         ?>
         </br>
-            <table border=3 cellspacing=1>
-                <tr>
-                    <th width = 200px>Frais Forfaitaires</th>
-                    <th>Quantité </th>  
-                    <th>Montant Unitaire</th>
-                    <th>Total</th>
-                    <th>validé ?</th>
-                  <?php
+        <table border=3 cellspacing=1>
+            <tr>
+                <th width = 200px>Frais Forfaitaires</th>
+                <th>Quantité </th>  
+                <th>Montant Unitaire</th>
+                <th>Total</th>
+                <th>validé ?</th>
+        <?php
         
         if($idProfil == "V") 
         {
             ?>
                     <th></th>
                     <th></th>
-                </tr>
-                <?php
+                    <?php
 
-            }
-        else
-        {
-            ?>
-            </tr>
-            <?php
         }
-
+        ?>
+        </tr>
+        <?php
             foreach($lesForfaits as $leForfait)
             {
             $idforfait = $leForfait['idforfait'];
@@ -58,39 +47,32 @@
             $qte = $leForfait['quantite'];
             $montant = $leForfait['montant'];
             $vforfait = $leForfait['valideForfait'];
-            ?>
-
-
-
+            ?>  
             <tr>
                 <td width=150><?php echo $libelle ?></td>
                 <td width=150><?php echo $qte ?></td>
                 <td width=150><?php echo $montant ?></td>
-
                 <td width=150><?php echo ($montant*$qte) ?></td>
                 <td width=150><?php echo $vforfait ?></td>
 
-    <?php
-
-                 if($idProfil == "C" && $vforfait == 0)
-    {
-       ?>
-        <td width=30><a href=index.php?uc=frais&ucf=valider&action=validerFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idforfait ?>&matricule=<?php echo $matricule?> ><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
-        <?php
-    }        
-        if($idProfil == "V") 
-        {
-            ?>
-            <td id="icone" ><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&idforfait=<?php echo $idforfait;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
-            <td id="icone" ><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&idforfait=<?php echo $idforfait;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/supp.png" title="Suppr"></a></td>
             <?php
-            }
-			?>
-            </tr>
 
-        <?php
-        }
-        ?>
+            if($idProfil == "C" && $vforfait == 0)
+            {
+                ?>
+                <td id="cache"><a href=index.php?uc=frais&ucf=valider&action=validerFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idforfait ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+                <?php
+            }        
+            if($idProfil == "V") 
+            {
+                ?>
+                <td id="icone" ><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&idforfait=<?php echo $idforfait;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
+                <td id="icone" ><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&idforfait=<?php echo $idforfait;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/supp.png" title="Suppr"></a></td>
+                <?php
+            }
+            }
+            ?>
+            </tr>
         </table>
         <?php
         }
@@ -130,12 +112,11 @@
             ?>
                 <th></th>
                 <th></th>
-                </tr>
                 <?php
 
-            }
-?>
-
+        }
+        ?>
+        </tr>
             <?php 
             foreach($lesFrais as $leFrais)
             {
@@ -155,7 +136,7 @@
                  if($idProfil == "C" && $vfrais == 0)
     {
        ?>  
-        <td width=30><a href=index.php?uc=frais&ucf=valider&action=validerAutreFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idfrais ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+        <td id="cache"><a href=index.php?uc=frais&ucf=valider&action=validerAutreFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idfrais ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
         <?php
     }
         if($idProfil == "V") 
