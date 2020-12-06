@@ -2,8 +2,8 @@
 <html>
 	
    <body>
-   <p><h1>Modification Frais :</h1></p><BR/>
-	<form action="index.php?uc=frais&ucf=modifierFrais&action=confirmModifFrais&idforfait=<?php echo $idO;?>&matricule=<?php echo $matricule?>&annee=<?php echo $anneeO?>&mois=<?php echo $moisO?>" method="post">
+   <p><h1>Modification Forfait :</h1></p><BR/>
+	<form action="index.php?uc=frais&ucf=forfait&action=confirmModifForfait&idforfait=<?php echo $idO;?>&matricule=<?php echo $matricule?>&annee=<?php echo $anneeO?>&mois=<?php echo $moisO?>" method="post">
    	
 	   	<table>
 		<tbody>

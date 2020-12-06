@@ -3,7 +3,7 @@
 	
    <body>
    <p><h1>Modification autre forfait :</h1></p><BR/>
-	<form action="index.php?uc=frais&ucf=modifierAutreForfait&action=confirmModifAutreForfait&idfrais=<?php echo $idfrais;?>&matricule=<?php echo $matricule?>&annee=<?php echo $anneeO?>&mois=<?php echo $moisO?>" method="post">
+	<form action="index.php?uc=frais&ucf=autreForfait&action=confirmModifAutreForfait&idfrais=<?php echo $idfrais;?>&matricule=<?php echo $matricule?>&annee=<?php echo $anneeO?>&mois=<?php echo $moisO?>" method="post">
    	
 	   	<table>
 		<tbody>

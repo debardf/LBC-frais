@@ -2,7 +2,7 @@
 <html>
    <body>
    <p><h1>Supprimer le forfait :</h1></p><BR/>
-    <form action="index.php?uc=frais&ucf=supprimerFrais&action=confirmSupprFrais&id=<?php echo $id;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>" method="post">
+    <form action="index.php?uc=frais&ucf=forfait&action=confirmSupprForfait&id=<?php echo $id;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>" method="post">
 
         <table>
         <tbody>

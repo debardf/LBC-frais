@@ -81,8 +81,8 @@
         if($idProfil == "V") 
         {
             ?>
-            <td id="icone" ><a href=index.php?uc=frais&ucf=modifierFrais&action=modifFrais&idforfait=<?php echo $idforfait;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
-            <td id="icone" ><a href=index.php?uc=frais&ucf=supprimerFrais&action=supprFrais&idforfait=<?php echo $idforfait;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/supp.png" title="Suppr"></a></td>
+            <td id="icone" ><a href=index.php?uc=frais&ucf=forfait&action=modifForfait&idforfait=<?php echo $idforfait;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
+            <td id="icone" ><a href=index.php?uc=frais&ucf=forfait&action=supprForfait&idforfait=<?php echo $idforfait;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/supp.png" title="Suppr"></a></td>
             <?php
             }
 			?>
@@ -161,8 +161,8 @@
         if($idProfil == "V") 
         {
             ?>
-            <td id="icone"><a href=index.php?uc=frais&ucf=modifierAutreForfait&action=modifAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idfrais=<?php echo $idfrais;?>><img src="images/modifier.gif" title="Modif"></a></td>
-            <td id="icone" ><a href=index.php?uc=frais&ucf=supprimerAutreForfait&action=supprAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idfrais=<?php echo $idfrais;?>><img src="images/supp.png" title="Suppr"></a></td>
+            <td id="icone"><a href=index.php?uc=frais&ucf=autreForfait&action=modifAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idfrais=<?php echo $idfrais;?>><img src="images/modifier.gif" title="Modif"></a></td>
+            <td id="icone" ><a href=index.php?uc=frais&ucf=autreForfait&action=supprAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idfrais=<?php echo $idfrais;?>><img src="images/supp.png" title="Suppr"></a></td>
             <?php
             }
             ?>
