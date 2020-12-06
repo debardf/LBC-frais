@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
    <body>
-   <p><h1>Supprimer le forfait :</h1></p><BR/>
+   <p><h1>Supprimer le justificatif :</h1></p><BR/>
     <form action="index.php?uc=frais&ucf=supprimerJustificatif&action=confirmSupprJustificatif&id=<?php echo $id;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>&id=<?php echo $id?>" method="post">
 
         <table>
@@ -10,7 +10,7 @@
             <input Type="hidden" name="matricule" value="<?php echo $matricule ?>">
             <input Type="hidden" name="annee" value="<?php echo $annee ?>">
             <input Type="hidden" name="mois" value="<?php echo $mois ?>">
-            <tr><td>nom du justificatif </td><td><input name="pdfjustificatif" value="<?php echo $libelle?>" size=20 readonly></td></tr>
+            <tr><td>nom du justificatif </td><td><input name="pdfjustificatif" value="<?php echo $pdfjustificatif?>" size=20 readonly></td></tr>
         </tbody>
         </table>
         <br/>

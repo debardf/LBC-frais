@@ -8,8 +8,9 @@
 			$matricule = $_REQUEST['matricule'];
 			$annee = $_REQUEST['annee'];
 			$mois = $_REQUEST['mois'];
+			$pdfjustificatif;
 			$qte = $pdo->getLeJustificatif($matricule,$annee,$mois,$id);
-			include("vues/v_supprimerFrais.php");
+			include("vues/v_supprimerJustificatif.php");
 			break;
 		}
 		case 'confirmSupprJustificatif':
