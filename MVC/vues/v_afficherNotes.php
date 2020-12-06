@@ -49,7 +49,21 @@
 				<td><?php echo $mois ?></td>
 				<td><?php echo $statut ?></td>
 				<td><?php echo $datefiche ?></td>
-				<td><?php echo $lienpdf ?></td>
+				<td><a href=index.php?uc=frais&ucf=justificatifs&action=generepdf&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>>
+				<?php 
+				if(!empty($lienpdf))
+				{ 
+					echo $lienpdf;
+				} 
+				else 
+				{
+				?></a>
+				Pas de lien
+				<?php
+				}
+				?>
+				</td>
+
 				<td><a href="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">détail de la note</a></td>
 				<?php
 
