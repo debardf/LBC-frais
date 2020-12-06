@@ -2,7 +2,7 @@
 <html>
    <body>
    <p><h1>Supprimer le justificatif :</h1></p><BR/>
-    <form action="index.php?uc=frais&ucf=supprimerJustificatif&action=confirmSupprJustificatif&idjustificatif=<?php echo $idjustificatif;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>" method="post">
+    <form action="index.php?uc=frais&ucf=justificatifs&action=confirmSupprJustificatif&idjustificatif=<?php echo $idjustificatif;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>" method="post">
 
         <table>
         <tbody>

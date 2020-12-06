@@ -30,7 +30,7 @@
 			
         }
 
-        case 'supprJustificatif':
+        case 'supprimerJustificatif':
         {
                 $idjustificatif = $_REQUEST['idjustificatif'];
                 $matricule = $_REQUEST['matricule'];
