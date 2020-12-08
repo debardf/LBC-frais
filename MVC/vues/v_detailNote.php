@@ -195,5 +195,15 @@
         <a id="lien" href="index.php?uc=frais&ucf=justificatifs&action=creationJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un justificatif </a>
     </form>
 
+
+    <?php 
+    foreach($lesSignatures as $laSignature)
+            {
+                ?>
+                <li id="signature"><img src="images/signature/<?php echo $laSignature["signature"] ?>" title="Signature"></a></li>
+                <?php
+            }
+            ?>
+
 </body>
 </html>

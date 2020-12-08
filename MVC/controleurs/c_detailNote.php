@@ -19,6 +19,8 @@
             $cumulForfait = count($lesForfaits);
             $cumulFrais = count($lesFrais);
             $cumulJustif = count($lesJustificatifs);
+            $lesSignatures = $pdo->getSignaturesByFiches($matricule, $annee, $mois);
+
 			include("vues/v_detailNote.php");
             break;
 

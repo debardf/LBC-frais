@@ -438,5 +438,15 @@ class PdoLBC
 		return $lesLignes;
 	}
 
+	public function getSignaturesByFiches($matricule, $annee, $mois)
+	{
+		$req = "SELECT signature FROM comptable INNER JOIN envoye ON comptable.idcomptable = envoye.idcomptable where matricule = $matricule AND annee = $annee AND mois = $mois";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+	}
+
+
+
 
 }
