@@ -21,11 +21,14 @@ switch($action)
             $matricules= $pdo->getmatricule($login);
             $matricule = $matricules['matricule'];
             $lesNotes = $pdo->getlesNotes($matricule); 
+
             include("vues/v_afficherNotes.php");
         }
         else if($id == "C")
         {
             $lesNotes = $pdo->getTouteslesNotes();
+
+
             include("vues/v_afficherNotes.php");
         }
 		break;

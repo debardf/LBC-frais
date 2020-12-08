@@ -3,7 +3,7 @@
 class PdoLBC
 {   		
       	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=lbc';  		
+      	private static $bdd='dbname=lbc';		
       	private static $user='root';
 		private static $mdp='';
 		private static $monPdo;
@@ -13,7 +13,7 @@ class PdoLBC
 	{
     
 		if ($_SERVER['SERVER_NAME'] == 'localhost'){
-    		PdoLBC::$monPdo = new PDO(PdoLBC::$serveur.';'.PdoLBC::$bdd, PdoLBC::$user, PdoLBC::$mdp); 
+    		PdoLBC::$monPdo = new PDO(PdoLBC::$serveur.';'.PdoLBC::$bdd, PdoLBC::$user, PdoLBC::$mdp);
 			PdoLBC::$monPdo->query("SET CHARACTER SET utf8");
 		}else{
 			PdoLBC::$monPdo = new PDO('mysql:host=db718502955.db.1and1.com;dbname=db718502955','dbo718502955','BMw1234*'); 
@@ -333,13 +333,13 @@ class PdoLBC
 
 
 	//valider frais forfaitaires
-	public function validerFrais($id, $matricule, $annee, $mois)
+	public function validerForfait($id, $matricule, $annee, $mois)
 	{
-		$res = PdoLBC::$monPdo->prepare("UPDATE ajouteforfait SET valideForfait = 1 WHERE annee = :annee and mois = :mois and idforfait = :id and matricule = :matricule");
+		$res = PdoLBC::$monPdo->prepare("UPDATE ajouteforfait SET valideForfait = 1 WHERE annee = :annee and mois = :mois and idforfait = :idforfait and matricule = :matricule");
 		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
         $res->bindValue('annee', $annee, PDO::PARAM_INT);
         $res->bindValue('mois', $mois, PDO::PARAM_INT);
-        $res->bindValue('id', $id, PDO::PARAM_INT);
+        $res->bindValue('idforfait', $id, PDO::PARAM_INT);
 		$res->execute();
 	}
 	
@@ -385,6 +385,57 @@ class PdoLBC
         $res->bindValue('idjustificatif', $idjustificatif, PDO::PARAM_INT);
         $res->execute();
 
+	}
+
+	public function comptableDejaAssocieFiche($matricule, $annee, $mois, $idcomptable)
+	{
+		$req = "SELECT count(*) FROM envoye WHERE matricule = $matricule AND annee = $annee AND mois = $mois AND idcomptable = $idcomptable ";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
+	}
+
+	public function associerComptableFiche($matricule, $annee, $mois, $idcomptable)
+	{
+		$res = PdoLBC::$monPdo->prepare("INSERT INTO envoye (matricule, annee, mois, idcomptable)
+		VALUES (:matricule, :annee, :mois, :idcomptable)");
+		$res->bindValue('matricule',$matricule, PDO::PARAM_INT);
+		$res->bindValue('annee',$annee, PDO::PARAM_INT);
+		$res->bindValue('mois', $mois, PDO::PARAM_INT);
+		$res->bindValue('idcomptable', $idcomptable, PDO::PARAM_INT);
+		$res->execute();
+	}
+
+	public function compterForfaitFiche($matricule, $annee, $mois)
+	{
+		$req = "SELECT count(*) FROM ajouteforfait WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois."";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+	}
+
+	public function compterForfaitFicheValide($matricule, $annee, $mois)
+	{
+		$req = "SELECT count(*) FROM ajouteforfait WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois." AND valideForfait = 1";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+	}
+
+	public function compterAutreForfaitFiche($matricule, $annee, $mois)
+	{
+		$req = "SELECT count(*) FROM frais WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois."";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+	}
+
+	public function compterAutreForfaitFicheValide($matricule, $annee, $mois)
+	{
+		$req = "SELECT count(*) FROM frais WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois." AND validefrais = 1";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
 	}
 
 

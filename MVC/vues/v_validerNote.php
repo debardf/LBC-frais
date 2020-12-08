@@ -1,6 +1,11 @@
 <!doctype html>
 <html>
    <body>
+
+   <?php
+   if ($peutValide == 1)
+   {
+      ?>
    <p><h1>Validation du frais :</h1></p>
    </br>
    </br>
@@ -10,7 +15,21 @@
         <br/>
 		<input type="submit" value="Valider">
 	</form>
- 
+ <?php
+   }
+   else
+   {
+   ?>
+
+      <h1>Validation impossible car tous les éléments de la fiche ne sont pas validés </h1>
+      <form action="index.php?uc=frais&ucf=afficherNotes"method="post"> 
+      <br/>
+      <input type="submit" value="retour">
+      </form>
+      <?php
+   }
+   ?>
+
 	
 	</body>
 </html>
