@@ -446,4 +446,21 @@ class PdoLBC
 		return $lesLignes;
 	}
 
+	public function getModifLien($matricule,$annee,$mois)
+	{
+		$res = PdoLBC::$monPdo->prepare("UPDATE fiche SET lienpdf = 'note_$mois$annee' WHERE matricule = :matricule AND annee = :annee AND mois = :mois");
+		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
+        $res->bindValue('annee', $annee, PDO::PARAM_INT);
+		$res->bindValue('mois', $mois, PDO::PARAM_INT);
+		$res->execute();
+	}
+
+	public function getLeProfil($matricule)
+	{
+		$req = "SELECT * FROM profil WHERE valeur = $matricule and typeprofil='V'";
+		$res = PdoLBC::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
+	}
+
 }

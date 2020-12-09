@@ -49,7 +49,7 @@
 			<td><?php echo $mois ?></td>
 			<td><?php echo $statut ?></td>
 			<td><?php echo $datefiche ?></td>
-			<td><a href=index.php?uc=frais&ucf=justificatifs&action=generepdf&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>>
+			<td><a id="lien" href=index.php?uc=frais&ucf=justificatifs&action=generepdf&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>>
 			<?php 
 			if(!empty($lienpdf))
 			{ 
@@ -58,12 +58,12 @@
 			else 
 			{
 				?></a>
-				Pas de lien
+				<a id="lien" href=index.php?uc=frais&ucf=justificatifs&action=ajoutLien&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>>Ajouter un lien</a>
 				<?php
 			}
 			?>
 			</td>
-			<td><a href="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">détail de la note</a></td>
+			<td><a id="lien" href="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">détail</a></td>
 			<?php
 
         if($id == "C" && $statut != "V")
@@ -88,7 +88,7 @@
 	if($id == "V")
     {
     ?>  
-    	<td width=30><a href=index.php?uc=frais&ucf=creerNote&action=creationNote&matricule=<?php echo $matricule?>>Création d'une note</a></td>
+    	<td width=30><a id="lien" href=index.php?uc=frais&ucf=creerNote&action=creationNote&matricule=<?php echo $matricule?>>Création d'une note</a></td>
     <?php
     }
     ?>
