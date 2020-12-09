@@ -60,7 +60,7 @@
             if($idProfil == "C" && $vforfait == 0)
             {
                 ?>
-                <td id="cache"><a href=index.php?uc=frais&ucf=valider&action=validerFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idforfait ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+                <td id="cache"><a href=index.php?uc=frais&ucf=valider&action=validerForfait&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idforfait ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
                 <?php
             }        
             if($idProfil == "V") 

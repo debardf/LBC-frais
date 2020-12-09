@@ -2,16 +2,16 @@
     $action=$_REQUEST['action'];
     switch($action)
 {
-case 'validerFrais':
+case 'validerForfait':
         {
             $id = $_REQUEST['id'];
             $matricule = $_REQUEST['matricule'];
             $annee = $_REQUEST['annee'];
             $mois = $_REQUEST['mois'];  
-            include("vues/v_validerFrais.php");
+            include("vues/v_validerForfait.php");
             break;
         }
-case 'confirmValideFrais':
+case 'confirmValideForfait':
         {
             $id = $_REQUEST['id'];
             $matricule = $_REQUEST['matricule'];
