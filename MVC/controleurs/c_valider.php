@@ -7,7 +7,10 @@ case 'validerForfait':
             $id = $_REQUEST['id'];
             $matricule = $_REQUEST['matricule'];
             $annee = $_REQUEST['annee'];
-            $mois = $_REQUEST['mois'];  
+            $mois = $_REQUEST['mois']; 
+            $qte = $pdo->getLeforfait($matricule,$annee,$mois,$id)['quantite'];
+            $libelle = $pdo->getUnLibelle($id);
+            $libelle = $libelle["libelleforfait"];
             include("vues/v_validerForfait.php");
             break;
         }
