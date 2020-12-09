@@ -29,7 +29,7 @@
                 <th>validé ?</th>
         <?php
         
-        if($idProfil == "V") 
+        if($idProfil == "V" && $statut != "V") 
         {
             ?>
                     <th width = 50px></th>
@@ -63,7 +63,7 @@
                 <td id="cache"><a href=index.php?uc=frais&ucf=valider&action=validerForfait&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idforfait ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
                 <?php
             }        
-            if($idProfil == "V") 
+            if($idProfil == "V" && $statut != "V") 
             {
                 ?>
                 <td id="icone" ><a href=index.php?uc=frais&ucf=forfait&action=modifForfait&idforfait=<?php echo $idforfait;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
@@ -114,7 +114,7 @@
 
              <?php
         
-        if($idProfil == "V") 
+        if($idProfil == "V" && $statut != "V") 
         {
             ?>
                 <th width = 50px></th>
@@ -146,7 +146,7 @@
         <td id="cache"><a href=index.php?uc=frais&ucf=valider&action=validerAutreFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idfrais ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
         <?php
     }
-        if($idProfil == "V") 
+        if($idProfil == "V" && $statut != "V") 
         {
             ?>
             <td id="icone"><a href=index.php?uc=frais&ucf=autreForfait&action=modifAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idfrais=<?php echo $idfrais;?>><img src="images/modifier.gif" title="Modif"></a></td>
@@ -194,9 +194,12 @@
             {
                 $pdf = $leJustificatif['pdfjustificatif'];
                 $idjustificatif = $leJustificatif['idjustificatif'];
+                if ($idProfil =="V" && $statut != "V")
+                {
             ?>
                     <li id="justif" width=150><?php echo $pdf; ?><a href=index.php?uc=frais&ucf=justificatifs&action=supprimerJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idjustificatif=<?php echo $idjustificatif;?>><img src="images/supp.png" title="Suppr"></a></li>
             <?php
+                }
             }
             ?>
         </ul>

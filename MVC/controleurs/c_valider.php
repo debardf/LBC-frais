@@ -41,6 +41,9 @@ case 'validerAutreFrais':
             $matricule = $_REQUEST['matricule'];
             $annee = $_REQUEST['annee'];
             $mois = $_REQUEST['mois'];
+            $libelle=$pdo->getAutreForfait($matricule,$annee,$mois,$id)["libelle"];
+            $montant=$pdo->getAutreForfait($matricule,$annee,$mois,$id)["montant"];
+            $dateFrais=$pdo->getAutreForfait($matricule,$annee,$mois,$id)["datefrais"];
             include("vues/v_validerAutreFrais.php");
             break;
         }
