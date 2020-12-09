@@ -135,6 +135,8 @@ class PdoLBC
 		return $res;
 	}
 
+	//recupere le libelle associé à un forfait
+
 	public function getUnLibelle($id)
 	{
 		$req = "SELECT libelleforfait from forfait where idforfait = '$id'";
@@ -164,7 +166,7 @@ class PdoLBC
 		return $lesLignes;
 	}
 	
-
+	//a voir si elle sert a quelque chose
 
 	public function getLesFraisForfaitaires($matricule, $annee, $mois)
 	{
@@ -175,6 +177,7 @@ class PdoLBC
 
 	}
 
+	// recupere la liste des justificatifs associées à une note de frais
 
 	public function getLesJustificatifs($matricule, $annee, $mois)
 	{
@@ -184,6 +187,8 @@ class PdoLBC
 	return $lesLignes;
 
 	}
+
+	//recupère un justificatif en particulier
 
 	public function getLeJustificatif($matricule, $annee, $mois, $id)
 	{
@@ -355,6 +360,8 @@ class PdoLBC
 		$res->execute();
 	}
 
+	//permmet de supprimer un autre fofait de la base de donnée
+	
 	public function supprAutreForfait($matricule, $annee, $mois, $id)
 	{
         $res = PdoLBC::$monPdo->prepare("DELETE FROM frais WHERE matricule = :matricule AND annee = :annee AND mois = :mois AND idfrais = :id ");
@@ -367,6 +374,7 @@ class PdoLBC
 	}
 
 	//validation d'une note
+
 	public function validerNote($matricule,$annee,$mois)
 	{
 		$res = PdoLBC::$monPdo->prepare("UPDATE fiche SET statut = 'V' WHERE matricule = :matricule AND annee = :annee AND mois = :mois");
@@ -375,6 +383,8 @@ class PdoLBC
         $res->bindValue('mois', $mois, PDO::PARAM_INT);
 		$res->execute();
 	}
+
+	//permet de supprimer un justificatif de la base de donnée
 
 	public function supprJustificatif($matricule, $annee, $mois, $idjustificatif)
 	{
@@ -387,6 +397,8 @@ class PdoLBC
 
 	}
 
+	//premet de recuperer les comptables qui sont associés à une fiche
+
 	public function comptableDejaAssocieFiche($matricule, $annee, $mois, $idcomptable)
 	{
 		$req = "SELECT count(*) FROM envoye WHERE matricule = $matricule AND annee = $annee AND mois = $mois AND idcomptable = $idcomptable ";
@@ -394,6 +406,8 @@ class PdoLBC
 		$lesLignes = $res->fetch();
 		return $lesLignes;
 	}
+
+	//permet d'associé un comptable à une fiche
 
 	public function associerComptableFiche($matricule, $annee, $mois, $idcomptable)
 	{
@@ -406,6 +420,8 @@ class PdoLBC
 		$res->execute();
 	}
 
+	//permet de compter les forfait dans la table ajouter forfait
+
 	public function compterForfaitFiche($matricule, $annee, $mois)
 	{
 		$req = "SELECT count(*) FROM ajouteforfait WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois."";
@@ -413,6 +429,8 @@ class PdoLBC
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 	}
+
+	//permet de compter les forfait validés pour une fiche
 
 	public function compterForfaitFicheValide($matricule, $annee, $mois)
 	{
@@ -422,6 +440,8 @@ class PdoLBC
 		return $lesLignes;
 	}
 
+	//permet de compter les autres forfaits dans la table frais
+
 	public function compterAutreForfaitFiche($matricule, $annee, $mois)
 	{
 		$req = "SELECT count(*) FROM frais WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois."";
@@ -429,6 +449,8 @@ class PdoLBC
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 	}
+
+	//permet de compter les autres forfaits de la fiches qui sont validés
 
 	public function compterAutreForfaitFicheValide($matricule, $annee, $mois)
 	{
@@ -438,6 +460,7 @@ class PdoLBC
 		return $lesLignes;
 	}
 
+	//permet de retourner les signatures asssociées à une fiche
 	public function getSignaturesByFiches($matricule, $annee, $mois)
 	{
 		$req = "SELECT signature FROM comptable INNER JOIN envoye ON comptable.idcomptable = envoye.idcomptable where matricule = $matricule AND annee = $annee AND mois = $mois";
