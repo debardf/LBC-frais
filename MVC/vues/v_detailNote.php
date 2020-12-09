@@ -89,7 +89,7 @@
         ?>
         </br>
         </br>
-            <h3>Autre Frais</h3>
+            <h3>Autre Forfait</h3>
         </br>
         <?php
         
@@ -164,9 +164,16 @@
         <?php
         }
         ?>
+        <?php
+        if ($idProfil =="V" && $statut != "V")
+        {
+            ?>
         </br>
         </br>
         <a id="lien" href="index.php?uc=frais&ucf=autreForfait&action=creationAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un autre forfait </a>
+        <?php
+        }
+        ?>
         </br>
         </br>
         <h3>Justificatifs</h3>
@@ -197,11 +204,17 @@
         <?php
         }
         ?>
+        <?php
+        if ($idProfil =="V" && $statut != "V")
+        {
+            ?>
         </br>
         </br>
         <a id="lien" href="index.php?uc=frais&ucf=justificatifs&action=creationJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un justificatif </a>
     </form>
-
+        <?php
+        }
+        ?>
 
     <?php 
     foreach($lesSignatures as $laSignature)
