@@ -1,7 +1,9 @@
 <?php
+    //recupère la valeur de action pour aiguiller le site vers le cas voulus
     $action=$_REQUEST['action'];
     switch($action)
 	{
+        //cas qui permet de générer un formulaire de création d'un autre forfait en lien avec une note spécifique
 		case 'creationAutreForfait':
 		{
 
@@ -11,7 +13,8 @@
 			include("vues/v_autreForfait.php");
             break;
             
-		}
+        }
+        //cas qui permet de confirmer la création d'un autre forfait dont les données sont spécifiées dans le formulaire du cas de création et de l'appliquer à la BDD
 		case 'confirmCreatAutreForfait':
 		{
             $matricule = $_REQUEST['Amatricule'];
@@ -29,7 +32,7 @@
 			header('Location: index.php?uc=frais&ucf=afficherNotes');	
 			
         }
-        
+        //cas qui permet de générer un formulaire de modification d'un autre forfait en lien avec une note spécifique
         case 'modifAutreForfait':
         {
             $idfrais = $_REQUEST['idfrais'];
@@ -47,6 +50,7 @@
             include("vues/v_modifierAutreForfait.php");
             break;
         }
+        //cas qui permet de confirmer la modification d'un autre forfait dont les données sont spécifiées dans le formulaire du cas de modification et de l'appliquer à la BDD
         case 'confirmModifAutreForfait':
         {
             $idfrais = $_REQUEST['idfrais'];
@@ -62,6 +66,7 @@
             header('Location: index.php?uc=frais&ucf=afficherNotes');
             break;
         }
+        //cas qui permet de générer un formulaire de suppression d'un autre forfait en lien avec une note spécifique
         case 'supprAutreForfait':
         {
             $matricule = $_REQUEST['matricule'];
@@ -75,6 +80,7 @@
             include("vues/v_supprimerAutreForfait.php");
             break;
         }
+        //cas qui permet de confirmer la suppression d'un autre forfait dont les données sont spécifiées dans le formulaire du cas de suppression et de l'appliquer à la BDD
         case 'confirmSupprAutreForfait':
         {
             $annee = $_REQUEST['annee'];

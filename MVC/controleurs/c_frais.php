@@ -6,7 +6,7 @@ else
 
 
 $pdo = PdoLBC::getPdoLBC();
-
+//permet d'aiguiller le site web dans les controlleurs principaux à l'aide de la variable $ucf
 switch($ucf)
 {
 	case 'afficherNotes' :

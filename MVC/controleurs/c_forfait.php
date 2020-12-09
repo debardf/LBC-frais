@@ -2,6 +2,7 @@
 	$action=$_REQUEST['action'];
 	switch($action)
 	{
+		//cas qui permet de générer un formulaire de création d'un forfait en lien avec une note spécifique
 		case 'creationForfait':
 		{
 			$matricule = $_REQUEST['matricule'];
@@ -11,6 +12,7 @@
 			include("vues/v_forfait.php");
 			break;
 		}
+		//cas qui permet de confirmer la création d'un forfait dont les données sont spécifiées dans le formulaire du cas de création et de l'appliquer à la BDD
 		case 'confirmCreatForfait':
 		{
 			
@@ -25,7 +27,7 @@
 			header('Location: index.php?uc=frais&ucf=afficherNotes');
 			
 		}
-
+		//cas qui permet de générer un formulaire de modification d'un forfait en lien avec une note spécifique
 		case 'modifForfait':
 		{
 			$id = $_REQUEST['idforfait'];
@@ -42,6 +44,7 @@
 			include("vues/v_modifierForfait.php");
 			break;
 		}
+		//cas qui permet de confirmer la modification d'un forfait dont les données sont spécifiées dans le formulaire du cas de suppresssion et de l'appliquer à la BDD
 		case 'confirmModifForfait':
 		{
 			$id = $_REQUEST['id'];
@@ -56,6 +59,7 @@
 			header('Location: index.php?uc=frais&ucf=afficherNotes');
 			break;
 		}
+		//cas qui permet de générer un formulaire de suppression d'un forfait en lien avec une note spécifique
 		case 'supprForfait':
 		{
 			$id = $_REQUEST['idforfait'];
@@ -68,6 +72,7 @@
 			include("vues/v_supprimerForfait.php");
 			break;
 		}
+		//cas qui permet de confirmer la suppression d'un forfait dont les données sont spécifiées dans le formulaire du cas de suppression et de l'appliquer à la BDD
 		case 'confirmSupprForfait':
 		{
 			$annee = $_REQUEST['annee'];
