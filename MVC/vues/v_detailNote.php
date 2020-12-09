@@ -77,9 +77,16 @@
         <?php
         }
         ?>
+        <?php
+        if ($idProfil =="V" && $statut != "V")
+        {
+            ?>
         </br>
         </br>
         <a id="lien" href="index.php?uc=frais&ucf=forfait&action=creationForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">Ajouter un forfait</a>
+        <?php
+        }
+        ?>
         </br>
         </br>
             <h3>Autre Frais</h3>

@@ -20,6 +20,8 @@
             $cumulFrais = count($lesFrais);
             $cumulJustif = count($lesJustificatifs);
             $lesSignatures = $pdo->getSignaturesByFiches($matricule, $annee, $mois);
+            $statut = $pdo->getNoteValide($matricule, $annee, $mois)["statut"];
+            var_dump($statut);
 
 			include("vues/v_detailNote.php");
             break;
