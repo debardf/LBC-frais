@@ -12,7 +12,6 @@
             $matricule = $_REQUEST['matricule'];
             $annee = $_REQUEST['annee'];
             $mois = $_REQUEST['mois'];
-            $laNote = $pdo->getLaNote($matricule, $annee, $mois);
             $lesForfaits = $pdo->getLesForfaits($matricule, $annee, $mois);
             $lesFrais = $pdo->getLesFrais($matricule, $annee, $mois);
             $lesJustificatifs = $pdo->getLesJustificatifs($matricule, $annee, $mois);
@@ -20,8 +19,7 @@
             $cumulFrais = count($lesFrais);
             $cumulJustif = count($lesJustificatifs);
             $lesSignatures = $pdo->getSignaturesByFiches($matricule, $annee, $mois);
-            $statut = $pdo->getNoteValide($matricule, $annee, $mois)["statut"];
-            var_dump($statut);
+            $statut = $pdo->getLaNote($matricule, $mois, $annee)['statut'];
 
 			include("vues/v_detailNote.php");
             break;

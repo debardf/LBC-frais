@@ -72,7 +72,7 @@ class PdoLBC
 	
 	public function getLaNote($matricule, $mois, $annee)
 	{
-		$req = "SELECT * FROM fiche WHERE matricule ='$matricule' and annee = '$annee' and mois = '$mois' ";
+		$req = "SELECT * FROM fiche WHERE matricule = '$matricule' and annee = '$annee' and mois = '$mois' ";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
@@ -445,16 +445,5 @@ class PdoLBC
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 	}
-
-	public function getNoteValide($matricule, $annee, $mois)
-	{
-		$req = "SELECT * FROM fiche where matricule = $matricule AND annee = $annee AND mois = $mois";
-		$res = PdoLBC::$monPdo->query($req);
-		$lesLignes = $res->fetch();
-		return $lesLignes;
-	}
-
-
-
 
 }
