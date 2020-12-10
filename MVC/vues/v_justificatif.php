@@ -1,5 +1,8 @@
 <!doctype html>
 <html>
+<!-- 
+	   permet  de générer un formulaire de création d'un justificatif
+   -->
    <body>
    <p><h1>Ajout d'un justificatif :</h1></p><BR/>
 	<form action="index.php?uc=frais&ucf=justificatifs&action=confirmCreatJustificatif" method="post">

@@ -1,5 +1,8 @@
 <!doctype html>
 <html>
+<!-- 
+	   permet  de générer un formulaire de modification d'un forfait
+   -->
 	
    <body>
    <p><h1>Modification Forfait :</h1></p><BR/>

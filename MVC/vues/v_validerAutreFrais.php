@@ -1,6 +1,9 @@
 <!doctype html>
 <html>
    <body>
+   <!-- 
+	   permet  de générer un formulaire de validation d'un autre forfait
+   -->
    <p><h1>Validation de cet autre frais :</h1></p>
    </br>
    </br>

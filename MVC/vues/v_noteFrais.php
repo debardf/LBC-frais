@@ -1,5 +1,8 @@
 <!doctype html>
 <html>
+<!-- 
+	   permet  de générer un formulaire de création d'une note de frais
+   -->
    <body>
    </br>
    <p><h1>Nouvelle note :</h1></p></br>

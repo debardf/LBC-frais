@@ -6,6 +6,7 @@
 	</br>
 	</br>
 	<?php
+	//permet d'afficher certains éléments supplémentaire si l'utilisateur est un comptable
 		if($id == "C")
 	{
 		?>	
@@ -51,10 +52,12 @@
 			<td><?php echo $datefiche ?></td>
 			<td><a id="lien" href=index.php?uc=frais&ucf=justificatifs&action=generepdf&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>>
 			<?php 
+			//affiche le lien vers le pdf de la note si il existe
 			if(!empty($lienpdf))
 			{ 
 				echo $lienpdf;
-			} 
+			}
+			//sinon permet la création d'un justificatif
 			else 
 			{
 				?></a>
