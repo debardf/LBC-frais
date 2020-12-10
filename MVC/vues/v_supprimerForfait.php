@@ -1,6 +1,9 @@
 <!doctype html>
 <html>
    <body>
+   <!-- 
+	   permet  de générer un formulaire de suppression d'un forfait
+   -->
    <p><h1>Supprimer le forfait :</h1></p><BR/>
     <form action="index.php?uc=frais&ucf=forfait&action=confirmSupprForfait&id=<?php echo $id;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>" method="post">
 

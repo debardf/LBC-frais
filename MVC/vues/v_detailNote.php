@@ -9,12 +9,13 @@
         <h3>Frais Forfaitaires</h3>
         </br>
         <?php
-   
+        //affiche un message si aucun forfait n'est lié à la fiche
         if($cumulForfait==0)
         {
             echo "Il n'existe pas de forfaits ";
             
-        } 
+        }
+        //sinon affiche la liste des forfaits liés à la fiche dans un tableau
         else
         {
     
@@ -28,7 +29,7 @@
                 <th>Total</th>
                 <th>validé ?</th>
         <?php
-        
+        //affiche les lignes suivante si l'utilisateur est un visiteur et si la fiche n'est pas validée
         if($idProfil == "V" && $statut != "V") 
         {
             ?>
@@ -56,13 +57,14 @@
                 <td width=150><?php echo $vforfait ?></td>
 
             <?php
-
+            //permet d'acceder à la page de validation le forfait si l'utilisateur est un comptable et si le forfait n'est pas déja validé
             if($idProfil == "C" && $vforfait == 0)
             {
                 ?>
                 <td id="cache"><a href=index.php?uc=frais&ucf=valider&action=validerForfait&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idforfait ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
                 <?php
-            }        
+            }
+            //permet d'acceder à la page de modification et de suppression d'un forfait si l'utilisateur est un visiteur et si la fiche n'est pas validée
             if($idProfil == "V" && $statut != "V") 
             {
                 ?>
@@ -78,6 +80,7 @@
         }
         ?>
         <?php
+        //permet d'acceder à la page de création d'un forfait si l'utilisateur est un visiteur et si la fiche n'est pas validée
         if ($idProfil =="V" && $statut != "V")
         {
             ?>
@@ -92,14 +95,15 @@
             <h3>Autre Forfait</h3>
         </br>
         <?php
-        
+        //si cumulFrais = 0 envoi un message pour signifier qu'il n'y a pas d'autres forfaits
         if($cumulFrais==0)
         {
             echo "Il n'existe pas d'autres forfaits ";
             ?>
             </br>
             <?php
-        } 
+        }
+        //Sinon la liste des autres forfaits associés à la fiches sont affichés dans le tableau
         else
         {
         ?>
@@ -113,7 +117,6 @@
             <th>validé ?</th>
 
              <?php
-        
         if($idProfil == "V" && $statut != "V") 
         {
             ?>

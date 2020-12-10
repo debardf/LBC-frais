@@ -1,5 +1,8 @@
 <!doctype html>
 <html>
+<!-- 
+	   permet  de générer un pdf de la fiche associée
+   -->
 
 <body>
     </br>

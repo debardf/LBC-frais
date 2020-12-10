@@ -1,6 +1,9 @@
 <!doctype html>
 <html>
    <body>
+   <!-- 
+	   permet  de générer un formulaire de création d'un autre forfait
+   -->
    <p><h1>Création d'un autre forfait :</h1></p><BR/>
 	<form action="index.php?uc=frais&ucf=autreForfait&action=confirmCreatAutreForfait" method="post">
    
