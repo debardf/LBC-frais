@@ -1,7 +1,10 @@
 <!doctype html>
 <html>
    <body>
-   <p><h1>Validation du frais :</h1></p>
+   <!-- 
+	   permet  de générer un formulaire de validation d'un forfait
+   -->
+   <p><h1>Validation du forfait :</h1></p>
    </br>
    </br>
 	<form action="index.php?uc=frais&ucf=valider&action=confirmValideForfait&id=<?php echo $id;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"method="post"> 

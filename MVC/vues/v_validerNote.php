@@ -1,12 +1,15 @@
 <!doctype html>
 <html>
    <body>
+   <!-- 
+	   permet  de générer un formulaire de validation d'une note de frais
+   -->
 
    <?php
    if ($peutValide == 1)
    {
       ?>
-   <p><h1>Validation du frais :</h1></p>
+   <p><h1>Validation de la note :</h1></p>
    </br>
    </br>
 	<form action="index.php?uc=frais&ucf=valider&action=confirmValideNote&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"method="post"> 

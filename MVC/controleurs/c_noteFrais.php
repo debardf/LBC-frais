@@ -6,6 +6,7 @@
 		
 	switch($action)
 	{
+		//cas qui permet de générer un formulaire de création d'un justifcatif en lien avec une note spécifique
 		case 'creationNote':
 		{
 			$id = $_SESSION['typeprofil'];
@@ -23,6 +24,7 @@
 			break;
 
 		}
+		//cas qui permet de confirmer la création d'une note frais dont les données sont spécifiées dans le formulaire du cas de création et de l'appliquer à la BDD
 		case 'confirmCreatNote':
 		{
 			$matricule = $_REQUEST['Fmatricule'];
