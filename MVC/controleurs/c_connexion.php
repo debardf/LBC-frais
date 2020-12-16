@@ -38,6 +38,13 @@ else
 {
 header('location: index.php?uc=frais?ucf=connexion');
 }
+}
+//Si un des champs est vide on redemande à l'utilisateur de saisir les informations
+else {
+	echo "Le nom d utilisateur et le mot de passe doivent être indiqués ";
+}
+	
+
 
 
 

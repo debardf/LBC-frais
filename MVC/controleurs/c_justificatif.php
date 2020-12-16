@@ -5,16 +5,17 @@
     $action = $_REQUEST['action'];
 	switch($action)
 	{
+        //cas qui permet de générer un formulaire de création d'un justifcatif en lien avec une note spécifique
 		case 'creationJustificatif':
 		{
-
             $matricule = $_REQUEST['matricule'];
             $annee = $_REQUEST['annee'];
             $mois = $_REQUEST['mois'];
 			include("vues/v_justificatif.php");
             break;
             
-		}
+        }
+        //cas qui permet de confirmer la création d'un justifcatif dont les données sont spécifiées dans le formulaire du cas de création et de l'appliquer à la BDD
 		case 'confirmCreatJustificatif':
 		{
             $matricule = $_REQUEST['matricule'];
@@ -29,7 +30,7 @@
 			header('Location: index.php?uc=frais&ucf=afficherNotes');
 			
         }
-
+        //cas qui permet de générer un formulaire de suppression d'un justifcatif en lien avec une note spécifique
         case 'supprimerJustificatif':
         {
                 $idjustificatif = $_REQUEST['idjustificatif'];
@@ -41,6 +42,7 @@
                 include("vues/v_supprimerJustificatif.php");
                 break;
         }
+        //cas qui permet de confirmer la suppression d'un justifcatif dont les données sont spécifiées dans le formulaire du cas de modification et de l'appliquer à la BDD
         case 'confirmSupprJustificatif':
         {
             $annee = $_REQUEST['annee'];
@@ -50,7 +52,6 @@
             $pdo->supprJustificatif($matricule,$annee,$mois,$idjustificatif);
             header('Location: index.php?uc=frais&ucf=afficherNotes');
         }
-
         case 'ajoutLien':
         {
             $annee = $_REQUEST['annee'];
