@@ -1,42 +1,44 @@
 <?php
 
-if(empty($_POST['identifiantConnexion']))
+if(isset($_SESSION['identifiantConnexion']) && isset($_SESSION['mdpConnexion']))
 {
-	$login=NULL;
+	$login="";
+	$mdp="";
 }
 else
 {
 	$login=$_POST['identifiantConnexion'];
-}
-
-if(empty($_POST['mdpConnexion']))
-{
-	$mdp=NULL;
-}
-else
-{
 	$mdp=$_POST['mdpConnexion'];
 }
 
+
 $leProfil=$pdo->getInformationsConnexion($login,$mdp);
 
-$_SESSION['idClient']=$leProfil['login'];
-$_SESSION['nom']=$leProfil['nom'];
-$_SESSION['prenom']=$leProfil['prenom'];
-$_SESSION['typeprofil']=$leProfil['typeprofil'];
-$_SESSION['valeur']=$leProfil['valeur'];
 
-header('Location: index.php');	
+if ($leProfil!=false)
+{
+	$_SESSION['idClient']=$leProfil['login'];
+	$_SESSION['nom']=$leProfil['nom'];
+	$_SESSION['prenom']=$leProfil['prenom'];
+	$_SESSION['typeprofil']=$leProfil['typeprofil'];
+	$_SESSION['valeur']=$leProfil['valeur'];
+			if($leProfil['typeprofil'] == 'C')
+		{
+		$_SESSION['idClient']="Comptable";
+		
+		}
+			else if($leProfil['typeprofil'] == 'V')
+		{
+			$_SESSION['idClient']="Visiteur";
+			
+		}
+	header('location: index.php?uc=frais');	
+}
+else
+{
+header('location: index.php?uc=frais?ucf=connexion');
+}
 
-if($leClient['typeprofil'] == 'C')
-{
-	$_SESSION['idClient']="Comptable";
-	$_SESSION['typeprofil']="typeprofil";
-}
-else if($leClient['typeprofil'] == 'V')
-{
-	$_SESSION['idClient']="Visiteur";
-	$_SESSION['typeprofil']="typeprofil";
-}
+
 
 ?>
