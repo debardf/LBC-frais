@@ -432,9 +432,9 @@ class PdoLBC
 
 	//permet de compter les forfait validés pour une fiche
 
-	public function compterForfaitFicheValide($matricule, $annee, $mois)
+	public function compterForfaitFicheNonValide($matricule, $annee, $mois)
 	{
-		$req = "SELECT count(*) FROM ajouteforfait WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois." AND valideForfait = 1";
+		$req = "SELECT count(*) FROM ajouteforfait WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois." AND valideForfait = 0";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
@@ -452,9 +452,9 @@ class PdoLBC
 
 	//permet de compter les autres forfaits de la fiches qui sont validés
 
-	public function compterAutreForfaitFicheValide($matricule, $annee, $mois)
+	public function compterAutreForfaitFicheNonValide($matricule, $annee, $mois)
 	{
-		$req = "SELECT count(*) FROM frais WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois." AND validefrais = 1";
+		$req = "SELECT count(*) FROM frais WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois." AND validefrais = 0";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
