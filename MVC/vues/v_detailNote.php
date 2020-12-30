@@ -41,6 +41,7 @@
         ?>
         </tr>
         <?php
+            $sommeForfait = 0;
             foreach($lesForfaits as $leForfait)
             {
             $idforfait = $leForfait['idforfait'];
@@ -57,6 +58,9 @@
                 <td width=150><?php echo $vforfait ?></td>
 
             <?php
+                
+                $sommeForfait = ($montant*$qte) + $sommeForfait;
+
             //permet d'acceder à la page de validation le forfait si l'utilisateur est un comptable et si le forfait n'est pas déja validé
             if($idProfil == "C" && $vforfait == 0)
             {
@@ -128,6 +132,7 @@
         ?>
         </tr>
             <?php 
+            $sommeFrais = 0;
             foreach($lesFrais as $leFrais)
             {
                 $idfrais = $leFrais['idfrais'];
@@ -142,8 +147,9 @@
                 <td width=150><?php echo $montantFrais; ?></td>
                 <td width=150><?php echo $vfrais; ?></td>
 
-                    <?php
-                 if($idProfil == "C" && $vfrais == 0)
+                <?php
+                $sommeFrais = $montantFrais + $sommeFrais;
+                if($idProfil == "C" && $vfrais == 0)
     {
        ?>  
         <td id="cache"><a href=index.php?uc=frais&ucf=valider&action=validerAutreFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idfrais ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
@@ -166,19 +172,51 @@
         </table>
         <?php
         }
-        ?>
-        <?php
         if ($idProfil =="V" && $statut != "V")
         {
             ?>
         </br>
         </br>
-        <a id="lien" href="index.php?uc=frais&ucf=autreForfait&action=creationAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un autre forfait </a>
+        <a id="lien" href="index.php?uc=frais&ucf=autreForfait&action=creationAutreForfait&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"> Ajouter un autre forfait </a>
         <?php
         }
         ?>
         </br>
         </br>
+
+        <?php
+
+        if($cumulForfait!=0 && $cumulFrais!=0)
+        {
+            $total = $sommeFrais + $sommeForfait;
+        }
+        else if ($cumulForfait!=0 && $cumulFrais==0)
+        {
+            $total = $sommeForfait;
+        } 
+        else if ($cumulForfait==0 && $cumulFrais!=0)
+        {
+            $total = $sommeFrais;
+        } else
+        {
+            $total = 0;
+        }
+        if($total!=0){
+        ?>
+        <table>
+            <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th>Montant Total</th>
+            <th><?php echo $total?></th>
+        </table>
+            </br>
+    
+        <?php
+        }
+        
+        ?>
         <h3>Justificatifs</h3>
         </br>
         <?php
