@@ -80,12 +80,13 @@ $pdf->Writem(4,$leProfil['nom']);
 $pdf->Writem(4,$leProfil['prenom']);
 $pdf->Ln(5);
 
-$pdf->Writem(4,'Forfait');
-$pdf->Ln(2);
 
 while($data && $j<count($lesForfaits))
 {	
-
+    if($j==0){
+        $pdf->Writem(4,'Forfait');
+        $pdf->Ln(2);
+    }
 		$pdf->SetFont('Arial','',9);
 		$pdf->SetTextColor(0,0,0);
 		$pdf->Writem(4,$lesForfaits[$j]['libelleforfait']);
@@ -100,12 +101,13 @@ while($data && $j<count($lesForfaits))
     $j++;
 }
 
-$pdf->Ln(2);
-$pdf->Writem(4,'Autre Forfait');
-$pdf->Ln(2);
-
 while($data && $i<count($lesFrais))
 {	
+    if($i==0){
+        $pdf->Ln(2);
+        $pdf->Writem(4,'Autre Forfait');
+        $pdf->Ln(2);
+    }
 
 		$pdf->SetFont('Arial','',9);
 		$pdf->SetTextColor(0,0,0);

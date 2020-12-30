@@ -72,7 +72,7 @@
             $lesSignatures = $pdo->getSignaturesByFiches($matricule, $annee, $mois);
             $cumulForfait = count($lesForfaits);
             $cumulFrais = count($lesFrais);
-        include("vues/generate_pdf.php");
+        include("vues/v_generate_pdf.php");
         
         }
 	}
