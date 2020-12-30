@@ -61,18 +61,18 @@
 			else 
 			{
 				?></a>
-				<a id="lien" href=index.php?uc=frais&ucf=justificatifs&action=ajoutLien&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>>Ajouter un lien</a>
+				<a id="lien" href=index.php?uc=frais&ucf=justificatifs&action=ajoutLien&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>>Ajouter un lien</a>
 				<?php
 			}
 			?>
 			</td>
-			<td><a id="lien" href="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">détail</a></td>
+			<td><a id="lien" href="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>">détail</a></td>
 			<?php
 
         if($id == "C" && $statut != "V")
     	{
 		?>
-        	<td width=30><a href=index.php?uc=frais&ucf=valider&action=validerNote&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+        	<td width=30><a href=index.php?uc=frais&ucf=valider&action=validerNote&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
         <?php
     	}
     	?>
