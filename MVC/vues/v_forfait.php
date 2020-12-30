@@ -4,6 +4,7 @@
    <!-- 
 	   permet  de générer un formulaire de création d'un forfait
    -->
+	</br>
    <p><h1>Creation d'un forfait</h1></p></BR>
 	<form action="index.php?uc=frais&ucf=forfait&action=confirmCreatForfait" method="post">
    
