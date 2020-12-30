@@ -67,11 +67,6 @@
             $matricule = $_REQUEST['matricule'];
             $annee = $_REQUEST['annee'];
             $mois = $_REQUEST['mois'];
-            $lesForfaits = $pdo->getLesForfaits($matricule, $annee, $mois);
-            $lesFrais = $pdo->getLesFrais($matricule, $annee, $mois);
-            $lesSignatures = $pdo->getSignaturesByFiches($matricule, $annee, $mois);
-            $cumulForfait = count($lesForfaits);
-            $cumulFrais = count($lesFrais);
         include("vues/v_generate_pdf.php");
         
         }

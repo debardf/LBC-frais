@@ -38,6 +38,7 @@ class PDF extends FPDF
         $this->Cell(0,10,'le '.date("d/m/Y"),0,0,'C');
         $this->Cell(0,10,' page '.$this->PageNo().'/{nb}',0,0,'R');
     }
+
 }
 
 // Change la localisation afin de gérer les formats de date
@@ -52,6 +53,7 @@ $data = $result->fetch(PDO::FETCH_OBJ);
 $leProfil=$pdo->getLeProfil($matricule);
 $lesForfaits = $pdo->getLesForfaits($matricule, $annee, $mois);
 $lesFrais = $pdo->getLesFrais($matricule, $annee, $mois);
+$lesSignatures = $pdo->getSignaturesByFiches($matricule, $annee, $mois);
 $sommeForfait = 0;
 $sommeFrais = 0;
 // Création du PDF
@@ -87,16 +89,17 @@ while($data && $j<count($lesForfaits))
         $pdf->Writem(4,'Forfait');
         $pdf->Ln(2);
     }
-		$pdf->SetFont('Arial','',9);
-		$pdf->SetTextColor(0,0,0);
-		$pdf->Writem(4,$lesForfaits[$j]['libelleforfait']);
-		$pdf->SetFont('Arial','',9);
-		$pdf->SetTextColor(0,0,255);
-		$pdf->Writem(4,$lesForfaits[$j]['montant']*$lesForfaits[$j]['quantite'].' Euros ');
-		$pdf->SetTextColor(0,0,0);
-		$pdf->SetFont('Arial','B',9); // En gras
-		$pdf->Ln(2);
-		$sommeForfait = $lesForfaits[$j]['montant']*$lesForfaits[$j]['quantite'] + $sommeForfait;
+    
+    $pdf->SetFont('Arial','',9);
+    $pdf->SetTextColor(0,0,0);
+	$pdf->Writem(4,$lesForfaits[$j]['libelleforfait']);
+	$pdf->SetFont('Arial','',9);
+	$pdf->SetTextColor(0,0,255);
+	$pdf->Writem(4,$lesForfaits[$j]['montant']*$lesForfaits[$j]['quantite'].' Euros ');
+	$pdf->SetTextColor(0,0,0);
+	$pdf->SetFont('Arial','B',9); // En gras
+	$pdf->Ln(2);
+	$sommeForfait = $lesForfaits[$j]['montant']*$lesForfaits[$j]['quantite'] + $sommeForfait;
    
     $j++;
 }
@@ -109,16 +112,16 @@ while($data && $i<count($lesFrais))
         $pdf->Ln(2);
     }
 
-		$pdf->SetFont('Arial','',9);
-		$pdf->SetTextColor(0,0,0);
-		$pdf->Writem(4,$lesFrais[$i]['libelle']);
-		$pdf->SetFont('Arial','',9);
-		$pdf->SetTextColor(0,0,255);
-		$pdf->Writem(4,$lesFrais[$i]['montant'].' Euros ');
-		$pdf->SetTextColor(0,0,0);
-		$pdf->SetFont('Arial','B',9); // En gras
-		$pdf->Ln(2);
-		$sommeFrais = $lesFrais[$i]['montant'] + $sommeFrais;
+	$pdf->SetFont('Arial','',9);
+	$pdf->SetTextColor(0,0,0);
+	$pdf->Writem(4,$lesFrais[$i]['libelle']);
+	$pdf->SetFont('Arial','',9);
+	$pdf->SetTextColor(0,0,255);
+	$pdf->Writem(4,$lesFrais[$i]['montant'].' Euros ');
+	$pdf->SetTextColor(0,0,0);
+	$pdf->SetFont('Arial','B',9); // En gras
+	$pdf->Ln(2);
+	$sommeFrais = $lesFrais[$i]['montant'] + $sommeFrais;
    
     $i++;
 }
@@ -127,9 +130,11 @@ $pdf->Ln(5);
 
 $total = $sommeForfait + $sommeFrais;
 $pdf->SetFont('Arial','',9);
-		$pdf->SetTextColor(255,0,0);
-		$pdf->SetFont('Arial','B',9); 
-		$pdf->Writem(4, 'Montant total : '.$total.' Euros');
+$pdf->SetTextColor(255,0,0);
+$pdf->SetFont('Arial','B',9); 
+$pdf->Writem(4, 'Montant total : '.$total.' Euros');
+$pdf->SetTextColor(0,0,0);
+$pdf->SetFont('Arial','B',9); 
 		
 $nomPDF = "Note".$annee."_".$mois;
 $pdf->Output('F',$nomPDF.".pdf");
@@ -145,8 +150,10 @@ $pdf->Output('F',$nomPDF.".pdf");
 	<style>
         .pdf-container {
             width: initial;
+            margin-left: 300px;
+            margin-right: 300px;
             padding: 20px;
-            height: 600px;
+            height: 700px;
         }
 
         .pdf-viewer {
