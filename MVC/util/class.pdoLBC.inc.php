@@ -288,16 +288,15 @@ class PdoLBC
 
 	//modification frais
 
-	public function modifFrais($matricule, $idO,$anneeO,$moisO, $id,$annee,$mois,$qte)
+	public function modifFrais($matricule,$anneeO,$moisO, $id,$annee,$mois,$qte)
 	{
 		$res = PdoLBC::$monPdo->prepare("UPDATE ajouteforfait
-		SET idforfait = :idforfaitM, annee = :anneeM, mois = :moisM, quantite =  :quantiteM WHERE annee = :annee and mois = :mois and idforfait = :idforfait and matricule = :matricule");
-		$res->bindValue('idforfaitM',$id, PDO::PARAM_INT);
+		SET annee = :anneeM, mois = :moisM, quantite =  :quantiteM WHERE annee = :annee and mois = :mois and idforfait = :idforfait and matricule = :matricule");
 		$res->bindValue('anneeM', $annee, PDO::PARAM_INT);
 		$res->bindValue('moisM', $mois, PDO::PARAM_INT);
 		$res->bindValue('quantiteM', $qte, PDO::PARAM_INT);
 		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
-		$res->bindValue('idforfait',$idO, PDO::PARAM_INT);
+		$res->bindValue('idforfait',$id, PDO::PARAM_INT);
 		$res->bindValue('annee', $anneeO, PDO::PARAM_INT);
 		$res->bindValue('mois', $moisO, PDO::PARAM_INT);
 
@@ -484,6 +483,13 @@ class PdoLBC
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
+	}
+
+	public function pdfmois($matricule,$annee,$mois)
+	{
+		$req = "SELECT * from fiche WHERE matricule = $matricule AND annee = $annee AND mois = $mois";
+		$res = PdoLBC::$monPdo->query($req);
+		return $res;
 	}
 
 }
