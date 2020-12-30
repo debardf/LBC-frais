@@ -4,9 +4,9 @@
 <body>
     </br>
     <form>
-        <p><H1>Détail de la note :</H1>
+        <p><H1 id="partie">Détail de la note :</H1>
         </br>
-        <h3>Frais Forfaitaires</h3>
+        <h3 id="partie">Frais Forfaitaires</h3>
         </br>
         <?php
         //affiche un message si aucun forfait n'est lié à la fiche
@@ -90,13 +90,13 @@
             ?>
         </br>
         </br>
-        <a id="lien" href="index.php?uc=frais&ucf=forfait&action=creationForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">Ajouter un forfait</a>
+        <a id="new" href="index.php?uc=frais&ucf=forfait&action=creationForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">Ajouter un forfait</a>
         <?php
         }
         ?>
         </br>
         </br>
-            <h3>Autre Forfait</h3>
+            <h3 id="partie">Autre Forfait</h3>
         </br>
         <?php
         //si cumulFrais = 0 envoi un message pour signifier qu'il n'y a pas d'autres forfaits
@@ -177,7 +177,7 @@
             ?>
         </br>
         </br>
-        <a id="lien" href="index.php?uc=frais&ucf=autreForfait&action=creationAutreForfait&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"> Ajouter un autre forfait </a>
+        <a id="new" href="index.php?uc=frais&ucf=autreForfait&action=creationAutreForfait&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"> Ajouter un autre forfait </a>
         <?php
         }
         ?>
@@ -217,7 +217,7 @@
         }
         
         ?>
-        <h3>Justificatifs</h3>
+        <h3 id="partie">Justificatifs</h3>
         </br>
         <?php
         if($cumulJustif==0)
@@ -254,7 +254,7 @@
             ?>
         </br>
         </br>
-        <a id="lien" href="index.php?uc=frais&ucf=justificatifs&action=creationJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un justificatif </a>
+        <a id="new" href="index.php?uc=frais&ucf=justificatifs&action=creationJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un justificatif </a>
     </form>
         <?php
         }

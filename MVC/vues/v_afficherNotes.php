@@ -91,7 +91,7 @@
 	if($id == "V")
     {
     ?>  
-    	<td width=30><a id="lien" href=index.php?uc=frais&ucf=creerNote&action=creationNote&matricule=<?php echo $matricule?>>Création d'une note</a></td>
+    	<td width=30><a id="new" href=index.php?uc=frais&ucf=creerNote&action=creationNote&matricule=<?php echo $matricule?>>Création d'une note</a></td>
     <?php
     }
     ?>

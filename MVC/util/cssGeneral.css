@@ -55,6 +55,7 @@ nav{
 
 table {
   width:50%;
+  margin-left: 10px;
   height: 5px;
   table-layout: fixed;
   border-collapse: collapse;
@@ -89,8 +90,8 @@ td#cache{
 
 body
 {
-    background-color:#D6D5DB; /* Le fond de la page sera noir */
-    color: black; /* Le texte de la page sera blanc */
+    background-color:#D6D5DB;
+    color: black;
 }
 
 #icone{
@@ -100,7 +101,20 @@ body
 }
 
 a#lien {
-
 	text-decoration: none;
 	color: blue;
+}
+
+a#new{
+	margin-left: 10px;
+	text-decoration: none;
+	color: blue;
+}
+
+p{
+	margin-left: 10px;
+}
+
+#partie{
+	margin-left: 10px;
 }
