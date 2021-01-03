@@ -23,7 +23,7 @@
             $mois = $_REQUEST['mois'];
 			$pdfjustificatif = $_REQUEST['pdfjustificatif'];
             $id = $pdo->compterId();
-            $id = max($id);
+            $id = (max($id));
             $id++;
 			$pdo->creerJustificatif($id, $matricule, $annee, $mois, $pdfjustificatif);
 			
