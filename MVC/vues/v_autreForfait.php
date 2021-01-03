@@ -4,8 +4,7 @@
    <!-- 
 	   permet  de générer un formulaire de création d'un autre forfait
    -->
-	</br>
-   <p><h1>Création d'un autre forfait :</h1></p><BR/>
+   <p><h1 id="partie">Création d'un autre forfait :</h1></p><BR/>
 	<form action="index.php?uc=frais&ucf=autreForfait&action=confirmCreatAutreForfait" method="post">
    
 		<table>
@@ -21,12 +20,10 @@
 		</tbody>
 		</table>
 		
-                <br/>
 		<input class="boutonb" type="submit" value="Valider">
 	</form>
 
 	<form action="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"method="post"> 
-      <br/>
       <input class="boutonb" type="submit" value="retour">
       </form>
  

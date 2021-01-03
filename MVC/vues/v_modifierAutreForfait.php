@@ -19,13 +19,11 @@
 			<input type="hidden" name="matricule" value="<?php echo $matricule ;?>"/>
 		</tbody>
 		</table>
-        <br/>
 		<input class="boutonb" type="submit" value="Valider">
 	</form>
 
 
 	<form action="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"method="post"> 
-      <br/>
       <input class="boutonb" type="submit" value="retour">
       </form>
  

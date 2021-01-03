@@ -4,7 +4,7 @@
 	   permet  de générer un formulaire de suppression d'un autre forfait
    -->
    <body>
-   <p><h1>Supprimer un autre forfait</h1></p><BR/>
+   <p><h1 id="partie">Supprimer un autre forfait</h1></p><BR/>
     <form action="index.php?uc=frais&ucf=autreForfait&action=confirmSupprAutreForfait&id=<?php echo $id;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"method="post">
 
         <table>
@@ -18,12 +18,10 @@
             <tr><td>Date du frais</td><td><input name="dateFrais" value="<?php echo $dateFrais ?>"size=10 readonly></td></tr>
         </tbody>
         </table>
-        <br/>
         <input class="boutonb" type="submit" value="supprimer le frais">
     </form>
  
     <form action="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"method="post"> 
-      <br/>
       <input class="boutonb" type="submit" value="retour">
       </form>
 

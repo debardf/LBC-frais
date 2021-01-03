@@ -4,8 +4,7 @@
 	   permet  de générer un formulaire de création d'une note de frais
    -->
    <body>
-   </br>
-   <p><h1>Nouvelle note :</h1></p></br>
+   <p><h1 id="partie">Nouvelle note :</h1></p>
 	<form action="index.php?uc=frais&ucf=creerNote&action=confirmCreatNote" method="post">
    
 		<table>
@@ -18,12 +17,10 @@
             <input type="hidden" name="Flien">
 		</tbody>
 		</table>
-        </br>
 		<input class="boutonb" type="submit" value="Valider">
 	</form>
  
     <form action="index.php?uc=frais&ucf=afficherNotes"method="post"> 
-        <br/>
         <input class="boutonb" type="submit" value="retour">
     </form>
 	

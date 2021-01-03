@@ -4,9 +4,8 @@
    <!-- 
 	   permet  de générer un formulaire de validation d'un forfait
    -->
-   <p><h1>Validation du forfait :</h1></p>
-   </br>
-   </br>
+   <p><h1 id="partie">Validation du forfait :</h1></p>
+
 	<form action="index.php?uc=frais&ucf=valider&action=confirmValideForfait&id=<?php echo $id;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"method="post"> 
    		<p text-align="center"><b>Êtes-vous sur de vouloir valider le forfait ? Une fois validé, le forfait ne pourra plus être modifié</b></p>
          <table>
@@ -15,12 +14,10 @@
             <tr><td>Mois</td><td><input name="mois" value="<?php echo $mois ?>" size=5 readonly></td></tr>
             <tr><td>quantitée</td><td><input name="qte" value="<?php echo $qte ?>"size=5 readonly></td></tr>
          </table>
-        <br/>
 		<input class="boutonb" type="submit" value="Valider">
 	</form>
 
    <form action="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"method="post"> 
-      <br/>
       <input class="boutonb" type="submit" value="retour">
       </form>
  
