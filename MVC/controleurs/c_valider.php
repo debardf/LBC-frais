@@ -35,7 +35,7 @@ case 'confirmValideForfait':
                 $pdo->associerComptableFiche($matricule, $annee, $mois, $idcomptable);
             }
 
-            header('Location: index.php?uc=frais&ucf=afficherNotes');
+            header("Location: index.php?uc=frais&ucf=detailNote&action=detNote&matricule=$matricule&annee=$annee&mois=$mois");
             break;
         }
 //permet de générer un formulaire de validation d'un autre forfait avec un récapitulatif d'un autre forfait que l'on valide
@@ -69,7 +69,7 @@ case 'confirmValideAutreFrais':
                 $pdo->associerComptableFiche($matricule, $annee, $mois, $idcomptable);
             }
 
-            header('Location: index.php?uc=frais&ucf=afficherNotes');
+            header("Location: index.php?uc=frais&ucf=detailNote&action=detNote&matricule=$matricule&annee=$annee&mois=$mois");
             break;
         }
         //permet de générer un formulaire de validation d'une note
