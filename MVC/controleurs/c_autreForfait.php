@@ -24,11 +24,10 @@
             $libelle = $_REQUEST['Alibelle'];
             $montant = $_REQUEST['Amontant'];
             $validefrais = $_REQUEST['Avalide'];
-            $id = $pdo->cumulId();
-            $id = max($id);
-            $id++;
-			$pdo->creerAutreForfait($id, $matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais);
-			
+            $idfrais = $pdo->cumulId();
+            $idfrais = (max($idfrais));
+            $idfrais++;
+			$pdo->creerAutreForfait($idfrais, $matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais);
 			header("Location: index.php?uc=frais&ucf=detailNote&action=detNote&matricule=$matricule&annee=$annee&mois=$mois");
 			break;
         }
@@ -54,15 +53,13 @@
         case 'confirmModifAutreForfait':
         {
             $idfrais = $_REQUEST['idfrais'];
-            $annee = $_REQUEST['anneeM'];
-            $mois = $_REQUEST['moisM'];
+            $annee = $_REQUEST['annee'];
+            $mois = $_REQUEST['mois'];
             $montant = $_REQUEST['montantM'];
             $libelle = $_REQUEST['libelleM'];
             $matricule = $_REQUEST['matricule'];
             $datefrais = $_REQUEST['dateM'];
-            $anneeO = $_REQUEST['annee'];
-            $moisO = $_REQUEST['mois'];
-            $pdo->modifAutreForfait($matricule,$anneeO,$moisO,$idfrais,$annee,$mois,$montant,$libelle,$datefrais);        
+            $pdo->modifAutreForfait($matricule,$idfrais,$annee,$mois,$montant,$libelle,$datefrais);
             header("Location: index.php?uc=frais&ucf=detailNote&action=detNote&matricule=$matricule&annee=$annee&mois=$mois");
             break;
         }

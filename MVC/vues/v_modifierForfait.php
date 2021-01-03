@@ -6,44 +6,12 @@
 	
    <body>
    <p><h1>Modification Forfait :</h1></p><BR/>
-	<form action="index.php?uc=frais&ucf=forfait&action=confirmModifForfait&idforfait=<?php echo $idO?>&matricule=<?php echo $matricule?>&annee=<?php echo $anneeO?>&mois=<?php echo $moisO?>" method="post">
+	<form action="index.php?uc=frais&ucf=forfait&action=confirmModifForfait&idforfait=<?php echo $idO?>&matricule=<?php echo $matricule?>" method="post">
    	
 	   	<table>
 		<tbody>
-            <tr><td>Année : </td><td><select name="anneeM" size="1"value="<?php echo $annee ?>">
-                                <?php   
-                                $ligne = $recupannee->fetch();
-								while ($ligne)
-									{
-									if ($ligne["annee"] == $annee) {
-									echo '<OPTION selected value = "' . $ligne["annee"] . '">' . $ligne["annee"] . '</OPTION>'; 
-									$ligne = $recupannee->fetch();
-									}
-									else 
-									{
-									echo '<OPTION value = "' . $ligne["annee"] . '">' . $ligne["annee"] . '</OPTION>';
-									$ligne = $recupannee->fetch();
-									}
-								}
-                                ?>
-                            </select></td></tr>
-            <tr><td>Mois : </td><td><select name="moisM" size="1"value="<?php echo $mois ?>">
-                                <?php
-                                $ligne = $recupmois->fetch();
-								while ($ligne)
-									{
-									if ($ligne["mois"] == $mois) {
-									echo '<OPTION selected value = "' . $ligne["mois"] . '">' . $ligne["mois"] . '</OPTION>'; 
-									$ligne = $recupmois->fetch();
-									}
-									else 
-									{
-									echo '<OPTION value = "' . $ligne["mois"] . '">' . $ligne["mois"] . '</OPTION>';
-									$ligne = $recupmois->fetch();
-									}
-								}
-                                ?>
-                            </select></td></tr>
+			<input type="hidden" name="annee" value="<?php echo $annee ;?>"/>
+			<input type="hidden" name="mois" value="<?php echo $mois ;?>"/>
 			<tr><td>Libellé :</td><td><select name="id" size="1" value="<?php echo $id ?>">
                                 <?php
                                 $ligne = $recuplibelle->fetch();
