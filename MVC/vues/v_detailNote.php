@@ -12,7 +12,7 @@
         //affiche un message si aucun forfait n'est lié à la fiche
         if($cumulForfait==0)
         {
-            echo "Il n'existe pas de forfaits ";
+            echo "<p>Il n'existe pas de forfaits</p> ";
             
         }
         //sinon affiche la liste des forfaits liés à la fiche dans un tableau
@@ -102,7 +102,7 @@
         //si cumulFrais = 0 envoi un message pour signifier qu'il n'y a pas d'autres forfaits
         if($cumulFrais==0)
         {
-            echo "Il n'existe pas d'autres forfaits ";
+            echo "<p>Il n'existe pas d'autres forfaits</p> ";
             ?>
             </br>
             <?php
@@ -222,7 +222,7 @@
         <?php
         if($cumulJustif==0)
         {
-            echo "Il n'y a pas de justificatif ";
+            echo "<p>Il n'y a pas de justificatif</p>";
             
         } 
         else
@@ -271,7 +271,7 @@
 
 <form action="index.php?uc=frais&ucf=afficherNotes"method="post"> 
       <br/>
-      <input type="submit" value="retour">
+      <input class="boutonb" type="submit" value="retour">
       </form>
 
             

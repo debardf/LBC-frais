@@ -19,9 +19,13 @@
 		</tbody>
 		</table>
         </br>
-		<input type="submit" value="Valider">
+		<input class="boutonb" type="submit" value="Valider">
 	</form>
  
+    <form action="index.php?uc=frais&ucf=afficherNotes"method="post"> 
+        <br/>
+        <input class="boutonb" type="submit" value="retour">
+    </form>
 	
 	</body>
 </html>

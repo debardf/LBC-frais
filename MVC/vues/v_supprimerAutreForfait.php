@@ -19,12 +19,12 @@
         </tbody>
         </table>
         <br/>
-        <input type="submit" value="supprimer le frais">
+        <input class="boutonb" type="submit" value="supprimer le frais">
     </form>
  
     <form action="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"method="post"> 
       <br/>
-      <input type="submit" value="retour">
+      <input class="boutonb" type="submit" value="retour">
       </form>
 
     </body>
