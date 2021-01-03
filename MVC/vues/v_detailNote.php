@@ -269,6 +269,10 @@
             }
             ?>
 
+<form action="index.php?uc=frais&ucf=afficherNotes"method="post"> 
+      <br/>
+      <input type="submit" value="retour">
+      </form>
 
             
 
