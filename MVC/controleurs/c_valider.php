@@ -80,11 +80,8 @@ case 'validerNote':
             $mois = $_REQUEST['mois'];
             //compte le nombre de forfait  qui n'est pas validé pour une fiche
             $nbForfaitNv = $pdo->compterForfaitFicheNonValide($matricule, $annee, $mois);
-            var_dump($nbForfaitNv);
             $nbForfaitNv = max($nbForfaitNv);
-            var_dump($nbForfaitNv);
             $nbForfaitNv = max($nbForfaitNv);
-            var_dump($nbForfaitNv);
             //compte le nombre d'autre forfait qui n'est pas validé pour une fiche
             $nbAutreForfaitNv = $pdo->compterAutreForfaitFicheNonValide($matricule, $annee, $mois);
             $nbAutreForfaitNv = max($nbAutreForfaitNv);
