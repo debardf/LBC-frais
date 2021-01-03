@@ -118,3 +118,17 @@ p{
 #partie{
 	margin-left: 10px;
 }
+
+
+.pdf-container {
+	width: initial;
+	margin-left: 300px;
+	margin-right: 300px;
+	padding: 20px;
+	height: 700px;
+}
+
+.pdf-viewer {
+	width: 100%;
+	height: 100%;
+}

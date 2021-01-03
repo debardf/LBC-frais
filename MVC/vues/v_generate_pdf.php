@@ -143,24 +143,9 @@ $pdf->Output('F',$nomPDF.".pdf");
 	<h1><center>PDF du mois</h1>
 	<div class="pdf-container">
 	<iframe class="pdf-viewer" type="application/pdf" src="<?php echo $nomPDF?>.pdf">
-	
 	</iframe>
 	</div>
 
-	<style>
-        .pdf-container {
-            width: initial;
-            margin-left: 300px;
-            margin-right: 300px;
-            padding: 20px;
-            height: 700px;
-        }
-
-        .pdf-viewer {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
 
 
 	
