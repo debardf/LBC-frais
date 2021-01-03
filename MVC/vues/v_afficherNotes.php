@@ -1,10 +1,8 @@
 <div id="Notes">
 
-
 	<table border=3 cellspacing=1 width = 150>
 	<tr class="affichageNotes">
-	</br>
-	</br>
+	
 	<?php
 	//permet d'afficher certains éléments supplémentaire si l'utilisateur est un comptable
 		if($id == "C")
@@ -22,12 +20,9 @@
 			<th width=150>lienpdf</th>
 			<th width=150></th>
 
-
 	</tr>
 	<?php
 
-	
-		
 		foreach($lesNotes as $uneNote) 
 		{	
 			$matricule = $uneNote['matricule'];
@@ -50,29 +45,56 @@
 			<td><?php echo $mois ?></td>
 			<td><?php echo $statut ?></td>
 			<td><?php echo $datefiche ?></td>
-			<td><a id="lien" href=index.php?uc=frais&ucf=justificatifs&action=generepdf&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>>
-			<?php 
-			//affiche le lien vers le pdf de la note si il existe
-			if(!empty($lienpdf))
-			{ 
-				echo $lienpdf;
-			}
-			//sinon permet la création d'un justificatif
-			else 
-			{
-				?></a>
-				<a id="lien" href=index.php?uc=frais&ucf=justificatifs&action=ajoutLien&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>>Ajouter un lien</a>
+			<td>
+				<form id="lien" action="index.php?uc=frais&ucf=justificatifs&action=generepdf" method="post">
+					<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+					<input type="hidden" name="annee" value="<?php echo $annee?>">
+					<input type="hidden" name="mois" value="<?php echo $mois?>">
+					<?php 
+					//affiche le lien vers le pdf de la note s'il existe
+					if(!empty($lienpdf))
+					{ 
+						?>
+						<input type="submit" value="<?php echo $lienpdf?>">
+					</form>
+					<?php
+					}
+					
+					//sinon permet la création d'un pdf
+					else 
+					{
+						?>
+						<form id="lien" action="index.php?uc=frais&ucf=justificatifs&action=ajoutLien" method="post">
+							<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+							<input type="hidden" name="annee" value="<?php echo $annee?>">
+							<input type="hidden" name="mois" value="<?php echo $mois?>">
+							<input type="submit" value="Ajouter un lien">
+						</form>
 				<?php
-			}
-			?>
+				}
+				?>
 			</td>
-			<td><a id="lien" href="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>">détail</a></td>
+			<td>
+				<form id="lien" action="index.php?uc=frais&ucf=detailNote&action=detNote" method="post">
+					<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+					<input type="hidden" name="annee" value="<?php echo $annee?>">
+					<input type="hidden" name="mois" value="<?php echo $mois?>">
+					<input type="submit" value="détail">
+				</form>
+			</td>
 			<?php
 
         if($id == "C" && $statut != "V")
     	{
 		?>
-        	<td width=30><a href=index.php?uc=frais&ucf=valider&action=validerNote&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+        	<td width=30>
+				<form action="index.php?uc=frais&ucf=valider&action=validerNote" method="post">
+					<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+					<input type="hidden" name="annee" value="<?php echo $annee?>">
+					<input type="hidden" name="mois" value="<?php echo $mois?>">
+					<input width="30px" type="image" src="images/valider.png" title="Valider le Frais">
+				</form>	
+			</td>
         <?php
     	}
     	?>
@@ -82,16 +104,19 @@
 		}
 		?>
 	</table>
-	</br>
 	<p><b>NV = non validé</b></p>
 	<p><b>V = validé</b></p>
-	</br>
-	</br>
+	
 	<?php
 	if($id == "V")
     {
     ?>  
-    	<td width=30><a id="new" href=index.php?uc=frais&ucf=creerNote&action=creationNote&matricule=<?php echo $matricule?>>Création d'une note</a></td>
+    	<td width=30>
+			<form id="new" action="index.php?uc=frais&ucf=creerNote&action=creationNote" method="post">
+				<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+				<input type="submit" value="Création d'une note">
+			</form>
+		</td>
     <?php
     }
     ?>
