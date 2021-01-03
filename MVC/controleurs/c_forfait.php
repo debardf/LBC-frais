@@ -52,8 +52,7 @@
 			$matricule = $_REQUEST['matricule'];
 			$idO = $_REQUEST['idforfait'];
 			$pdo->modifFrais($matricule,$idO,$id,$annee,$mois,$qte);
-			var_dump($matricule,$id,$qte);
-			//header("Location: index.php?uc=frais&ucf=detailNote&action=detNote&matricule=$matricule&annee=$annee&mois=$mois");
+			header("Location: index.php?uc=frais&ucf=detailNote&action=detNote&matricule=$matricule&annee=$annee&mois=$mois");
 			break;
 		}
 		//cas qui permet de générer un formulaire de suppression d'un forfait en lien avec une note spécifique
