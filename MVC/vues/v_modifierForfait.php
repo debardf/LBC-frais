@@ -6,7 +6,7 @@
 	
    <body>
    <p><h1>Modification Forfait :</h1></p><BR/>
-	<form action="index.php?uc=frais&ucf=forfait&action=confirmModifForfait&idforfait=<?php echo $id;?>&matricule=<?php echo $matricule?>&annee=<?php echo $anneeO?>&mois=<?php echo $moisO?>" method="post">
+	<form action="index.php?uc=frais&ucf=forfait&action=confirmModifForfait&idforfait=<?php echo $idO?>&matricule=<?php echo $matricule?>&annee=<?php echo $anneeO?>&mois=<?php echo $moisO?>" method="post">
    	
 	   	<table>
 		<tbody>

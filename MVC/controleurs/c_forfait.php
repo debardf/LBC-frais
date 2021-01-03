@@ -55,7 +55,7 @@
 			$idO = $_REQUEST['idforfait'];
 			$anneeO = $_REQUEST['annee'];
 			$moisO = $_REQUEST['mois'];
-			$pdo->modifFrais($matricule,$anneeO,$moisO,$id,$annee,$mois,$qte);
+			$pdo->modifFrais($matricule,$anneeO,$moisO,$idO,$id,$annee,$mois,$qte);
 			header('Location: index.php?uc=frais&ucf=afficherNotes');
 			break;
 		}
