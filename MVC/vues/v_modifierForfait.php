@@ -69,6 +69,12 @@
 		<input type="submit" value="Valider">
 	</form>
  
-	
+	<form action="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"method="post"> 
+      <br/>
+      <input type="submit" value="retour">
+      </form>
+
+
+	  
 	</body>
 </html>
