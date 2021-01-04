@@ -4,8 +4,8 @@ class PdoLBC
 {   		
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=lbc';		
-      	private static $user='root';
-		private static $mdp='';
+      	private static $user='dbo718502955';
+		private static $mdp='BMw1234*';
 		private static $monPdo;
 		private static $monPdoLBC = null;
 			
