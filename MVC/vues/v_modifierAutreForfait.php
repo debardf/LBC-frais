@@ -5,7 +5,7 @@
    -->
 	
    <body>
-   <p><h1>Modification autre forfait :</h1></p><BR/>
+   <p><h1 id="partie">Modification autre forfait :</h1></p><BR/>
 	<form action="index.php?uc=frais&ucf=autreForfait&action=confirmModifAutreForfait&idfrais=<?php echo $idfrais;?>&matricule=<?php echo $matricule?>" method="post">
    	
 	   	<table>
@@ -19,16 +19,15 @@
 			<input type="hidden" name="matricule" value="<?php echo $matricule ;?>"/>
 		</tbody>
 		</table>
-        <br/>
-		<input type="submit" value="Valider">
+		<input class="boutonb" type="submit" value="Valider">
 	</form>
 
-
-	<form action="index.php?uc=frais&ucf=detailNote&action=detNote&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>"method="post"> 
-      <br/>
-      <input type="submit" value="retour">
-      </form>
- 
+	<form action="index.php?uc=frais&ucf=detailNote&action=detNote" method="post">
+		<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+		<input type="hidden" name="annee" value="<?php echo $annee?>">
+		<input type="hidden" name="mois" value="<?php echo $mois?>">
+		<input class="boutonb" type="submit" value="retour">
+	</form>
 	
 	</body>
 </html>
