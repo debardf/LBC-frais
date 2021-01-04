@@ -5,7 +5,7 @@
 	
 	<?php
 	//permet d'afficher certains éléments supplémentaire si l'utilisateur est un comptable
-		if($id == "C")
+	if($id == "C")
 	{
 		?>	
 		<th width=150>matricule</th>
@@ -13,76 +13,74 @@
 	}
 	?>	
 			
-			<th width=150>annee</th>
-			<th width=150>mois</th>
-			<th width=150>statut</th>
-			<th width=150>datefiche</th>
-			<th width=150>lienpdf</th>
-			<th width=150></th>
+		<th width=150>annee</th>
+		<th width=150>mois</th>
+		<th width=150>statut</th>
+		<th width=150>datefiche</th>
+		<th width=150>lienpdf</th>
+		<th width=150></th>
 
 	</tr>
 	<?php
-
-		foreach($lesNotes as $uneNote) 
-		{	
-			$matricule = $uneNote['matricule'];
-			$annee = $uneNote['annee'];
-			$mois = $uneNote['mois'];
-			$statut = $uneNote['statut'];
-			$datefiche=$uneNote['datefiche'];
-			$lienpdf=$uneNote['lienpdf'];	
+	foreach($lesNotes as $uneNote) 
+	{	
+		$matricule = $uneNote['matricule'];
+		$annee = $uneNote['annee'];
+		$mois = $uneNote['mois'];
+		$statut = $uneNote['statut'];
+		$datefiche=$uneNote['datefiche'];
+		$lienpdf=$uneNote['lienpdf'];	
 	?>	
-		<tr>
-		<?php
-		if($id == "C")
-		{
-		?>	
+	<tr>
+	<?php
+	if($id == "C")
+	{
+	?>	
 		<td><?php echo $matricule ?></td>
-		<?php
-		}
-		?>	
-			<td><?php echo $annee ?></td>
-			<td><?php echo $mois ?></td>
-			<td><?php echo $statut ?></td>
-			<td><?php echo $datefiche ?></td>
-			<td>
-				<form id="lien" action="index.php?uc=frais&ucf=justificatifs&action=generepdf" method="post">
-					<input type="hidden" name="matricule" value="<?php echo $matricule?>">
-					<input type="hidden" name="annee" value="<?php echo $annee?>">
-					<input type="hidden" name="mois" value="<?php echo $mois?>">
-					<?php 
-					//affiche le lien vers le pdf de la note s'il existe
-					if(!empty($lienpdf))
-					{ 
-						?>
-						<input type="submit" value="<?php echo $lienpdf?>">
+	<?php
+	}
+	?>	
+		<td><?php echo $annee ?></td>
+		<td><?php echo $mois ?></td>
+		<td><?php echo $statut ?></td>
+		<td><?php echo $datefiche ?></td>
+		<td>
+			<form id="lien" action="index.php?uc=frais&ucf=justificatifs&action=generepdf" method="post">
+				<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+				<input type="hidden" name="annee" value="<?php echo $annee?>">
+				<input type="hidden" name="mois" value="<?php echo $mois?>">
+				<?php 
+				//affiche le lien vers le pdf de la note s'il existe
+				if(!empty($lienpdf))
+				{ 
+				?>
+					<input type="submit" value="<?php echo $lienpdf?>">
 					</form>
-					<?php
-					}
-					
-					//sinon permet la création d'un pdf
-					else 
-					{
-						?>
-						<form id="lien" action="index.php?uc=frais&ucf=justificatifs&action=ajoutLien" method="post">
-							<input type="hidden" name="matricule" value="<?php echo $matricule?>">
-							<input type="hidden" name="annee" value="<?php echo $annee?>">
-							<input type="hidden" name="mois" value="<?php echo $mois?>">
-							<input type="submit" value="Ajouter un lien">
-						</form>
+				<?php
+				}			
+				//sinon permet la création d'un pdf
+				else 
+				{
+				?>
+					<form id="lien" action="index.php?uc=frais&ucf=justificatifs&action=ajoutLien" method="post">
+						<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+						<input type="hidden" name="annee" value="<?php echo $annee?>">
+						<input type="hidden" name="mois" value="<?php echo $mois?>">
+						<input type="submit" value="Ajouter un lien">
+					</form>
 				<?php
 				}
 				?>
-			</td>
-			<td>
-				<form id="lien" action="index.php?uc=frais&ucf=detailNote&action=detNote" method="post">
-					<input type="hidden" name="matricule" value="<?php echo $matricule?>">
-					<input type="hidden" name="annee" value="<?php echo $annee?>">
-					<input type="hidden" name="mois" value="<?php echo $mois?>">
-					<input type="submit" value="détail">
-				</form>
-			</td>
-			<?php
+		</td>
+		<td>
+			<form id="lien" action="index.php?uc=frais&ucf=detailNote&action=detNote" method="post">
+				<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+				<input type="hidden" name="annee" value="<?php echo $annee?>">
+				<input type="hidden" name="mois" value="<?php echo $mois?>">
+				<input type="submit" value="détail">
+			</form>
+		</td>
+		<?php
 
         if($id == "C" && $statut != "V")
     	{
@@ -99,7 +97,7 @@
     	}
     	?>
 
-		</tr>	
+		</tr>
 		<?php
 		}
 		?>
