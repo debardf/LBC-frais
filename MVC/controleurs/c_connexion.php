@@ -2,8 +2,8 @@
 
 if(isset($_SESSION['identifiantConnexion']) && isset($_SESSION['mdpConnexion']))
 {
-	$login="";
-	$mdp="";
+	$login=Null;
+	$mdp=Null;
 }
 else
 {
@@ -11,9 +11,7 @@ else
 	$mdp=$_POST['mdpConnexion'];
 }
 
-
 $leProfil=$pdo->getInformationsConnexion($login,$mdp);
-
 
 if ($leProfil!=false)
 {
@@ -39,9 +37,5 @@ else
 //Si un des champs est vide on redemande à l'utilisateur de saisir les informations
 	echo "Le nom d utilisateur et le mot de passe doivent être indiqués ";
 }
-
-
-
-
 
 ?>
