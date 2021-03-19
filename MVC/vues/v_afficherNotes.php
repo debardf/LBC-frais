@@ -9,16 +9,16 @@
 		if($id == "C")
 	{
 		?>	
-		<th width=150>matricule</th>
+		<th width=150>Matricule</th>
 		<?php
 	}
 	?>	
 			
-			<th width=150>annee</th>
-			<th width=150>mois</th>
-			<th width=150>statut</th>
-			<th width=150>datefiche</th>
-			<th width=150>lienpdf</th>
+			<th width=150>Année</th>
+			<th width=150>Mois</th>
+			<th width=150>Statut</th>
+			<th width=150>Date fiche</th>
+			<th width=150>Lienpdf</th>
 			<th width=150></th>
 
 
@@ -80,15 +80,14 @@
 		?>
 	</table>
 	</br>
-	<p><b>NV = non validé</b></p>
-	<p><b>V = validé</b></p>
+	
 	</br>
 	</br>
 	<?php
 	if($id == "V")
     {
     ?>  
-    	<td width=30><a id="lien" href=index.php?uc=frais&ucf=creerNote&action=creationNote&matricule=<?php echo $matricule?>>Création d'une note</a></td>
+    	<a id="lien" class="diff" href=index.php?uc=frais&ucf=creerNote&action=creationNote&matricule=<?php echo $matricule?>><button type="button" class="btn btn-dark">Création d'une note</button></a>
     <?php
     }
     ?>
