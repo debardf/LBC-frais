@@ -8,17 +8,20 @@
 	if($id == "C")
 	{
 		?>	
-		<th width=150>matricule</th>
+		<th width=150>Matricule</th>
 		<?php
 	}
 	?>	
 			
-		<th width=150>annee</th>
-		<th width=150>mois</th>
-		<th width=150>statut</th>
-		<th width=150>datefiche</th>
-		<th width=150>lienpdf</th>
-		<th width=150></th>
+
+			<th width=150>Année</th>
+			<th width=150>Mois</th>
+			<th width=150>Statut</th>
+			<th width=150>Date fiche</th>
+			<th width=150>Lienpdf</th>
+			<th width=150></th>
+
+
 
 	</tr>
 	<?php
@@ -102,19 +105,24 @@
 		}
 		?>
 	</table>
+
 	<p><b>NV = non validé</b></p>
 	<p><b>V = validé</b></p>
 	
+
 	<?php
 	if($id == "V")
     {
     ?>  
+
     	<td width=30>
 			<form id="new" action="index.php?uc=frais&ucf=creerNote&action=creationNote" method="post">
 				<input type="hidden" name="matricule" value="<?php echo $matricule?>">
 				<input type="submit" value="Création d'une note">
 			</form>
 		</td>
+
+    	
     <?php
     }
     ?>
