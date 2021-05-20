@@ -27,7 +27,8 @@
             $id++;
 			$pdo->creerJustificatif($id, $matricule, $annee, $mois, $pdfjustificatif);
 			
-			header('Location: index.php?uc=frais&ucf=afficherNotes');
+            header('Location: index.php?uc=frais&ucf=afficherNotes');
+            break;
 			
         }
         //cas qui permet de générer un formulaire de suppression d'un justifcatif en lien avec une note spécifique
@@ -51,6 +52,7 @@
             $idjustificatif = $_REQUEST['idjustificatif'];
             $pdo->supprJustificatif($matricule,$annee,$mois,$idjustificatif);
             header('Location: index.php?uc=frais&ucf=afficherNotes');
+            break;
         }
         case 'ajoutLien':
         {
@@ -68,7 +70,7 @@
             $annee = $_REQUEST['annee'];
             $mois = $_REQUEST['mois'];
             include("vues/v_pdf.php");
-        
+            break;    
         }
 	}
 ?>

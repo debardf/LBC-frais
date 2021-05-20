@@ -253,7 +253,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <th>Montant Total</th>
+                <th>Montant Total :</th>
                 <th><?php echo $total?></th>
             </table>
             <?php
