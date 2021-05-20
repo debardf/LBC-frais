@@ -8,7 +8,7 @@ case 'validerForfait':
             $id = $_REQUEST['id'];
             $matricule = $_REQUEST['matricule'];
             $annee = $_REQUEST['annee'];
-            $mois = $_REQUEST['mois'];
+            $mois = $_REQUEST['mois']; 
             $qte = $pdo->getLeforfait($matricule,$annee,$mois,$id)['quantite'];
             $libelle = $pdo->getUnLibelle($id);
             $libelle = $libelle["libelleforfait"];
@@ -35,7 +35,7 @@ case 'confirmValideForfait':
                 $pdo->associerComptableFiche($matricule, $annee, $mois, $idcomptable);
             }
 
-            header("Location: index.php?uc=frais&ucf=detailNote&action=detNote&matricule=$matricule&annee=$annee&mois=$mois");
+            header('Location: index.php?uc=frais&ucf=afficherNotes');
             break;
         }
 //permet de générer un formulaire de validation d'un autre forfait avec un récapitulatif d'un autre forfait que l'on valide
@@ -69,7 +69,7 @@ case 'confirmValideAutreFrais':
                 $pdo->associerComptableFiche($matricule, $annee, $mois, $idcomptable);
             }
 
-            header("Location: index.php?uc=frais&ucf=detailNote&action=detNote&matricule=$matricule&annee=$annee&mois=$mois");
+            header('Location: index.php?uc=frais&ucf=afficherNotes');
             break;
         }
         //permet de générer un formulaire de validation d'une note
@@ -78,16 +78,20 @@ case 'validerNote':
             $matricule = $_REQUEST['matricule'];
             $annee = $_REQUEST['annee'];
             $mois = $_REQUEST['mois'];
-            //compte le nombre de forfait  qui n'est pas validé pour une fiche
-            $nbForfaitNv = $pdo->compterForfaitFicheNonValide($matricule, $annee, $mois);
-            $nbForfaitNv = max($nbForfaitNv);
-            $nbForfaitNv = max($nbForfaitNv);
-            //compte le nombre d'autre forfait qui n'est pas validé pour une fiche
-            $nbAutreForfaitNv = $pdo->compterAutreForfaitFicheNonValide($matricule, $annee, $mois);
-            $nbAutreForfaitNv = max($nbAutreForfaitNv);
-            $nbAutreForfaitNv = max($nbAutreForfaitNv);
-            //si il n'y a pas de forfait ou autre forfait qui n'est pas validé, on peut valider la note de frais
-            if (($nbForfaitNv == 0) && ($nbAutreForfaitNv == 0))
+            //compte  le nombre de forfait pour une fiche
+            $nbForfait = $pdo->compterForfaitFiche($matricule, $annee, $mois);
+            $nbForfait = max($nbForfait);
+            //compte le nombre de forfait validé pour une fiche
+            $nbForfaitV = $pdo->compterForfaitFicheValide($matricule, $annee, $mois);
+            $nbForfaitV = max($nbForfaitV);
+            //compte  le nombre des autres forfaits pour une fiche
+            $nbAutreForfait = $pdo->compterAutreForfaitFiche($matricule, $annee, $mois);
+            $nbAutreForfait = max($nbAutreForfait);
+            //compte le nombre de forfait validé pour une fiche
+            $nbAutreForfaitV = $pdo->compterAutreForfaitFicheValide($matricule, $annee, $mois);
+            $nbAutreForfaitV = max($nbAutreForfaitV);
+            //calcul la différence des forfaits et des forfaits validés pour déterminer si la note peut être validé, fait la même opération pour les autres forfaits
+            if (($nbForfait == $nbForfaitV) && ($nbAutreForfait == $nbAutreForfaitV))
             {
                 //si $peutValide = 1, on peut valider la note de frais
                 $peutValide = 1;
@@ -125,4 +129,3 @@ case 'confirmValideNote':
 
 
 }
-?>

@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,37 +10,6 @@
 
 </head>
 <body>
-
- <!--    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="./?index.php">LBC</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="./?index.php">Accueil <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="./index.php?uc=frais">Frais</a>
-      <a class="nav-item nav-link" href="./index.php?uc=echantillons">Echantillons</a>
-      <a class="nav-item nav-link" href="./index.php?uc=practiciens">Practiciens</a>
-      <a class="nav-item nav-link" href="./index.php?uc=carrieres">Carrières</a>
-      <a class="nav-item nav-link" href="./index.php?uc=visite">Visite</a>
-      <a class="nav-item nav-link" href="./index.php?uc=administration"> Administration</a>
-       <?php if(isset($_SESSION['idClient']))
-{
-    ?>
-    <a class="nav-item nav-link" href="index.php?uc=frais&ucf=deconnexion">Déconnexion</a>
-    <?php
-}
-?>
-
-    <span class="navbar-text">
-      Navbar text with an inline element
-    </span>
-    </div>
-  </div>
-</nav>
-</br>
- -->
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="./?index.php">LBC</a>
@@ -96,9 +60,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
