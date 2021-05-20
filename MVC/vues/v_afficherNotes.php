@@ -32,7 +32,15 @@
 		$mois = $uneNote['mois'];
 		$statut = $uneNote['statut'];
 		$datefiche=$uneNote['datefiche'];
-		$lienpdf=$uneNote['lienpdf'];	
+		$lienpdf=$uneNote['lienpdf'];
+		$estSupprimable = false;
+
+		$nbF = $pdo->compterForfaitFiche($matricule, $annee, $mois);
+		$nbAF = $pdo->compterAutreForfaitFiche($matricule, $annee, $mois);
+
+		if ($nbF[0][0] == 0 && $nbAF[0][0] == 0){
+			$estSupprimable = true;
+		}
 	?>	
 	<tr>
 	<?php
@@ -94,6 +102,19 @@
 					<input type="hidden" name="annee" value="<?php echo $annee?>">
 					<input type="hidden" name="mois" value="<?php echo $mois?>">
 					<input width="30px" type="image" src="images/valider.png" title="Valider le Frais">
+				</form>	
+			</td>
+        <?php
+    	}
+    	if($estSupprimable == true)
+    	{
+		?>
+        	<td width=30>
+				<form action="index.php?uc=frais&ucf=noteFrais&action=supprimerNote" method="post">
+					<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+					<input type="hidden" name="annee" value="<?php echo $annee?>">
+					<input type="hidden" name="mois" value="<?php echo $mois?>">
+					<input width="30px" type="image" src="images/suppression.jpg" title="supprimer la note">
 				</form>	
 			</td>
         <?php

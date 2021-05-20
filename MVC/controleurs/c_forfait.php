@@ -25,7 +25,7 @@
 			$pdo->creerForfait($matricule,$annee, $mois, $idforfait, $quantite, $valideForfait);
 			
 			header('Location: index.php?uc=frais&ucf=afficherNotes');
-		break;
+			break;
 		}
 		//cas qui permet de générer un formulaire de modification d'un forfait en lien avec une note spécifique
 		case 'modifForfait':
@@ -81,6 +81,7 @@
 			$id = $_REQUEST['id'];
 			$pdo->supprFrais($matricule,$annee,$mois,$id);
 			header('Location: index.php?uc=frais&ucf=afficherNotes');
+			break;
 		}
 	}
 ?>
