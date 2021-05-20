@@ -18,10 +18,7 @@
         <input id="bouton" class="btn btn-secondary" type="submit" value="supprimer la note">
     </form>
 
-    <form action="index.php?uc=frais&ucf=detailNote&action=detNote" method="post">
-		<input type="hidden" name="matricule" value="<?php echo $matricule?>">
-		<input type="hidden" name="annee" value="<?php echo $annee?>">
-		<input type="hidden" name="mois" value="<?php echo $mois?>">
+    <form action="index.php?uc=frais&ucf=afficherNotes" method="post">
 		<input id="bouton" class="btn btn-secondary" type="submit" value="retour">
 	</form>
 

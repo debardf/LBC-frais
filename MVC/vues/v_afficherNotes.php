@@ -107,7 +107,7 @@
         <?php
 		}
 		
-    	if($estSupprimable == true)
+    	if($estSupprimable == true && $statut != "V")
     	{
 		?>
         	<td width=30>
