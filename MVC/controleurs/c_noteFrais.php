@@ -37,5 +37,30 @@
 			header("Location: index.php?uc=frais&ucf=afficherNotes");
 			break;
 		}
+
+		//cas qui permet de générer un formulaire de création d'un justifcatif en lien avec une note spécifique
+		case 'supprimerNote':
+			{
+				$matricule = $_REQUEST['matricule'];
+				$annee = $_REQUEST['annee'];
+				$mois = $_REQUEST['mois'];
+
+				include("vues/v_supprimerNote.php");
+				
+				break;
+	
+			}
+			//cas qui permet de confirmer la création d'une note frais dont les données sont spécifiées dans le formulaire du cas de création et de l'appliquer à la BDD
+			case 'confirmSupprNote':
+			{
+				$matricule = $_REQUEST['matricule'];
+				$annee = $_REQUEST['annee'];
+				$mois = $_REQUEST['mois'];
+				$pdo->supprimerNote($matricule,$annee,$mois);
+				header("Location: index.php?uc=frais&ucf=afficherNotes");
+				break;
+			}
+
+		
 	}
 ?>

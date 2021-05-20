@@ -4,8 +4,8 @@ class PdoLBC
 {   		
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=lbc';		
-      	private static $user='dbo718502955';
-		private static $mdp='BMw1234*';
+      	private static $user='root';
+		private static $mdp='';
 		private static $monPdo;
 		private static $monPdoLBC = null;
 			
@@ -215,6 +215,14 @@ class PdoLBC
 		$res->bindValue('lienpdfN', $lienpdf, PDO::PARAM_STR);
 		$res->execute();
 	}
+	public function supprimerNote($matricule,$annee,$mois)
+	{
+		$res = PdoLBC::$monPdo->prepare('DELETE FROM fiche WHERE matricule = :matricule AND annee = :annee AND mois = :mois');
+		$res->bindValue('matricule',$matricule, PDO::PARAM_INT);
+		$res->bindValue('annee', $annee, PDO::PARAM_STR);
+		$res->bindValue('mois', $mois, PDO::PARAM_INT);
+		$res->execute();
+	}
 
 	//création d'un nouveau forfait
 	
@@ -317,7 +325,6 @@ class PdoLBC
 
 		$res->execute();
 	}
-
 	//suppression frais
 
 	public function supprFrais($matricule, $annee, $mois, $id)

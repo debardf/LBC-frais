@@ -101,11 +101,12 @@
 					<input type="hidden" name="matricule" value="<?php echo $matricule?>">
 					<input type="hidden" name="annee" value="<?php echo $annee?>">
 					<input type="hidden" name="mois" value="<?php echo $mois?>">
-					<input width="30px" type="image" src="images/valider.png" title="Valider le Frais">
+					<input width="30px" type="image" src="images/valider.png" title="Valider la note">
 				</form>	
 			</td>
         <?php
-    	}
+		}
+		
     	if($estSupprimable == true)
     	{
 		?>

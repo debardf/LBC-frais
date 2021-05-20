@@ -5,7 +5,8 @@ if (!isset($_REQUEST['action']))
 {
     $action = 'afficherNotes';
 }
-else 
+//sinon action récupère celle qui lui à été transmis le 
+else
 {
     $action = $_REQUEST['action'];
 }
