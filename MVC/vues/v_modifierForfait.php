@@ -33,14 +33,14 @@
 			<input type="hidden" name="matricule" value="<?php echo $matricule ;?>"/>
 		</tbody>
 		</table>
-		<input class="boutonb" type="submit" value="Valider">
+		<input id="bouton" class="btn btn-secondary" type="submit" value="Valider">
 	</form>
  
 	<form action="index.php?uc=frais&ucf=detailNote&action=detNote" method="post">
 		<input type="hidden" name="matricule" value="<?php echo $matricule?>">
 		<input type="hidden" name="annee" value="<?php echo $annee?>">
 		<input type="hidden" name="mois" value="<?php echo $mois?>">
-		<input class="boutonb" type="submit" value="retour">
+		<input id="bouton" class="btn btn-secondary" type="submit" value="retour">
 	</form>
 
 	</body>

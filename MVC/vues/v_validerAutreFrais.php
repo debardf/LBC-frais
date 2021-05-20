@@ -12,14 +12,14 @@
             <tr><td>montant</td><td><input name="montant" value="<?php echo $montant ?>" size=10 readonly></td></tr>
             <tr><td>Date du frais</td><td><input name="dateFrais" value="<?php echo $dateFrais ?>"size=10 readonly></td></tr>
             </table>
-		<input class="boutonb" type="submit" value="Valider">
+		<input id="bouton" class="btn btn-secondary" type="submit" value="Valider">
 	</form>
 
       <form action="index.php?uc=frais&ucf=detailNote&action=detNote" method="post">
 		<input type="hidden" name="matricule" value="<?php echo $matricule?>">
 		<input type="hidden" name="annee" value="<?php echo $annee?>">
 		<input type="hidden" name="mois" value="<?php echo $mois?>">
-		<input class="boutonb" type="submit" value="retour">
+		<input id="bouton" class="btn btn-secondary" type="submit" value="retour">
 	</form>
 	
 	</body>

@@ -1,6 +1,6 @@
-*{
-	margin: 0px;
-	padding: 0px;
+body{
+	margin: 40px;
+	padding: 40px;
 	font-family: Avenir, sans-serif;
 }
 
@@ -18,69 +18,34 @@ nav ul::after{
 
 }
 
-nav li{
 
-	float: left;
-	width: calc(100%/8);
-
-}
-
-#justif::before{
+#justif::before {
 	
 	margin-left: 5px;
 	content: "- ";
 	color: black;
 }
 
-#justif{
-	margin-bottom: 30px;
-}
 
-nav a{
-	display: block;
-	text-decoration: none;
-	color: black;
-	border-bottom : 2px solid transparent;
-	padding: 10px 0px;
-}
-
-nav a:hover{
-	color: white;
-	border-bottom: 2px solid gold;
-}
-
-nav{
-	width: 100%;
-	margin : 0 auto;
-	background-color: #9998A1;
-	position: sticky;
-	top: 0px;
-}
-
-table{
+table {
   width:50%;
-  margin-left: 10px;
   height: 5px;
   table-layout: fixed;
   border-collapse: collapse;
-  margin-bottom: 30px;
 
 }
-
-table caption{
+table caption {
   font-size:1.4rem;
   color:#ffff;
   background-color: #5d625c;
  /* caption-side: bottom; // top|bottom|initial|inherit; */
 }
-
-table th{
-  background-color:#999690;
+table th {
+  background-color:#4E9EA9;
   color:#000000;
 
 }
-
-table tfoot td{
+table tfoot td {
   color:#fff;
   background-color:#999690;
   border-top:1px solid #5d625c;
@@ -96,56 +61,22 @@ td#cache{
 
 }
 
-body{
-    background-color:#D6D5DB;
-    color: black;
-}
-
 #icone{
 
 	width:5px;
   	height: 5px;
 }
 
-form#lien input[type=submit]{
-	cursor: pointer;
-	font-size: medium;
-	background: none;
-	border: none;
-	color: blue;
-}
+a#lien {
 
-form#new input[type=submit]{
-	margin-left: 10px;
-	margin-bottom: 30px;
-	font-size: medium;
-	cursor: pointer;
-	background: none;
-	border: none;
-	color: blue;
-}
-
-p{
-	margin-left: 10px;
-	margin-bottom: 30px;
-}
-
-#partie{
-	margin-left: 10px;
-	margin-bottom: 30px;
-}
-
-.boutonb{
-	margin-left: 10px;
-	margin-bottom: 30px;
+	text-decoration: none;
+	color:#4E9EA9;
 }
 
 .pdf-container{
-	width: initial;
-	margin-left: 300px;
-	margin-right: 300px;
+	width: 100%;
 	padding: 20px;
-	height: 700px;
+	height: 600px;
 }
 
 .pdf-viewer{
@@ -153,6 +84,22 @@ p{
 	height: 100%;
 }
 
-#champ{
-	margin-left: 10px;
+form#new input[type=submit]{
+	margin-top: 15px;
+	margin-bottom: 30px;
+	font-size: medium;
+	cursor: pointer;
+}
+
+form#lien input[type=submit]{
+	cursor: pointer;
+	font-size: medium;
+	background: none;
+	border: none;
+	color:#4E9EA9;
+}
+
+#bouton{
+	margin-top: 30px;
+	
 }

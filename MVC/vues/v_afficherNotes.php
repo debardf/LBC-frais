@@ -112,7 +112,7 @@
     	<td width=30>
 			<form id="new" action="index.php?uc=frais&ucf=creerNote&action=creationNote" method="post">
 				<input type="hidden" name="matricule" value="<?php echo $matricule?>">
-				<input type="submit" value="Création d'une note">
+				<input class="btn btn-secondary" type="submit" value="Création d'une note">
 			</form>
 		</td>
     <?php

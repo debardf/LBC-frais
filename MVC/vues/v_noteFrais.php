@@ -16,12 +16,13 @@
             <input type="hidden" name="Fdatefiche" value=<?php echo $datefiche=date('Y-m-d');?>>
             <input type="hidden" name="Flien">
 		</tbody>
-		</table>
-		<input class="boutonb" type="submit" value="Valider">
+        </table>
+        </br>
+		<input class="btn btn-secondary" type="submit" value="Valider">
 	</form>
  
-    <form action="index.php?uc=frais&ucf=afficherNotes"method="post"> 
-        <input class="boutonb" type="submit" value="retour">
+    <form id="new" action="index.php?uc=frais&ucf=afficherNotes"method="post"> 
+        <input class="btn btn-secondary" type="submit" value="retour">
     </form>
 	
 	</body>
