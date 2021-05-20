@@ -16,14 +16,14 @@
             <tr><td>nom du justificatif </td><td><input name="pdfjustificatif" value="<?php echo $pdfjustificatif?>" size=20 readonly></td></tr>
         </tbody>
         </table>
-        <input class="boutonb" type="submit" value="supprimer le justificatif">
+        <input id="bouton" class="btn btn-secondary" type="submit" value="supprimer le justificatif">
     </form>
 
     <form action="index.php?uc=frais&ucf=detailNote&action=detNote" method="post">
 		<input type="hidden" name="matricule" value="<?php echo $matricule?>">
 		<input type="hidden" name="annee" value="<?php echo $annee?>">
 		<input type="hidden" name="mois" value="<?php echo $mois?>">
-		<input class="boutonb" type="submit" value="retour">
+		<input id="bouton" class="btn btn-secondary" type="submit" value="retour">
 	</form>
 
     </body>

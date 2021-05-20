@@ -4,6 +4,7 @@
 <body>
     
     <p><H1 id="partie">Détail de la note :</H1>
+    </br>
     <h3 id="partie">Frais Forfaitaires</h3>
     <?php
     //affiche un message si aucun forfait n'est lié à la fiche
@@ -20,9 +21,9 @@
             <tr>
                 <th width = 200px>Frais Forfaitaires</th>
                 <th width = 120px>Quantité </th>  
-                <th>Montant Unitaire</th>
-                <th>Total</th>
-                <th>validé ?</th>
+                <th width = 120px>Montant Unitaire</th>
+                <th width = 120px>Total</th>
+                <th width = 120px>validé ?</th>
         <?php
         //affiche les lignes suivante si l'utilisateur est un visiteur et si la fiche n'est pas validée
         if($idProfil == "V" && $statut != "V") 
@@ -112,7 +113,7 @@
 			<input type="hidden" name="matricule" value="<?php echo $matricule?>">
 			<input type="hidden" name="annee" value="<?php echo $annee?>">
 			<input type="hidden" name="mois" value="<?php echo $mois?>">
-			<input type="submit" value="Ajouter un forfait">
+			<input class="btn btn-secondary" type="submit" value="Ajouter un forfait">
 		</form>
         <?php
         }
@@ -139,8 +140,8 @@
 
             <th width=200px>Libellé</th>
             <th width=200px>Date</th>
-            <th>Montant</th>
-            <th>validé ?</th>
+            <th width = 120px>Montant</th>
+            <th width = 120px>validé ?</th>
 
             <?php
             if($idProfil == "V" && $statut != "V") 
@@ -222,7 +223,7 @@
 			<input type="hidden" name="matricule" value="<?php echo $matricule?>">
 			<input type="hidden" name="annee" value="<?php echo $annee?>">
 			<input type="hidden" name="mois" value="<?php echo $mois?>">
-			<input type="submit" value="Ajouter un autre forfait">
+			<input class="btn btn-secondary" type="submit" value="Ajouter un autre forfait">
 		</form>
         <?php
         }
@@ -308,7 +309,7 @@
 			<input type="hidden" name="matricule" value="<?php echo $matricule?>">
 			<input type="hidden" name="annee" value="<?php echo $annee?>">
 			<input type="hidden" name="mois" value="<?php echo $mois?>">
-			<input type="submit" value="Ajouter un justificatif">
+			<input class="btn btn-secondary" type="submit" value="Ajouter un justificatif">
 		</form>
         <?php
         }
@@ -318,13 +319,13 @@
         foreach($lesSignatures as $laSignature)
             {
                 ?>
-                <li id="signature"><img src="images/signature/<?php echo $laSignature["signature"] ?>" title="Signature"></a></li>
+                <li id="signature"><img src="images/signature/<?php echo $laSignature["signature"]?>" title="Signature"></a></li>
                 <?php
             }
             ?>
 
-    <form action="index.php?uc=frais&ucf=afficherNotes"method="post"> 
-        <input class="boutonb" type="submit" value="retour">
+    <form id="new" action="index.php?uc=frais&ucf=afficherNotes"method="post"> 
+        <input class="btn btn-secondary" type="submit" value="retour">
     </form>
 
 </body>
