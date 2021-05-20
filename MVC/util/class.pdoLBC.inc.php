@@ -202,7 +202,7 @@ class PdoLBC
 	
 	//création d'une note de frais
 
-	public function creerFrais($matricule,$annee,$mois,$statut,$datefiche,$lienpdf)
+	public function creerNote($matricule,$annee,$mois,$statut,$datefiche,$lienpdf)
 	{
 		$res = PdoLBC::$monPdo->prepare('INSERT INTO fiche (matricule,
 		annee, mois, statut, datefiche, lienpdf) VALUES( :matriculeN, 

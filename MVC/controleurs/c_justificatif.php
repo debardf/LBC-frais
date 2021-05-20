@@ -34,14 +34,14 @@
         //cas qui permet de générer un formulaire de suppression d'un justifcatif en lien avec une note spécifique
         case 'supprimerJustificatif':
         {
-                $idjustificatif = $_REQUEST['idjustificatif'];
-                $matricule = $_REQUEST['matricule'];
-                $annee = $_REQUEST['annee'];
-                $mois = $_REQUEST['mois'];
-                $pdfjustificatif = $pdo->getLeJustificatif($matricule,$annee,$mois,$idjustificatif);
-                $pdfjustificatif = $pdfjustificatif['pdfjustificatif'];
-                include("vues/v_supprimerJustificatif.php");
-                break;
+            $idjustificatif = $_REQUEST['idjustificatif'];
+            $matricule = $_REQUEST['matricule'];
+            $annee = $_REQUEST['annee'];
+            $mois = $_REQUEST['mois'];
+            $pdfjustificatif = $pdo->getLeJustificatif($matricule,$annee,$mois,$idjustificatif);
+            $pdfjustificatif = $pdfjustificatif['pdfjustificatif'];
+            include("vues/v_supprimerJustificatif.php");
+            break;
         }
         //cas qui permet de confirmer la suppression d'un justifcatif dont les données sont spécifiées dans le formulaire du cas de modification et de l'appliquer à la BDD
         case 'confirmSupprJustificatif':
