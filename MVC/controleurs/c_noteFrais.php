@@ -33,7 +33,7 @@
 			$statut = $_REQUEST['Fstatut'];
 			$datefiche = $_REQUEST['Fdatefiche'];
 			$lienpdf = "note_".$mois.$annee;
-			$pdo->creerFrais($matricule,$annee,$mois,$statut,$datefiche,$lienpdf);
+			$pdo->creerNote($matricule,$annee,$mois,$statut,$datefiche,$lienpdf);
 			header("Location: index.php?uc=frais&ucf=afficherNotes");
 			break;
 		}

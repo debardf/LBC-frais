@@ -5,7 +5,7 @@
    -->
    <body>
    <p><h1 id="partie">Nouvelle note :</h1></p>
-	<form action="index.php?uc=frais&ucf=creerNote&action=confirmCreatNote" method="post">
+	<form action="index.php?uc=frais&ucf=noteFrais&action=confirmCreatNote" method="post">
    
 		<table>
 		<tbody>
