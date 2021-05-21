@@ -7,7 +7,6 @@ body{
 nav ul{
 	list-style-type: none;
 	text-align: center;
-
 }
 
 
@@ -15,12 +14,10 @@ nav ul::after{
 	content : "";
 	display: table;
 	clear: both;
-
 }
 
 
 #justif::before {
-	
 	margin-left: 5px;
 	content: "- ";
 	color: black;
@@ -28,47 +25,43 @@ nav ul::after{
 
 
 table {
-  width:50%;
-  height: 5px;
-  table-layout: fixed;
-  border-collapse: collapse;
+  	width:50%;
+  	height: 5px;
+  	table-layout: fixed;
+  	border-collapse: collapse;
 
 }
 table caption {
-  font-size:1.4rem;
-  color:#ffff;
-  background-color: #5d625c;
- /* caption-side: bottom; // top|bottom|initial|inherit; */
+  	font-size:1.4rem;
+  	color:#ffff;
+  	background-color: #5d625c;
+ 	/* caption-side: bottom; // top|bottom|initial|inherit; */
 }
 table th {
-  background-color:#4E9EA9;
-  color:#000000;
+  	background-color:#4E9EA9;
+  	color:#000000;
 
 }
 table tfoot td {
-  color:#fff;
-  background-color:#999690;
-  border-top:1px solid #5d625c;
-  border-bottom:1px solid #5d625c;
+  	color:#fff;
+  	background-color:#999690;
+  	border-top:1px solid #5d625c;
+  	border-bottom:1px solid #5d625c;
 }
 
 td#cache{
-	
 	border-width: 2px;
     border-top: hidden;
     border-right: hidden;
     border-bottom: hidden;
-
 }
 
 #icone{
-
 	width:5px;
   	height: 5px;
 }
 
 a#lien {
-
 	text-decoration: none;
 	color:#4E9EA9;
 }
@@ -101,5 +94,4 @@ form#lien input[type=submit]{
 
 #bouton{
 	margin-top: 30px;
-	
 }

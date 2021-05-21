@@ -271,7 +271,6 @@
         {
     
         ?>
-        <ul>
         <?php 
             foreach($lesJustificatifs as $leJustificatif)
             {
@@ -281,7 +280,7 @@
                 {
             ?>
                 <form action="index.php?uc=frais&ucf=justificatifs&action=supprimerJustificatif" method="post">
-                    <li id="justif">
+                    <li id="justificatif">
                         <?php echo $pdf?>
                         <input type="hidden" name="matricule" value="<?php echo $matricule?>">
                         <input type="hidden" name="annee" value="<?php echo $annee?>">
@@ -294,7 +293,6 @@
                 }
             }
             ?>
-        </ul>
 
         <?php
         }
