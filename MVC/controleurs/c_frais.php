@@ -1,4 +1,5 @@
  <?php
+ ob_start();
 if(!isset($_REQUEST['ucf']))
      $ucf = 'afficherNotes';
 else
@@ -31,4 +32,5 @@ switch($ucf)
 		{ include("controleurs/c_realiserFrais.php");break;}
 }
 include("vues/v_pied.php");
+ob_end_flush();
 ?>

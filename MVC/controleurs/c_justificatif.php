@@ -25,9 +25,9 @@
             $id = $pdo->compterId();
             $id = max($id);
             $id++;
-			$pdo->creerJustificatif($id, $matricule, $annee, $mois, $pdfjustificatif);
-			
-            header('Location: index.php?uc=frais&ucf=afficherNotes');
+            $pdo->creerJustificatif($id, $matricule, $annee, $mois, $pdfjustificatif);
+            $valeurs = array("matricule" => $matricule, "annee" => $annee, "mois" => $mois);
+            redirect('index.php?uc=frais&ucf=detailNote&action=detNote', $valeurs);
             break;
 			
         }
@@ -51,7 +51,8 @@
             $mois = $_REQUEST['mois'];
             $idjustificatif = $_REQUEST['idjustificatif'];
             $pdo->supprJustificatif($matricule,$annee,$mois,$idjustificatif);
-            header('Location: index.php?uc=frais&ucf=afficherNotes');
+            $valeurs = array("matricule" => $matricule, "annee" => $annee, "mois" => $mois);
+            redirect('index.php?uc=frais&ucf=detailNote&action=detNote', $valeurs);
             break;
         }
         case 'ajoutLien':
@@ -60,7 +61,8 @@
             $matricule = $_REQUEST['matricule'];
             $mois = $_REQUEST['mois'];
             $pdo->getModifLien($matricule,$annee,$mois);
-            header('Location: index.php?uc=frais&ucf=afficherNotes');
+            echo "<script>window.location.href='index.php?uc=frais&ucf=afficherNotes';</script>";
+    	    exit;
             break;
         }
         

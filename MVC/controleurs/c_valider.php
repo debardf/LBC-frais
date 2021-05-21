@@ -1,9 +1,9 @@
 <?php
     $action=$_REQUEST['action'];
     switch($action)
-{
+    {
     //permet de générer un formulaire de validation d'un forfait avec un récapitulatif du forfait que l'on valide
-case 'validerForfait':
+        case 'validerForfait':
         {
             $id = $_REQUEST['id'];
             $matricule = $_REQUEST['matricule'];
@@ -15,8 +15,8 @@ case 'validerForfait':
             include("vues/v_validerForfait.php");
             break;
         }
-//permet de confirmer la validaton d'un forfait
-case 'confirmValideForfait':
+        //permet de confirmer la validaton d'un forfait
+        case 'confirmValideForfait':
         {
             $id = $_REQUEST['id'];
             $matricule = $_REQUEST['matricule'];
@@ -35,11 +35,12 @@ case 'confirmValideForfait':
                 $pdo->associerComptableFiche($matricule, $annee, $mois, $idcomptable);
             }
 
-            header('Location: index.php?uc=frais&ucf=afficherNotes');
+            $valeurs = array("matricule" => $matricule, "annee" => $annee, "mois" => $mois);
+            redirect('index.php?uc=frais&ucf=detailNote&action=detNote', $valeurs);
             break;
         }
-//permet de générer un formulaire de validation d'un autre forfait avec un récapitulatif d'un autre forfait que l'on valide
-case 'validerAutreFrais':
+        //permet de générer un formulaire de validation d'un autre forfait avec un récapitulatif d'un autre forfait que l'on valide
+        case 'validerAutreFrais':
         {
             $id = $_REQUEST['id'];
             $matricule = $_REQUEST['matricule'];
@@ -51,8 +52,8 @@ case 'validerAutreFrais':
             include("vues/v_validerAutreFrais.php");
             break;
         }
-//permet de confirmer la validaton d'un autre forfait
-case 'confirmValideAutreFrais':
+        //permet de confirmer la validaton d'un autre forfait
+        case 'confirmValideAutreFrais':
         {
             $id = $_REQUEST['id'];
             $matricule = $_REQUEST['matricule'];
@@ -69,11 +70,12 @@ case 'confirmValideAutreFrais':
                 $pdo->associerComptableFiche($matricule, $annee, $mois, $idcomptable);
             }
 
-            header('Location: index.php?uc=frais&ucf=afficherNotes');
+            $valeurs = array("matricule" => $matricule, "annee" => $annee, "mois" => $mois);
+            redirect('index.php?uc=frais&ucf=detailNote&action=detNote', $valeurs);
             break;
         }
         //permet de générer un formulaire de validation d'une note
-case 'validerNote':
+        case 'validerNote':
         {
             $matricule = $_REQUEST['matricule'];
             $annee = $_REQUEST['annee'];
@@ -106,8 +108,8 @@ case 'validerNote':
             break;
 
         }
-//page qui permet de valider la note de frais
-case 'confirmValideNote':
+        //page qui permet de valider la note de frais
+        case 'confirmValideNote':
         {
             $matricule = $_REQUEST['matricule'];
             $annee = $_REQUEST['annee'];

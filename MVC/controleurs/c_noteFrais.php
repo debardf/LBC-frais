@@ -34,7 +34,8 @@
 			$datefiche = $_REQUEST['Fdatefiche'];
 			$lienpdf = "note_".$mois.$annee;
 			$pdo->creerNote($matricule,$annee,$mois,$statut,$datefiche,$lienpdf);
-			header("Location: index.php?uc=frais&ucf=afficherNotes");
+			$valeurs = array("matricule" => $matricule, "annee" => $annee, "mois" => $mois);
+			redirect('index.php?uc=frais&ucf=detailNote&action=detNote', $valeurs);
 			break;
 		}
 
@@ -57,7 +58,8 @@
 				$annee = $_REQUEST['annee'];
 				$mois = $_REQUEST['mois'];
 				$pdo->supprimerNote($matricule,$annee,$mois);
-				header("Location: index.php?uc=frais&ucf=afficherNotes");
+				echo "<script>window.location.href='index.php?uc=frais&ucf=afficherNotes';</script>";
+    			exit;
 				break;
 			}
 

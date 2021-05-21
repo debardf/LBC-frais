@@ -28,8 +28,8 @@
             $id = max($id);
             $id++;
 			$pdo->creerAutreForfait($id, $matricule, $annee, $mois, $datefrais, $libelle, $montant, $validefrais);
-			
-			header('Location: index.php?uc=frais&ucf=afficherNotes');	
+			$valeurs = array("matricule" => $matricule, "annee" => $annee, "mois" => $mois);
+            redirect('index.php?uc=frais&ucf=detailNote&action=detNote', $valeurs);
             break;
         }
         //cas qui permet de générer un formulaire de modification d'un autre forfait en lien avec une note spécifique
@@ -63,7 +63,8 @@
             $anneeO = $_REQUEST['annee'];
             $moisO = $_REQUEST['mois'];
             $pdo->modifAutreForfait($matricule,$anneeO,$moisO,$idfrais,$annee,$mois,$montant,$libelle,$datefrais);        
-            header('Location: index.php?uc=frais&ucf=afficherNotes');
+            $valeurs = array("matricule" => $matricule, "annee" => $annee, "mois" => $mois);
+            redirect('index.php?uc=frais&ucf=detailNote&action=detNote', $valeurs);
             break;
         }
         //cas qui permet de générer un formulaire de suppression d'un autre forfait en lien avec une note spécifique
@@ -88,7 +89,8 @@
             $mois = $_REQUEST['mois'];
             $id = $_REQUEST['id'];
             $pdo->supprAutreForfait($matricule,$annee,$mois,$id);
-            header('Location: index.php?uc=frais&ucf=afficherNotes');
+            $valeurs = array("matricule" => $matricule, "annee" => $annee, "mois" => $mois);
+            redirect('index.php?uc=frais&ucf=detailNote&action=detNote', $valeurs);
             break;
         }
 	}
