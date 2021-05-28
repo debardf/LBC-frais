@@ -236,7 +236,7 @@ class PdoLBC
 
 	public function cumulId()
 	{
-		$req = "SELECT count(*) FROM frais";
+		$req = "SELECT max(idfrais) FROM frais";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
@@ -245,7 +245,7 @@ class PdoLBC
 
 	public function compterId()
 	{
-		$req = "SELECT count(*) FROM justificatif";
+		$req = "SELECT max(idjustificatif) FROM justificatif";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
@@ -288,37 +288,32 @@ class PdoLBC
 
 	//modification frais
 
-	public function modifFrais($matricule, $idO,$anneeO,$moisO, $id,$annee,$mois,$qte)
+	public function modifFrais($matricule,$idO,$id,$annee,$mois,$qte)
 	{
 		$res = PdoLBC::$monPdo->prepare("UPDATE ajouteforfait
-		SET idforfait = :idforfaitM, annee = :anneeM, mois = :moisM, quantite =  :quantiteM WHERE annee = :annee and mois = :mois and idforfait = :idforfait and matricule = :matricule");
-		$res->bindValue('idforfaitM',$id, PDO::PARAM_INT);
-		$res->bindValue('anneeM', $annee, PDO::PARAM_INT);
-		$res->bindValue('moisM', $mois, PDO::PARAM_INT);
+		SET idforfait = :idforfaitM, quantite =  :quantiteM WHERE annee = :Mannee and mois = :Mmois and idforfait = :Midforfait and matricule = :Mmatricule ");
+		$res->bindValue('Mannee', $annee, PDO::PARAM_INT);
+		$res->bindValue('Mmois', $mois, PDO::PARAM_INT);
 		$res->bindValue('quantiteM', $qte, PDO::PARAM_INT);
-		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
-		$res->bindValue('idforfait',$idO, PDO::PARAM_INT);
-		$res->bindValue('annee', $anneeO, PDO::PARAM_INT);
-		$res->bindValue('mois', $moisO, PDO::PARAM_INT);
-
+		$res->bindValue('Mmatricule', $matricule, PDO::PARAM_INT);
+		$res->bindValue('Midforfait',$idO, PDO::PARAM_INT);
+		$res->bindValue('idforfaitM',$id, PDO::PARAM_INT);
 		$res->execute();
 	}
 
 	//modification autre forfait
 
-	public function modifAutreForfait($matricule,$anneeO,$moisO,$idfrais,$annee,$mois,$montant,$libelle,$datefrais)
+	public function modifAutreForfait($matricule,$idfrais,$annee,$mois,$montant,$libelle,$datefrais)
 	{
 		$res = PdoLBC::$monPdo->prepare("UPDATE frais
-		SET annee = :anneeM, mois = :moisM, montant =  :montantM, libelle = :libelleM, datefrais = :datefrais  WHERE annee = :annee and mois = :mois and idfrais = :idfrais and matricule = :matricule");
+		SET montant =  :montantM, libelle = :libelleM, datefrais = :datefraisM  WHERE annee = :annee and mois = :mois and idfrais = :idfrais and matricule = :matricule ");
 		$res->bindValue('idfrais',$idfrais, PDO::PARAM_INT);
-		$res->bindValue('anneeM', $annee, PDO::PARAM_INT);
-		$res->bindValue('moisM', $mois, PDO::PARAM_INT);
 		$res->bindValue('libelleM', $libelle, PDO::PARAM_STR);
 		$res->bindValue('montantM', $montant, PDO::PARAM_INT);
-		$res->bindValue('datefrais', $datefrais, PDO::PARAM_INT);
+		$res->bindValue('datefraisM', $datefrais, PDO::PARAM_INT);
 		$res->bindValue('matricule', $matricule, PDO::PARAM_INT);
-		$res->bindValue('annee', $anneeO, PDO::PARAM_INT);
-		$res->bindValue('mois', $moisO, PDO::PARAM_INT);
+		$res->bindValue('annee', $annee, PDO::PARAM_INT);
+		$res->bindValue('mois', $mois, PDO::PARAM_INT);
 
 		$res->execute();
 	}
@@ -432,9 +427,9 @@ class PdoLBC
 
 	//permet de compter les forfait validés pour une fiche
 
-	public function compterForfaitFicheValide($matricule, $annee, $mois)
+	public function compterForfaitFicheNonValide($matricule, $annee, $mois)
 	{
-		$req = "SELECT count(*) FROM ajouteforfait WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois." AND valideForfait = 1";
+		$req = "SELECT count(*) FROM ajouteforfait WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois." AND valideForfait = 0";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
@@ -452,9 +447,9 @@ class PdoLBC
 
 	//permet de compter les autres forfaits de la fiches qui sont validés
 
-	public function compterAutreForfaitFicheValide($matricule, $annee, $mois)
+	public function compterAutreForfaitFicheNonValide($matricule, $annee, $mois)
 	{
-		$req = "SELECT count(*) FROM frais WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois." AND validefrais = 1";
+		$req = "SELECT count(*) FROM frais WHERE matricule = ".$matricule." AND annee = ".$annee." AND mois = ".$mois." AND validefrais = 0";
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
@@ -484,6 +479,13 @@ class PdoLBC
 		$res = PdoLBC::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;
+	}
+
+	public function pdfmois($matricule,$annee,$mois)
+	{
+		$req = "SELECT * from fiche WHERE matricule = $matricule AND annee = $annee AND mois = $mois";
+		$res = PdoLBC::$monPdo->query($req);
+		return $res;
 	}
 
 }

@@ -4,7 +4,8 @@
    <!-- 
 	   permet  de générer un formulaire de création d'un forfait
    -->
-   <p><h1>Creation d'un forfait</h1></p></BR>
+
+   <p><h1 id="partie">Creation d'un forfait</h1></p>
 	<form action="index.php?uc=frais&ucf=forfait&action=confirmCreatForfait" method="post">
    
 		<table>
@@ -33,14 +34,19 @@
 			<input type = "hidden" name="valideForfait" value=0>
 		</tbody>
 		</table>
-		
-                <br/>
-		<input type="submit" value="Valider">
+		<input class="boutonb" type="submit" value="Valider">
 	</form>
-<?php
-//ajouter les libelles des id pour la selection
-?>
 	
+	<!-- ajouter les libelles des id pour la selection -->
+	
+
+	<form action="index.php?uc=frais&ucf=detailNote&action=detNote" method="post">
+		<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+		<input type="hidden" name="annee" value="<?php echo $annee?>">
+		<input type="hidden" name="mois" value="<?php echo $mois?>">
+		<input class="boutonb" type="submit" value="retour">
+	</form>
+
 	</body>
 </html>
 

@@ -1,6 +1,6 @@
-*{
-	margin: 0px;
-	padding: 0px;
+body{
+	margin: 40px;
+	padding: 40px;
 	font-family: Avenir, sans-serif;
 }
 
@@ -18,18 +18,17 @@ nav ul::after{
 
 }
 
-nav li{
 
-	float: left;
-	width: calc(100%/8);
-
-}
-
-#justif::before {
+#justif::before{
 	
 	margin-left: 5px;
 	content: "- ";
 	color: black;
+}
+
+
+#justif{
+	margin-bottom: 30px;
 }
 
 nav a{
@@ -53,25 +52,32 @@ nav{
 	top: 0px;
 }
 
-table {
+
+table{
   width:50%;
+  margin-left: 10px;
   height: 5px;
   table-layout: fixed;
   border-collapse: collapse;
+  margin-bottom: 30px;
 
 }
-table caption {
+
+table caption{
   font-size:1.4rem;
   color:#ffff;
   background-color: #5d625c;
  /* caption-side: bottom; // top|bottom|initial|inherit; */
 }
-table th {
+
+
+table th{
   background-color:#999690;
   color:#000000;
 
 }
-table tfoot td {
+
+table tfoot td{
   color:#fff;
   background-color:#999690;
   border-top:1px solid #5d625c;
@@ -87,10 +93,9 @@ td#cache{
 
 }
 
-body
-{
-    background-color:#D6D5DB; /* Le fond de la page sera noir */
-    color: black; /* Le texte de la page sera blanc */
+body{
+    background-color:#D6D5DB;
+    color: black;
 }
 
 #icone{
@@ -99,8 +104,52 @@ body
   	height: 5px;
 }
 
-a#lien {
-
-	text-decoration: none;
+form#lien input[type=submit]{
+	cursor: pointer;
+	font-size: medium;
+	background: none;
+	border: none;
 	color: blue;
+}
+
+form#new input[type=submit]{
+	margin-left: 10px;
+	margin-bottom: 30px;
+	font-size: medium;
+	cursor: pointer;
+	background: none;
+	border: none;
+	color: blue;
+}
+
+p{
+	margin-left: 10px;
+	margin-bottom: 30px;
+}
+
+#partie{
+	margin-left: 10px;
+	margin-bottom: 30px;
+}
+
+.boutonb{
+	margin-left: 10px;
+	margin-bottom: 30px;
+}
+
+.pdf-container{
+	width: initial;
+	margin-left: 300px;
+	margin-right: 300px;
+	padding: 20px;
+	height: 700px;
+}
+
+.pdf-viewer{
+	width: 100%;
+	height: 100%;
+}
+
+#champ{
+	margin-left: 10px;
 }

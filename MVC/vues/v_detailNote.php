@@ -2,25 +2,20 @@
 <html>
 
 <body>
-    </br>
-    <form>
-        <p><H1>Détail de la note :</H1>
-        </br>
-        <h3>Frais Forfaitaires</h3>
-        </br>
-        <?php
-        //affiche un message si aucun forfait n'est lié à la fiche
-        if($cumulForfait==0)
-        {
-            echo "Il n'existe pas de forfaits ";
-            
-        }
-        //sinon affiche la liste des forfaits liés à la fiche dans un tableau
-        else
-        {
     
-        ?>
-        </br>
+    <p><H1 id="partie">Détail de la note :</H1>
+    <h3 id="partie">Frais Forfaitaires</h3>
+    <?php
+    //affiche un message si aucun forfait n'est lié à la fiche
+    if($cumulForfait==0)
+    {
+        echo "<p>Il n'existe pas de forfaits</p> ";
+           
+    }
+    //sinon affiche la liste des forfaits liés à la fiche dans un tableau
+    else
+    {
+    ?>
         <table border=3 cellspacing=1>
             <tr>
                 <th width = 200px>Frais Forfaitaires</th>
@@ -41,6 +36,7 @@
         ?>
         </tr>
         <?php
+            $sommeForfait = 0;
             foreach($lesForfaits as $leForfait)
             {
             $idforfait = $leForfait['idforfait'];
@@ -57,19 +53,46 @@
                 <td width=150><?php echo $vforfait ?></td>
 
             <?php
+                
+                $sommeForfait = ($montant*$qte) + $sommeForfait;
+
             //permet d'acceder à la page de validation le forfait si l'utilisateur est un comptable et si le forfait n'est pas déja validé
             if($idProfil == "C" && $vforfait == 0)
             {
                 ?>
-                <td id="cache"><a href=index.php?uc=frais&ucf=valider&action=validerForfait&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idforfait ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
+                <td id="cache">
+                    <form action="index.php?uc=frais&ucf=valider&action=validerForfait" method="post">
+                        <input type="hidden" name="matricule" value="<?php echo $matricule?>">
+                        <input type="hidden" name="annee" value="<?php echo $annee?>">
+                        <input type="hidden" name="mois" value="<?php echo $mois?>">
+                        <input type="hidden" name="id" value="<?php echo $idforfait?>">
+                        <input width="30px" type="image" src="images/valider.png" title="Valider le Frais">
+                    </form>	
+                </td>
                 <?php
             }
             //permet d'acceder à la page de modification et de suppression d'un forfait si l'utilisateur est un visiteur et si la fiche n'est pas validée
             if($idProfil == "V" && $statut != "V") 
             {
                 ?>
-                <td id="icone" ><a href=index.php?uc=frais&ucf=forfait&action=modifForfait&idforfait=<?php echo $idforfait;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/modifier.gif" title="Modif"></a></td>
-                <td id="icone" ><a href=index.php?uc=frais&ucf=forfait&action=supprForfait&idforfait=<?php echo $idforfait;?>&matricule=<?php echo $matricule?>&annee=<?php echo $annee?>&mois=<?php echo $mois?>><img src="images/supp.png" title="Suppr"></a></td>
+                <td id="icone" >
+                    <form action="index.php?uc=frais&ucf=forfait&action=modifForfait" method="post">
+                        <input type="hidden" name="matricule" value="<?php echo $matricule?>">
+                        <input type="hidden" name="annee" value="<?php echo $annee?>">
+                        <input type="hidden" name="mois" value="<?php echo $mois?>">
+                        <input type="hidden" name="idforfait" value="<?php echo $idforfait?>">
+                        <input width="20px" type="image" src="images/modifier.gif" title="Modif">
+                    </form>	
+                </td>
+                <td id="icone" >
+                    <form action="index.php?uc=frais&ucf=forfait&action=supprForfait" method="post">
+                        <input type="hidden" name="matricule" value="<?php echo $matricule?>">
+                        <input type="hidden" name="annee" value="<?php echo $annee?>">
+                        <input type="hidden" name="mois" value="<?php echo $mois?>">
+                        <input type="hidden" name="idforfait" value="<?php echo $idforfait?>">
+                        <input width="20px" type="image" src="images/supp.png" title="Suppr">
+                    </form>	
+                </td>
                 <?php
             }
             }
@@ -84,30 +107,33 @@
         if ($idProfil =="V" && $statut != "V")
         {
             ?>
-        </br>
-        </br>
-        <a id="lien" href="index.php?uc=frais&ucf=forfait&action=creationForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>">Ajouter un forfait</a>
+        
+        <form id="new" action="index.php?uc=frais&ucf=forfait&action=creationForfait" method="post">
+			<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+			<input type="hidden" name="annee" value="<?php echo $annee?>">
+			<input type="hidden" name="mois" value="<?php echo $mois?>">
+			<input type="submit" value="Ajouter un forfait">
+		</form>
         <?php
         }
         ?>
-        </br>
-        </br>
-            <h3>Autre Forfait</h3>
-        </br>
+        
+        
+            <h3 id="partie">Autre Forfait</h3>
+        
         <?php
         //si cumulFrais = 0 envoi un message pour signifier qu'il n'y a pas d'autres forfaits
         if($cumulFrais==0)
         {
-            echo "Il n'existe pas d'autres forfaits ";
+            echo "<p>Il n'existe pas d'autres forfaits</p> ";
             ?>
-            </br>
+            
             <?php
         }
         //Sinon la liste des autres forfaits associés à la fiches sont affichés dans le tableau
         else
         {
         ?>
-        </br>
         <table border=3 cellspacing="1">
             <tr>
 
@@ -116,18 +142,19 @@
             <th>Montant</th>
             <th>validé ?</th>
 
-             <?php
-        if($idProfil == "V" && $statut != "V") 
-        {
-            ?>
-                <th width = 50px></th>
-                <th width = 50px></th>
-                <?php
+            <?php
+            if($idProfil == "V" && $statut != "V") 
+            {
+                ?>
+                    <th width = 50px></th>
+                    <th width = 50px></th>
+                    <?php
 
-        }
-        ?>
-        </tr>
+            }
+            ?>
+            </tr>
             <?php 
+            $sommeFrais = 0;
             foreach($lesFrais as $leFrais)
             {
                 $idfrais = $leFrais['idfrais'];
@@ -142,49 +169,101 @@
                 <td width=150><?php echo $montantFrais; ?></td>
                 <td width=150><?php echo $vfrais; ?></td>
 
+                <?php
+                $sommeFrais = $montantFrais + $sommeFrais;
+                if($idProfil == "C" && $vfrais == 0)
+                {
+                ?>  
+                    <td id="cache">
+                        <form action="index.php?uc=frais&ucf=valider&action=validerAutreFrais" method="post">
+                            <input type="hidden" name="matricule" value="<?php echo $matricule?>">
+                            <input type="hidden" name="annee" value="<?php echo $annee?>">
+                            <input type="hidden" name="mois" value="<?php echo $mois?>">
+                            <input type="hidden" name="id" value="<?php echo $idfrais?>">
+                            <input width="30px" type="image" src="images/valider.png" title="Valider le Frais">
+                        </form>	
                     <?php
-                 if($idProfil == "C" && $vfrais == 0)
-    {
-       ?>  
-        <td id="cache"><a href=index.php?uc=frais&ucf=valider&action=validerAutreFrais&annee=<?php echo $annee ?>&mois=<?php echo $mois ?>&id=<?php echo $idfrais ?>&matricule=<?php echo $matricule?>><img width="30" src="images/valider.png" title="Valider le Frais"></a></td>
-        <?php
-    }
-        if($idProfil == "V" && $statut != "V") 
-        {
-            ?>
-            <td id="icone"><a href=index.php?uc=frais&ucf=autreForfait&action=modifAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idfrais=<?php echo $idfrais;?>><img src="images/modifier.gif" title="Modif"></a></td>
-            <td id="icone" ><a href=index.php?uc=frais&ucf=autreForfait&action=supprAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idfrais=<?php echo $idfrais;?>><img src="images/supp.png" title="Suppr"></a></td>
-            <?php
-            }
-            ?>
-            </tr>
-
-
+                }
+                if($idProfil == "V" && $statut != "V") 
+                {
+                    ?>
+                    <td id="icone" >
+                        <form action="index.php?uc=frais&ucf=autreForfait&action=modifAutreForfait" method="post">
+                            <input type="hidden" name="matricule" value="<?php echo $matricule?>">
+                            <input type="hidden" name="annee" value="<?php echo $annee?>">
+                            <input type="hidden" name="mois" value="<?php echo $mois?>">
+                            <input type="hidden" name="idfrais" value="<?php echo $idfrais?>">
+                            <input width="20px" type="image" src="images/modifier.gif" title="Modif">
+                        </form>	
+                    </td>
+                    <td id="icone" >
+                        <form action="index.php?uc=frais&ucf=autreForfait&action=supprAutreForfait" method="post">
+                            <input type="hidden" name="matricule" value="<?php echo $matricule?>">
+                            <input type="hidden" name="annee" value="<?php echo $annee?>">
+                            <input type="hidden" name="mois" value="<?php echo $mois?>">
+                            <input type="hidden" name="idfrais" value="<?php echo $idfrais?>">
+                            <input width="20px" type="image" src="images/supp.png" title="Suppr">
+                        </form>	
+                    </td>
+                    <?php
+                }
+                ?>
+                </tr>
             <?php
             }
             ?>
         </table>
         <?php
         }
-        ?>
-        <?php
         if ($idProfil =="V" && $statut != "V")
         {
-            ?>
-        </br>
-        </br>
-        <a id="lien" href="index.php?uc=frais&ucf=autreForfait&action=creationAutreForfait&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un autre forfait </a>
+        ?>
+        <form id="new" action="index.php?uc=frais&ucf=autreForfait&action=creationAutreForfait" method="post">
+			<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+			<input type="hidden" name="annee" value="<?php echo $annee?>">
+			<input type="hidden" name="mois" value="<?php echo $mois?>">
+			<input type="submit" value="Ajouter un autre forfait">
+		</form>
         <?php
         }
         ?>
-        </br>
-        </br>
-        <h3>Justificatifs</h3>
-        </br>
+        
+        <?php
+
+        if($cumulForfait!=0 && $cumulFrais!=0)
+        {
+            $total = $sommeFrais + $sommeForfait;
+        }
+        else if ($cumulForfait!=0 && $cumulFrais==0)
+        {
+            $total = $sommeForfait;
+        } 
+        else if ($cumulForfait==0 && $cumulFrais!=0)
+        {
+            $total = $sommeFrais;
+        } else
+        {
+            $total = 0;
+        }
+        if($total!=0){
+            ?>
+            <table>
+                <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <th>Montant Total</th>
+                <th><?php echo $total?></th>
+            </table>
+            <?php
+        }
+        
+        ?>
+        <h3 id="partie">Justificatifs</h3>
         <?php
         if($cumulJustif==0)
         {
-            echo "Il n'y a pas de justificatif ";
+            echo "<p>Il n'y a pas de justificatif</p>";
             
         } 
         else
@@ -192,7 +271,7 @@
     
         ?>
         <ul>
-    <?php 
+        <?php 
             foreach($lesJustificatifs as $leJustificatif)
             {
                 $pdf = $leJustificatif['pdfjustificatif'];
@@ -200,7 +279,16 @@
                 if ($idProfil =="V" && $statut != "V")
                 {
             ?>
-                    <li id="justif" width=150><?php echo $pdf; ?><a href=index.php?uc=frais&ucf=justificatifs&action=supprimerJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>&idjustificatif=<?php echo $idjustificatif;?>><img src="images/supp.png" title="Suppr"></a></li>
+                <form action="index.php?uc=frais&ucf=justificatifs&action=supprimerJustificatif" method="post">
+                    <li id="justif">
+                        <?php echo $pdf?>
+                        <input type="hidden" name="matricule" value="<?php echo $matricule?>">
+                        <input type="hidden" name="annee" value="<?php echo $annee?>">
+                        <input type="hidden" name="mois" value="<?php echo $mois?>">
+                        <input type="hidden" name="idjustificatif" value="<?php echo $idjustificatif?>">
+                        <input width="20px" type="image" src="images/supp.png" title="Suppr">
+                    </li>
+                    </form>
             <?php
                 }
             }
@@ -214,22 +302,30 @@
         if ($idProfil =="V" && $statut != "V")
         {
             ?>
-        </br>
-        </br>
-        <a id="lien" href="index.php?uc=frais&ucf=justificatifs&action=creationJustificatif&matricule=<?php echo $matricule;?>&annee=<?php echo $annee;?>&mois=<?php echo $mois;?>"> Ajouter un justificatif </a>
-    </form>
+        
+        
+        <form id="new" action="index.php?uc=frais&ucf=justificatifs&action=creationJustificatif" method="post">
+			<input type="hidden" name="matricule" value="<?php echo $matricule?>">
+			<input type="hidden" name="annee" value="<?php echo $annee?>">
+			<input type="hidden" name="mois" value="<?php echo $mois?>">
+			<input type="submit" value="Ajouter un justificatif">
+		</form>
         <?php
         }
         ?>
 
-    <?php 
-    foreach($lesSignatures as $laSignature)
+        <?php 
+        foreach($lesSignatures as $laSignature)
             {
                 ?>
                 <li id="signature"><img src="images/signature/<?php echo $laSignature["signature"] ?>" title="Signature"></a></li>
                 <?php
             }
             ?>
+
+    <form action="index.php?uc=frais&ucf=afficherNotes"method="post"> 
+        <input class="boutonb" type="submit" value="retour">
+    </form>
 
 </body>
 </html>

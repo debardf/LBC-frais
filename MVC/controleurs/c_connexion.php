@@ -1,50 +1,51 @@
 <?php
 
-if(empty($_POST['identifiantConnexion']))
+if(isset($_SESSION['identifiantConnexion']) && isset($_SESSION['mdpConnexion']))
 {
-	$login=NULL;
+	$login=Null;
+	$mdp=Null;
 }
 else
 {
 	$login=$_POST['identifiantConnexion'];
+	$mdp=$_POST['mdpConnexion'];
 }
 
-if(empty($_POST['mdpConnexion']))
+$leProfil=$pdo->getInformationsConnexion($login,$mdp);
+
+if ($leProfil!=false)
 {
-	$mdp=NULL;
+	$_SESSION['idClient']=$leProfil['login'];
+	$_SESSION['nom']=$leProfil['nom'];
+	$_SESSION['prenom']=$leProfil['prenom'];
+	$_SESSION['typeprofil']=$leProfil['typeprofil'];
+	$_SESSION['valeur']=$leProfil['valeur'];
+			if($leProfil['typeprofil'] == 'C')
+		{
+		$_SESSION['idClient']="Comptable";
+		
+		}
+			else if($leProfil['typeprofil'] == 'V')
+		{
+			$_SESSION['idClient']="Visiteur";
+			
+		}
+	header('location: index.php?uc=frais');	
 }
 else
 {
-	$mdp=$_POST['mdpConnexion'];
-}
-$leProfil=$pdo->getInformationsConnexion($login,$mdp);
-$_SESSION['idClient']=$leProfil['login'];
-$_SESSION['nom']=$leProfil['nom'];
-$_SESSION['prenom']=$leProfil['prenom'];
-$_SESSION['typeprofil']=$leProfil['typeprofil'];
-$_SESSION['valeur']=$leProfil['valeur'];
 
-//Si le mdp et le nom d'utilisateur sont correctes alors on revoie vers index
-if ($login=$_POST['identifiantConnexion'] && $mdp=$_POST['mdpConnexion'] )
-{
-	header('Location: index.php');
+header('location: index.php?uc=frais?ucf=connexion');
+}
 
-	if($leClient['typeprofil'] == 'C')
-	{
-		$_SESSION['idClient']="Comptable";
-		$_SESSION['typeprofil']="typeprofil";
-	}
-	else if($leClient['typeprofil'] == 'V')
-	{
-	$_SESSION['idClient']="Visiteur";
-	$_SESSION['typeprofil']="typeprofil";
-	}
-}
-//Si un des champs est vide on redemande à l'utilisateur de saisir les informations
-else {
-	echo "Le nom d utilisateur et le mot de passe doivent être indiqués ";
-}
+// //Si un des champs est vide on redemande à l'utilisateur de saisir les informations
+// else {
+// 	echo "Le nom d utilisateur et le mot de passe doivent être indiqués ";
+// }
 	
+
+
+
 
 
 ?>

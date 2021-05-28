@@ -24,7 +24,7 @@
 			$valideForfait = $_REQUEST['valideForfait'];
 			$pdo->creerForfait($matricule,$annee, $mois, $idforfait, $quantite, $valideForfait);
 			
-			header('Location: index.php?uc=frais&ucf=afficherNotes');
+			header("Location: index.php?uc=frais&ucf=detailNote&action=detNote&matricule=$matricule&annee=$annee&mois=$mois");
 			break;
 		}
 		//cas qui permet de générer un formulaire de modification d'un forfait en lien avec une note spécifique
@@ -36,8 +36,6 @@
 			$mois = $_REQUEST['mois'];
 			$qte = $pdo->getLeforfait($matricule,$annee,$mois,$id)['quantite'];
 			$idO = $_REQUEST['idforfait'];
-			$anneeO = $_REQUEST['annee'];
-			$moisO = $_REQUEST['mois'];
 			$recuplibelle = $pdo->getLibelle();
 			$recupannee = $pdo->getAnnee($matricule);
 			$recupmois = $pdo->getMois($matricule);
@@ -48,15 +46,13 @@
 		case 'confirmModifForfait':
 		{
 			$id = $_REQUEST['id'];
-			$annee = $_REQUEST['anneeM'];
-			$mois = $_REQUEST['moisM'];
+			$annee = $_REQUEST['annee'];
+			$mois = $_REQUEST['mois'];
 			$qte = $_REQUEST['quantite'];
 			$matricule = $_REQUEST['matricule'];
 			$idO = $_REQUEST['idforfait'];
-			$anneeO = $_REQUEST['annee'];
-			$moisO = $_REQUEST['mois'];
-			$pdo->modifFrais($matricule,$idO,$anneeO,$moisO,$id,$annee,$mois,$qte);
-			header('Location: index.php?uc=frais&ucf=afficherNotes');
+			$pdo->modifFrais($matricule,$idO,$id,$annee,$mois,$qte);
+			header("Location: index.php?uc=frais&ucf=detailNote&action=detNote&matricule=$matricule&annee=$annee&mois=$mois");
 			break;
 		}
 		//cas qui permet de générer un formulaire de suppression d'un forfait en lien avec une note spécifique
@@ -80,7 +76,8 @@
 			$mois = $_REQUEST['mois'];
 			$id = $_REQUEST['id'];
 			$pdo->supprFrais($matricule,$annee,$mois,$id);
-			header('Location: index.php?uc=frais&ucf=afficherNotes');
+			header("Location: index.php?uc=frais&ucf=detailNote&action=detNote&matricule=$matricule&annee=$annee&mois=$mois");
+			break;
 		}
 	}
 ?>
